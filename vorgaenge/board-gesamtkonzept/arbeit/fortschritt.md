@@ -1,16 +1,26 @@
 # Fortschritt
 
+## Runde 8 — 2026-10-26
+
+- **Stand:** Schritt 08 bestanden. Die fünf Schritt-Anweisungen liegen unter
+  `skills/p1/`; `workflows/p1.json` nennt für die fünf Schritte ihren Pfad und
+  Laufnamen. `/board/skills` und die Werkstatt lesen und schreiben in der Ablage.
+  Beim Start eines Laufs wird `$DSH_HOME/skills/<host>-<schritt>/SKILL.md`
+  eingesetzt und danach wieder weggenommen, auch bei einem gescheiterten Start.
+  Beleg: `test/schritt08.mjs` Exit 0, Tests 02–07 grün, echte Skillinstallation
+  unverändert.
+- **Nächster Schritt:** 09 — Mein Workflow enthält einen fremden Schritt.
+- **Blocker:** keiner.
+- **Nicht geprüft:** ob eine echte Sitzung die Anweisung nach dem Wegnehmen noch
+  laden kann. Der Start-Auftrag nennt den Skill; wenn der Harness ihn erst beim
+  Aufruf liest, müsste das Wegnehmen später erfolgen. Das ist eine offene Frage für
+  den Praxistest am lebenden Board und steht im Bericht.
+
 ## Runde 7 — 2026-10-26
 
-- **Stand:** Schritt 07 bestanden. **Scheibe 1 ist damit vollständig: zwei Personen
-  sehen einander.** Fremde Vorhaben stehen mit Namen, Farbe und Verantwortlichem an
-  ihrer Station, lassen sich samt Dateien und Transkripten lesen, und jedes
-  Schreiben in ihre Ordner antwortet 403 (`doc/schreiben`, `skill/lauf`). Eigene
-  Vorhaben bleiben schreibbar. Beleg: `test/schritt07.mjs` Exit 0, Tests 02–06
-  grün.
-- **Nächster Schritt:** 08 — Der Skill eines Schritts liegt in der Ablage.
-- **Blocker:** keiner.
-- **Nicht geprüft:** die fremde Fläche und der Leser im Browser.
+- **Stand:** Schritt 07 bestanden; Scheibe 1 vollständig (zwei Personen sehen
+  einander).
+- **Nächster Schritt:** 08.
 
 ## Runde 6 — 2026-10-26
 
