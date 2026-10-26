@@ -38,7 +38,7 @@ Reihenfolge sind dort begründet.
 | 13 | Zweig und Fork tragen ihre Herkunft | `zweig_von`, `fork_von`; Anzeige am Vorhaben | Zweig trägt Herkunft, Original unverändert; Fork eines fremden Vorhabens nennt dessen Namen | bestanden |
 | 14 | Der Rücksprung steht am Vorhaben | `rueckkehr`-Vermerk; Anzeige | Zurückschicken zeigt Grund und Ziel; darüberziehen setzt `erledigt`, Vermerk verschwindet aus der Anzeige | bestanden |
 | 15 | Speichern auf einem überholten Stand schreibt nicht | Basisprüfung vor dem Schreiben; „mein Text als Beitrag“ | Alter Stand wird nicht geschrieben; Meldung; eigener Text bleibt; Datei unverändert | bestanden |
-| 16 | Zwei Programmfassungen schreiben nicht gegeneinander | `format`-Vergleich vor dem Schreiben | Höhere `format`-Zahl → kein Schreiben, Meldung nennt sie; zurückgestellt → Speichern geht | läuft |
+| 16 | Zwei Programmfassungen schreiben nicht gegeneinander | `format`-Vergleich vor dem Schreiben | Höhere `format`-Zahl → kein Schreiben, Meldung nennt sie; zurückgestellt → Speichern geht | bestanden |
 
 Stopp-Punkte laut Bauplan: 01, 02, 03, 04, 10. Sie markieren hohes Risiko, nicht
 einen Halt; der Lauf geht weiter.

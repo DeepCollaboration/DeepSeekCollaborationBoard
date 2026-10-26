@@ -27,8 +27,8 @@ Abläufen, nicht nach Meinungen.
 ## Ablage
 
 Beide Dateien liegen im Ordner des Vorhabens:
-`/workspace/projekte/board/vorgaenge/<ordner>/`. Die Kennung `ordner` steht beim
-Vorhaben in `/workspace/projekte/board/board.json`.
+`/workspace/projekte/board/vorgaenge/<ordner>/`. Die Kennung `ordner` steht für
+den Ordner des Vorhabens unter `/workspace/projekte/board/vorgaenge/<ordner>/`.
 
 ## Was ein Fachkonzept trägt
 
@@ -94,7 +94,8 @@ curl -s -X POST "$DSH_WEB_URL/board/skill/lauf" \
   -d "{\"vorhaben\":\"<vorhaben-id>\",\"position\":\"<position-id>\",\"session\":\"$DSH_SESSION_ID\"}"
 ```
 
-Die Kennungen stehen in `/workspace/projekte/board/board.json`. Das Transkript
+Die Kennungen stehen in `vorgaenge/<ordner>/vorhaben.json` und
+`workflows/<person>.json`. Das Transkript
 entsteht aus dieser Sitzung: Fragen und Antworten, ohne Werkzeuge und Recherche.
 Scheitert der Aufruf, nicht anhalten — dann fehlt am Schritt das Transkript,
 und das ist im Board sichtbar.

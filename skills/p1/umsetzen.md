@@ -41,9 +41,9 @@ Im Ordner des Vorhabens, `/workspace/projekte/board/vorgaenge/<ordner>/`:
 - `bauplan.md` — wenn vorhanden, ist sie der Plan. Ihre Scheiben und Schritte
   werden übernommen, nicht neu erfunden. Fehlt sie, schneidest du selbst.
 
-Vorhaben finden: Nennt der Auftrag einen Ordner, nimm ihn. Sonst der Eintrag in
-`/workspace/projekte/board/board.json`, dessen `werkstatt.session` oder eine
-`gespraeche[].session` gleich `$DSH_SESSION_ID` ist; sonst der Vorgang an der
+Vorhaben finden: Nennt der Auftrag einen Ordner, nimm ihn. Sonst das Vorhaben,
+dessen `laeufe[].sitzung` gleich `$DSH_SESSION_ID` ist — zu finden in
+`vorgaenge/<ordner>/vorhaben.json`; sonst der Vorgang an der
 Position `architektur-umsetzung`. Findest du keinen, arbeite im aktuellen Ordner
 und frage nicht.
 
@@ -312,7 +312,8 @@ curl -s -X POST "$DSH_WEB_URL/board/skill/lauf" \
   -d "{\"vorhaben\":\"<vorhaben-id>\",\"position\":\"umsetzen\",\"session\":\"$DSH_SESSION_ID\"}"
 ```
 
-Die Kennungen stehen in `/workspace/projekte/board/board.json`. Scheitert der
+Die Kennungen stehen in `vorgaenge/<ordner>/vorhaben.json` und
+`workflows/<person>.json`. Scheitert der
 Aufruf, nicht anhalten — dann fehlt am Schritt das Transkript, und das ist im
 Board sichtbar.
 
