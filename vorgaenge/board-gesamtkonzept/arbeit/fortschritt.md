@@ -1,19 +1,25 @@
 # Fortschritt
 
+## Runde 10 — 2026-10-26
+
+- **Stand:** Schritt 10 bestanden. **Scheibe 2 ist vollständig: ein fremder Schritt
+  läuft bei mir.** Der Start an einem Verweis-Schritt liest die Anweisung des Hosts
+  aus der Ablage, setzt sie als `<host>-<schritt>` in `$DSH_HOME/skills` ein,
+  startet im eigenen Arbeitsbereich und nimmt sie im `finally` wieder weg. Das
+  Transkript liegt im eigenen Vorhaben samt `laeufe`-Eintrag, die Fassung trägt den
+  eigenen Urheber. Fremde Workflow- und Skill-Datei bleiben byte-gleich; ein Start
+  auf einem fremden Vorhaben antwortet 403. Beleg: `test/schritt10.mjs` Exit 0,
+  Tests 02–09 grün, echte Skillinstallation unverändert.
+- **Nächster Schritt:** 11 — Am fremden Vorhaben speichert der Editor als Beitrag.
+- **Blocker:** keiner.
+- **Nicht geprüft:** eine echte Sitzung und eine echte Modellanfrage; der
+  Sitzungsdienst ist im Prüfskript ersetzt. Ob der Harness die Anweisung nach dem
+  Wegnehmen noch lädt, bleibt offen (siehe Runde 8).
+
 ## Runde 9 — 2026-10-26
 
-- **Stand:** Schritt 09 bestanden. Ein fremder Schritt lässt sich über
-  `/board/fremd/anstellen` als `{ref, id}` samt Position in den eigenen Workflow
-  stellen; die fremde Datei bleibt byte-gleich, der Schritt wird nicht kopiert.
-  In der eigenen Fläche erscheint er mit „bei ‹Person›“, Ein- und Ausgang, ohne
-  Einstellungsformular; Ändern und Löschen antworten 403. Ein Vorhaben kann auf der
-  Verweis-Position stehen; Herausnehmen geht erst, wenn keines mehr darauf steht
-  (409). Beleg: `test/schritt09.mjs` Exit 0, Tests 02–08 grün.
-- **Nächster Schritt:** 10 — Der Skill der anderen Person läuft in meinem Harness.
-- **Blocker:** keiner.
-- **Bevorstehendes Risiko:** Schritt 10 ist im Bauplan als Stopp markiert: fremde
-  Anweisungen laufen dann im eigenen Harness. Die Prüfung belegt den Weg, nicht
-  den Inhalt fremder Anweisungen — das bleibt eine Vertrauensfrage.
+- **Stand:** Schritt 09 bestanden, fremder Schritt als Verweis im eigenen Workflow.
+- **Nächster Schritt:** 10.
 
 ## Runde 8 — 2026-10-26
 
