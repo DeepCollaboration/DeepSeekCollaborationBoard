@@ -1,0 +1,6 @@
+## Schritt 01 — bestanden
+
+- Befehl: `diff -r /workspace/plugins/dsh-board /workspace/projekte/board/vorgaenge/board-gesamtkonzept/produkt`
+- Exit-Code: 0
+- Entscheidende Zeile: keine Ausgabe — Original und Produkt sind byte-gleich; `import.meta.resolve('@local/dsh-board')` im Profil `/dsh-home/profiles/web` → `file:///workspace/projekte/board/vorgaenge/board-gesamtkonzept/produkt/index.js`; `GET $DSH_WEB_URL/board/data` → `200`.
+- Befund: `produkt/` enthält die 7 Dateien `package.json`, `index.js`, `client.js`, `cordis.patch.yml`, `icon.svg`, `locale/de.json`, `locale/en.json`; `find` zählt 7, alle sieben SHA-256-Werte sind paarweise gleich. Der vorgegebene Export-Einzeiler endet beim Eintrag `./locale/*.json` mit `ENOENT` (Exit 1), weil `statSync` den Glob nicht auflöst; das ist der im Schritt ausdrücklich vorgesehene Fall (Eintrag überspringen, stattdessen `locale/de.json` und `locale/en.json` prüfen). Beide Locale-Dateien sind vorhanden und gültiges JSON, `./icon` ist vorhanden; die Ersatzprüfung endet mit Exit 0. Im Profil ist `@local/dsh-board` als `link:` auf den Produktordner eingetragen, `node_modules/@local/dsh-board` dorthin verlinkt. `/workspace/plugins/dsh-board/` ist mit 7 Dateien unverändert vorhanden (byte-gleich, Arbeitsbaum sauber, letzte Änderung vor dem Schritt). Das laufende Board antwortet mit HTTP 200 und 9047 Bytes JSON.

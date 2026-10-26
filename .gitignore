@@ -1,0 +1,5 @@
+# Das Produkt eines Vorhabens gehört nicht in die Ablage.
+vorgaenge/*/produkt/
+
+# Halbfertige Schreibvorgänge.
+*.tmp

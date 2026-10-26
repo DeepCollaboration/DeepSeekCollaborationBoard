@@ -1,0 +1,420 @@
+{
+  "workflow": {
+    "id": "standard",
+    "titel": "Standard-Workflow",
+    "positionen": [
+      {
+        "id": "idee",
+        "bedingung": [
+          "Freigabe"
+        ],
+        "schritt": "idee",
+        "x": 50,
+        "y": 80
+      },
+      {
+        "id": "vision",
+        "bedingung": [
+          "alle Fragen beantwortet"
+        ],
+        "schritt": "idee-vision",
+        "x": 330,
+        "y": 80
+      },
+      {
+        "id": "vision-2",
+        "bedingung": [],
+        "schritt": "vision",
+        "x": 640,
+        "y": 80
+      },
+      {
+        "id": "fachkonzept",
+        "bedingung": [
+          "alle Fragen beantwortet",
+          "Freigabe"
+        ],
+        "schritt": "vision-fachkonzept",
+        "x": 940,
+        "y": 80
+      },
+      {
+        "id": "fachkonzept-2",
+        "bedingung": [],
+        "schritt": "fachkonzept",
+        "x": 250,
+        "y": 440
+      },
+      {
+        "id": "architektur",
+        "bedingung": [
+          "Freigabe"
+        ],
+        "schritt": "fachkonzept-architektur",
+        "x": 440,
+        "y": 500
+      },
+      {
+        "id": "architekturplan",
+        "bedingung": [],
+        "schritt": "architekturplan",
+        "x": 650,
+        "y": 360
+      },
+      {
+        "id": "umsetzung",
+        "bedingung": [
+          "alle Fragen beantwortet"
+        ],
+        "schritt": "architektur-umsetzung",
+        "x": 940,
+        "y": 360
+      },
+      {
+        "id": "idee-zu-produkt",
+        "schritt": "idee-zu-produkt",
+        "x": 460,
+        "y": 10
+      },
+      {
+        "id": "umsetzen",
+        "schritt": "umsetzen",
+        "x": 2960,
+        "y": 380
+      },
+      {
+        "id": "vidionpruefen-2",
+        "schritt": "vidionpruefen",
+        "x": 1160,
+        "y": 460
+      }
+    ],
+    "kanten": [
+      {
+        "von": "idee",
+        "nach": "vision"
+      },
+      {
+        "von": "vision",
+        "nach": "vision-2"
+      },
+      {
+        "von": "vision-2",
+        "nach": "fachkonzept"
+      },
+      {
+        "von": "fachkonzept",
+        "nach": "fachkonzept-2"
+      },
+      {
+        "von": "fachkonzept-2",
+        "nach": "architektur"
+      },
+      {
+        "von": "architektur",
+        "nach": "architekturplan"
+      },
+      {
+        "von": "architekturplan",
+        "nach": "umsetzung"
+      },
+      {
+        "von": "idee",
+        "nach": "idee-zu-produkt"
+      },
+      {
+        "von": "umsetzung",
+        "nach": "umsetzen"
+      },
+      {
+        "von": "vision-2",
+        "nach": "vidionpruefen-2"
+      },
+      {
+        "von": "vidionpruefen-2",
+        "nach": "fachkonzept"
+      }
+    ],
+    "layout": "auto"
+  },
+  "vorgaenge": [
+    {
+      "id": "second-brain-gesamtkonzept",
+      "name": "Second Brain Gesamtkonzept",
+      "position": "vision",
+      "ordner": "second-brain-gesamtkonzept",
+      "gespraeche": []
+    },
+    {
+      "id": "board-gesamtkonzept",
+      "name": "Board Gesamtkonzept",
+      "position": "umsetzen",
+      "ordner": "board-gesamtkonzept",
+      "laeufe": [
+        {
+          "position": "vision",
+          "skill": "grillme-vision",
+          "datei": "transkripte/vision-2026-10-25-171030.md",
+          "sitzung": "session-64b7016b-21ed-416a-b194-0a164731c361",
+          "datum": "2026-10-25"
+        },
+        {
+          "position": "fachkonzept",
+          "skill": "grillme-fachkonzept",
+          "datei": "transkripte/fachkonzept-2026-10-25-194659.md",
+          "sitzung": "session-5ff0ddb1-197a-4dd2-85c1-69cfe1e0df94",
+          "datum": "2026-10-25"
+        },
+        {
+          "position": "architektur",
+          "skill": "architekturentscheidungen",
+          "datei": "transkripte/architektur-2026-10-25-201304.md",
+          "sitzung": "session-9573813c-78a5-4739-932e-194dca8eb04c",
+          "datum": "2026-10-25"
+        },
+        {
+          "position": "umsetzung",
+          "skill": "bauplan-erstellen",
+          "datei": "transkripte/umsetzung-2026-10-26-125522.md",
+          "sitzung": "session-015fd005-7186-4003-a7da-d4d5772da078",
+          "datum": "2026-10-26"
+        }
+      ],
+      "gespraeche": [
+        {
+          "session": "session-64b7016b-21ed-416a-b194-0a164731c361",
+          "position": "vision",
+          "skill": "grillme-vision",
+          "seit": "2026-10-25T16:40:56.259Z"
+        },
+        {
+          "session": "session-5ff0ddb1-197a-4dd2-85c1-69cfe1e0df94",
+          "position": "fachkonzept",
+          "skill": "grillme-fachkonzept",
+          "seit": "2026-10-25T18:03:25.884Z"
+        },
+        {
+          "session": "session-9573813c-78a5-4739-932e-194dca8eb04c",
+          "position": "architektur",
+          "skill": "architekturentscheidungen",
+          "seit": "2026-10-25T19:47:53.199Z"
+        },
+        {
+          "session": "session-015fd005-7186-4003-a7da-d4d5772da078",
+          "position": "umsetzung",
+          "skill": "bauplan-erstellen",
+          "seit": "2026-10-26T12:45:39.174Z"
+        },
+        {
+          "session": "session-5927e7d8-d51f-4a82-9bef-926799aa209b",
+          "position": "umsetzen",
+          "skill": "umsetzen",
+          "seit": "2026-10-26T14:17:57.954Z"
+        }
+      ],
+      "farbe": "#60a5fa"
+    },
+    {
+      "id": "board-gesamtkonzept-idee-zu-produkt",
+      "name": "Board Gesamtkonzept — Idee zu Produkt",
+      "position": "idee-zu-produkt",
+      "ordner": "board-gesamtkonzept-idee-zu-produkt",
+      "farbe": "#60a5fa",
+      "abzweig": {
+        "von": "board-gesamtkonzept",
+        "station": "idee",
+        "datum": "2026-10-26"
+      },
+      "gespraeche": []
+    },
+    {
+      "id": "test",
+      "name": "test",
+      "position": "idee",
+      "ordner": "test",
+      "gespraeche": []
+    },
+    {
+      "id": "board-gesamtkonzept-vidionpruefen",
+      "name": "Board Gesamtkonzept — VidionPrüfen",
+      "position": "vidionpruefen-2",
+      "ordner": "board-gesamtkonzept-vidionpruefen",
+      "farbe": "#a3e635",
+      "abzweig": {
+        "von": "board-gesamtkonzept",
+        "station": "vision-2",
+        "datum": "2026-10-26"
+      },
+      "gespraeche": []
+    }
+  ],
+  "schritte": [
+    {
+      "id": "idee",
+      "name": "Idee",
+      "inhalt": "Thema in einem Satz festhalten. Noch keine Struktur, keine Technik.",
+      "host": "p1",
+      "wie": {
+        "art": "datei",
+        "wert": ""
+      }
+    },
+    {
+      "id": "idee-vision",
+      "name": "Idee → Vision",
+      "inhalt": "Interview führen (Grillme): Vorstellungen, Begriffe, gemeinsames Verständnis herstellen.",
+      "wie": {
+        "art": "skill",
+        "wert": "grillme-vision"
+      },
+      "ausgabe": [
+        "vision.md",
+        "vision-notizen.md"
+      ],
+      "host": "p1"
+    },
+    {
+      "id": "vision",
+      "name": "Vision",
+      "host": "p1",
+      "wie": {
+        "art": "datei",
+        "wert": ""
+      }
+    },
+    {
+      "id": "vision-fachkonzept",
+      "name": "Vision → Fachkonzept",
+      "inhalt": "Fachkonzept schreiben: ohne Technik, ohne Architektur, mit Begriffsdefinitionen.",
+      "wie": {
+        "art": "skill",
+        "wert": "grillme-fachkonzept"
+      },
+      "ausgabe": [
+        "fachkonzept.md",
+        "fachkonzept-notizen.md"
+      ],
+      "host": "p1"
+    },
+    {
+      "id": "fachkonzept",
+      "name": "Fachkonzept",
+      "host": "p1",
+      "wie": {
+        "art": "datei",
+        "wert": ""
+      }
+    },
+    {
+      "id": "fachkonzept-architektur",
+      "name": "Fachkonzept → Architektur",
+      "inhalt": "Architekturentscheidungen treffen, Stack und Grundstruktur festlegen.",
+      "wie": {
+        "art": "skill",
+        "wert": "architekturentscheidungen"
+      },
+      "ausgabe": [
+        "architektur.md"
+      ],
+      "host": "p1"
+    },
+    {
+      "id": "architekturplan",
+      "name": "Architektur",
+      "host": "p1",
+      "inhalt": "",
+      "ausgabe": [
+        "architektur.md"
+      ],
+      "wie": {
+        "art": "datei",
+        "wert": ""
+      },
+      "eingang": [
+        "architektur.md"
+      ]
+    },
+    {
+      "id": "architektur-umsetzung",
+      "name": "Architektur zu Bauplan",
+      "inhalt": "Macht aus Architektur und Fachkonzept einen Bauplan: vertikale Scheiben, prüfbare Schritte, erste Scheibe.",
+      "wie": {
+        "art": "skill",
+        "wert": "bauplan-erstellen"
+      },
+      "ausgabe": [
+        "bauplan.md"
+      ],
+      "host": "p1",
+      "eingang": [
+        "architektur.md",
+        "fachkonzept.md",
+        "vision.md",
+        "fachkonzept-notizen.md",
+        "vision-notizen.md"
+      ]
+    },
+    {
+      "id": "idee-zu-produkt",
+      "name": "Idee zu Produkt",
+      "host": "p1",
+      "inhalt": "",
+      "eingang": [
+        "idee.md"
+      ],
+      "wie": {
+        "art": "textfeld",
+        "wert": ""
+      },
+      "werkstatt": {
+        "session": "session-420d20c7-67f7-40b8-a7aa-25b3248d7647",
+        "seit": "2026-10-26T08:20:24.355Z"
+      }
+    },
+    {
+      "id": "umsetzen",
+      "name": "Umsetzen",
+      "inhalt": "Setzt den Bauplan um: ein Schritt je Runde, ein Arbeiter je Schritt, ein frischer Prüfer je Schritt.",
+      "wie": {
+        "art": "skill",
+        "wert": "umsetzen"
+      },
+      "ausgabe": [
+        "produkt/",
+        "umsetzung.md"
+      ],
+      "host": "p1",
+      "eingang": [
+        "bauplan.md"
+      ]
+    },
+    {
+      "id": "vidionpruefen",
+      "name": "VisionPrüfen",
+      "host": "p1",
+      "werkstatt": {
+        "session": "session-d1f4cfee-d2ce-4cc9-b824-5d5e4f112dee",
+        "seit": "2026-10-26T14:32:03.665Z"
+      },
+      "inhalt": "",
+      "ausgabe": [
+        "vidionpruefen.md"
+      ],
+      "wie": {
+        "art": "textfeld",
+        "wert": ""
+      }
+    }
+  ],
+  "personen": [
+    {
+      "id": "p1",
+      "name": "Thomas Heinrich",
+      "farbe": "#fbbf24",
+      "ich": true
+    }
+  ],
+  "einstellungen": {
+    "mausrad": "seitwaerts"
+  }
+}
