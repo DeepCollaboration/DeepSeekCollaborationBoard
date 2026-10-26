@@ -1,25 +1,30 @@
 # Fortschritt
 
+## Runde 9 — 2026-10-26
+
+- **Stand:** Schritt 09 bestanden. Ein fremder Schritt lässt sich über
+  `/board/fremd/anstellen` als `{ref, id}` samt Position in den eigenen Workflow
+  stellen; die fremde Datei bleibt byte-gleich, der Schritt wird nicht kopiert.
+  In der eigenen Fläche erscheint er mit „bei ‹Person›“, Ein- und Ausgang, ohne
+  Einstellungsformular; Ändern und Löschen antworten 403. Ein Vorhaben kann auf der
+  Verweis-Position stehen; Herausnehmen geht erst, wenn keines mehr darauf steht
+  (409). Beleg: `test/schritt09.mjs` Exit 0, Tests 02–08 grün.
+- **Nächster Schritt:** 10 — Der Skill der anderen Person läuft in meinem Harness.
+- **Blocker:** keiner.
+- **Bevorstehendes Risiko:** Schritt 10 ist im Bauplan als Stopp markiert: fremde
+  Anweisungen laufen dann im eigenen Harness. Die Prüfung belegt den Weg, nicht
+  den Inhalt fremder Anweisungen — das bleibt eine Vertrauensfrage.
+
 ## Runde 8 — 2026-10-26
 
-- **Stand:** Schritt 08 bestanden. Die fünf Schritt-Anweisungen liegen unter
-  `skills/p1/`; `workflows/p1.json` nennt für die fünf Schritte ihren Pfad und
-  Laufnamen. `/board/skills` und die Werkstatt lesen und schreiben in der Ablage.
-  Beim Start eines Laufs wird `$DSH_HOME/skills/<host>-<schritt>/SKILL.md`
-  eingesetzt und danach wieder weggenommen, auch bei einem gescheiterten Start.
-  Beleg: `test/schritt08.mjs` Exit 0, Tests 02–07 grün, echte Skillinstallation
-  unverändert.
-- **Nächster Schritt:** 09 — Mein Workflow enthält einen fremden Schritt.
-- **Blocker:** keiner.
+- **Stand:** Schritt 08 bestanden, Schritt-Anweisungen in der Ablage.
+- **Nächster Schritt:** 09.
 - **Nicht geprüft:** ob eine echte Sitzung die Anweisung nach dem Wegnehmen noch
-  laden kann. Der Start-Auftrag nennt den Skill; wenn der Harness ihn erst beim
-  Aufruf liest, müsste das Wegnehmen später erfolgen. Das ist eine offene Frage für
-  den Praxistest am lebenden Board und steht im Bericht.
+  laden kann.
 
 ## Runde 7 — 2026-10-26
 
-- **Stand:** Schritt 07 bestanden; Scheibe 1 vollständig (zwei Personen sehen
-  einander).
+- **Stand:** Schritt 07 bestanden; Scheibe 1 vollständig.
 - **Nächster Schritt:** 08.
 
 ## Runde 6 — 2026-10-26
