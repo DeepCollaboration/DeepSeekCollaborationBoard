@@ -1,0 +1,15 @@
+{
+  "id": "test-fork",
+  "name": "test — Fork",
+  "position": "idee",
+  "verantwortliche": {
+    "idee": [
+      "p1"
+    ]
+  },
+  "regel": "einer",
+  "rueckkehr": [],
+  "laeufe": [],
+  "fork_von": "test",
+  "zweig_von": null
+}
