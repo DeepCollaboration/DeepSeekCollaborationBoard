@@ -1,23 +1,29 @@
 # Fortschritt
 
+## Runde 16 — 2026-10-26 (Abschluss)
+
+- **Stand:** Alle 16 Schritte bestanden. Die Konvergenzprüfung gegen die
+  Architektur ist gelaufen (`arbeit/konvergenz.md`: 15 Abweichungen, 6 nicht
+  prüfbar, 6 offene Annahmen). Sieben Abweichungen sind behoben
+  (`arbeit/nachbesserung-1.md`, Fassung „Konvergenz-Nachbesserung“), acht mit
+  Grund in `arbeit/entscheidungen.md` festgehalten. Der Bericht
+  `umsetzung.md` ist geschrieben.
+- **Blocker:** Die abschließende Prüfung am lebenden Board und im Browser braucht
+  einen Neustart des Harness. Diese Sitzung kann ihn nicht ausführen, ohne sich
+  selbst zu beenden. Das laufende Modul ist weiter der alte Stand.
+- **Nächster Schritt (nach dem Neustart):** Board öffnen, `/board/data` mit
+  `format`/`workflows` prüfen, die Kernwege im Browser durchspielen, danach
+  `board.json` entfernen und den Remote eintragen.
+
 ## Runde 15 — 2026-10-26
 
-- **Stand:** Schritt 15 bestanden. **Scheibe 5 ist fast vollständig.** `GET
-  /board/doc` liefert `basis` dateigenau (letzter Commit der Datei; `null` bei
-  ungefassten Dateien). `POST /board/doc/schreiben` weist einen überholten Stand
-  mit 409 und `{ ok: false, neu: { text, basis } }` ab, ohne zu schreiben; die
-  Seite behält den eigenen Text, zeigt den neuen Stand und bietet „Eigenen Text
-  als Beitrag anlegen“ (über `/board/beitrag` mit der neuen Basis). Nichts wird
-  zusammengeführt. Beleg: `test/schritt15.mjs` Exit 0 (12 ok-Zeilen), Tests 02–14
-  grün, echte Ablage unberührt.
-- **Nächster Schritt:** 16 — Zwei Programmfassungen schreiben nicht gegeneinander.
-- **Blocker:** keiner.
-- **Nicht geprüft:** der Konfliktweg im Browser.
+- **Stand:** Schritt 16 bestanden (Formatprüfung vor jedem Schreiben, 409 mit
+  genannter Fassung). Basisprüfung beim Speichern, „eigener Text als Beitrag“.
+  Scheibe 5 vollständig.
 
 ## Runde 14 — 2026-10-26
 
 - **Stand:** Schritt 14 bestanden; Scheibe 4 vollständig (Herkunft und Rückweg).
-  Rücksprung als Vermerk mit Ziel und Grund, erledigt beim Vorbeiziehen.
 
 ## Runde 13 — 2026-10-26
 
@@ -25,7 +31,7 @@
 
 ## Runde 12 — 2026-10-26
 
-- **Stand:** Schritt 12 bestanden; Scheibe 3 vollständig (beitragen und annehmen).
+- **Stand:** Schritt 12 bestanden; Scheibe 3 vollständig.
 
 ## Runde 11 — 2026-10-26
 

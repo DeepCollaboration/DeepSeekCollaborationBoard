@@ -73,3 +73,49 @@ bleiben gültig.
 Rückweg für Schritt 01 ist deshalb die Geschichte des Arbeitsbereichs, in der
 `plugins/dsh-board` gefasst ist. Der Bauplan sieht für die Ablage ein eigenes
 Repository vor (Schritt 02); das Produkt gehört nicht hinein.
+
+## 2026-10-26 — Konvergenzprüfung: sieben Befunde behoben, acht festgehalten
+
+Die Prüfung gegen die Architektur (`arbeit/konvergenz.md`, 15 Abweichungen) ist
+gelaufen. Sieben sind behoben (`arbeit/nachbesserung-1.md`, Fassung
+„Konvergenz-Nachbesserung“):
+
+- **A1** — Der Schritt-Skill bleibt für die Dauer der Sitzung in
+  `$DSH_HOME/skills` und wird erst bei „Stopp“ oder „Verwerfen“ weggenommen. Vorher
+  war er schon vor dem ersten Auftrag gelöscht; ein Modelllauf hätte ihn nicht
+  gesehen. Damit ist der Kern von Scheibe 2 erst wirklich belegt.
+- **A8** — Speichern einer vorhandenen, gefassten Datei verlangt eine `basis`;
+  ohne sie antwortet der Host 409 mit dem neuen Stand, statt ungeprüft zu
+  überschreiben.
+- **A9** — Annehmen eines Beitrags prüft dessen `basis` je übernommener Datei;
+  ist der Stand neuer, wird nichts geschrieben (409).
+- **A14** — Nur die eigene Personendatei wird geschrieben; `/board/person/aendern`
+  auf eine fremde Kennung antwortet 403.
+- **A3, A4, A13** — `/board/konfiguration` ergänzt; `/board/data` trägt `person`
+  und `repo`; die fünf Schritt-Anweisungen verweisen nicht mehr auf `board.json`,
+  sondern auf `vorgaenge/<ordner>/vorhaben.json` und `workflows/<person>.json`.
+
+Acht bleiben bewusst stehen, mit Grund:
+
+- **A2 (Position statt Schritt in Routen und Läufen).** Das Produkt trennt die
+  Station (eine Stelle, an der ein Schritt stehen kann) von der Art des Schritts;
+  die Route nimmt darum die Kennung der Station. Ein fremder Client nach der
+  Architekturtabelle müsste `position` statt `schritt` senden. Die Bedeutung ist
+  dieselbe, der Name nicht.
+- **A5, A6, A7 (Form von `/board/versionen`, `/board/verlauf`,
+  `/board/gespraech/stand`).** Die Antworten sind in Objekte gefasst und tragen
+  teils andere Feldnamen (`autor`, `positionId`, `eintraege`). Die mitgelieferte
+  Seite ist darauf gebaut; ein fremder Client müsste die produkt-eigene Form
+  lesen. Das Verhalten stimmt, die Form weicht ab.
+- **A10 (`regel: "alle"`).** Es gibt keinen Weg, die Zustimmung mehrerer
+  einzusammeln. Das Board bietet dann niemandem eine Handlung an, statt eine
+  Zustimmung zu behaupten. Die Frage, wie „alle müssen“ funktioniert, bleibt im
+  Fachkonzept offen (Frage 2).
+- **A11 (`zweig_von` als Objekt).** Der Bauplan verlangt Ursprung, Station und
+  Datum; die Architektur nennt nur die Kennung. Das Objekt trägt mehr, nicht
+  weniger.
+- **A12 (`wie.art`).** Das Produkt kennt `datei`, `textfeld`, `chat` neben `skill`
+  und `skript`; die drei Werte der Architektur sind eine engere Fassung. Ein
+  Abbilden auf `manuell` würde das Verhalten der Felder verlieren.
+- **A15 (kein `origin`).** Die Adresse und der Zugang sind seine Einrichtung; das
+  Board sagt bis dahin „kein remote“ und arbeitet lokal weiter.
