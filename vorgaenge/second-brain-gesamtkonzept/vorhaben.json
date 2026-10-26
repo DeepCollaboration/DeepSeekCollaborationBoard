@@ -2,7 +2,7 @@
   "id": "second-brain-gesamtkonzept",
   "name": "Second Brain Gesamtkonzept",
   "position": "vision",
-  "verantwortliche": {},
+  "verantwortliche": { "vision": ["p1"] },
   "regel": "einer",
   "rueckkehr": [],
   "laeufe": [],

@@ -2,7 +2,7 @@
   "id": "board-gesamtkonzept-vidionpruefen",
   "name": "Board Gesamtkonzept — VidionPrüfen",
   "position": "vidionpruefen-2",
-  "verantwortliche": {},
+  "verantwortliche": { "vidionpruefen-2": ["p1"] },
   "regel": "einer",
   "rueckkehr": [],
   "laeufe": [],

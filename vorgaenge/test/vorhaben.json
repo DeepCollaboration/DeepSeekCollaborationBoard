@@ -2,7 +2,7 @@
   "id": "test",
   "name": "test",
   "position": "idee",
-  "verantwortliche": {},
+  "verantwortliche": { "idee": ["p1"] },
   "regel": "einer",
   "rueckkehr": [],
   "laeufe": [],

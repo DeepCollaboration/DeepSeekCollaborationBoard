@@ -2,7 +2,7 @@
   "id": "board-gesamtkonzept",
   "name": "Board Gesamtkonzept",
   "position": "umsetzen",
-  "verantwortliche": {},
+  "verantwortliche": { "umsetzen": ["p1"] },
   "regel": "einer",
   "rueckkehr": [],
   "laeufe": [

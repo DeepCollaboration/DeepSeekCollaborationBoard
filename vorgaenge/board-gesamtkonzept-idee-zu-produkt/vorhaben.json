@@ -2,7 +2,7 @@
   "id": "board-gesamtkonzept-idee-zu-produkt",
   "name": "Board Gesamtkonzept — Idee zu Produkt",
   "position": "idee-zu-produkt",
-  "verantwortliche": {},
+  "verantwortliche": { "idee-zu-produkt": ["p1"] },
   "regel": "einer",
   "rueckkehr": [],
   "laeufe": [],
