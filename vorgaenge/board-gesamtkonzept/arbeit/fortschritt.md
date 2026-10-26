@@ -1,22 +1,40 @@
 # Fortschritt
 
+## Runde 14 — 2026-10-26
+
+- **Stand:** Schritt 14 bestanden. Ein Rücksprung steht als
+  `{ von, nach, grund, seit, erledigt }` am Vorhaben; das Zurückschicken geht
+  durch `darf(…, "zurueckschicken")` und verlangt Grund und vorhandene
+  Zielstation. `/board/data` liefert die Einträge samt Zielnamen und Grund, die
+  Seite zeigt nur die offenen. Das Weiterziehen über das Ziel setzt
+  `erledigt: true`; der Eintrag bleibt in der Datei. Beleg:
+  `test/schritt14.mjs` Exit 0, Tests 02–13 grün, echte Ablage ohne Rücksprung
+  und ohne zweite Person.
+- **Nächster Schritt:** 15 — Speichern auf einem überholten Stand schreibt nicht.
+- **Blocker:** keiner.
+- **Nicht geprüft:** die Rücksprung-Anzeige im Browser.
+
+## Runde 13 — 2026-10-26
+
+- **Stand:** Schritt 13 bestanden. Abzweigen schreibt `zweig_von = { von, station,
+  datum }`; die neue Route `POST /board/vorhaben/forken` legt ein eigenes Vorhaben
+  mit `fork_von`, kopierten Dateien und eigener Verantwortung an — auch aus einem
+  fremden Vorhaben, ohne dessen Ordner anzufassen. `/board/data` liefert die
+  Herkunft samt Namen; die Seite zeigt „Zweig von … ab …“ und „Fork von …“.
+  Beleg: `test/schritt13.mjs` Exit 0, Tests 02–12 grün, echte Ablage und die zwei
+  vorhandenen Zweige unverändert.
+- **Nächster Schritt:** 14 — Der Rücksprung steht am Vorhaben.
+- **Blocker:** keiner.
+- **Nicht geprüft:** die Herkunftsanzeige und der Forken-Knopf im Browser.
+
 ## Runde 12 — 2026-10-26
 
-- **Stand:** Schritt 12 bestanden. **Scheibe 3 ist vollständig: beitragen und
-  annehmen.** `POST /board/beitrag/entscheiden` prüft `darf(…, "entscheiden")`
-  (403), lehnt einen zweiten Entscheid ab (409) und einen unbekannten Beitrag
-  (404). Annehmen schreibt die vorgeschlagenen Dateien in den Vorhabenordner und
-  hält sie als eine Fassung mit eigenem Urheber fest; Teile übernehmen nur die
-  genannten; Ablehnen ändert nichts. `entschieden = { von, am, art, teile }` steht
-  am Beitrag; die Seite zeigt ihn und bietet die Handlungen nur dem
-  Verantwortlichen. Beleg: `test/schritt12.mjs` Exit 0, Tests 02–11 grün.
-- **Nächster Schritt:** 13 — Zweig und Fork tragen ihre Herkunft.
-- **Blocker:** keiner.
-- **Nicht geprüft:** der Entscheid im Browser.
+- **Stand:** Schritt 12 bestanden; Scheibe 3 vollständig.
+- **Nächster Schritt:** 13.
 
 ## Runde 11 — 2026-10-26
 
-- **Stand:** Schritt 11 bestanden, Beiträge unter `beitraege/`.
+- **Stand:** Schritt 11 bestanden, Beiträge.
 - **Nächster Schritt:** 12.
 
 ## Runde 10 — 2026-10-26
