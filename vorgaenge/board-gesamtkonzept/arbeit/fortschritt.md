@@ -1,31 +1,39 @@
 # Fortschritt
 
+## Runde 15 — 2026-10-26
+
+- **Stand:** Schritt 15 bestanden. **Scheibe 5 ist halb: Nichts wird still
+  überschrieben.** `/board/doc` liefert zu jeder Datei ihre `basis` — den Commit,
+  der sie zuletzt geändert hat, `null` ohne Fassung. `/board/doc/schreiben`
+  prüft sie vor dem Schreiben: weicht sie ab, kommt 409 mit `neu: { text, basis }`,
+  die Datei bleibt byte-gleich. Der eigene Text bleibt im Editor und lässt sich
+  über `/board/beitrag` mit der neuen `basis` als Beitrag anlegen; mit der neuen
+  `basis` geht das Speichern durch. Nichts wird zusammengeführt. Beleg:
+  `test/schritt15.mjs` Exit 0, Tests 02–14 grün, echte Ablage ohne Prüfvorhaben,
+  Beitrag und Fassung.
+- **Nächster Schritt:** 16 — Zwei Programmfassungen schreiben nicht gegeneinander.
+- **Blocker:** keiner.
+- **Nicht geprüft:** der 409-Ablauf im Browser; das laufende Board arbeitet noch
+  mit dem alten Modul.
+
 ## Runde 14 — 2026-10-26
 
-- **Stand:** Schritt 14 bestanden. Ein Rücksprung steht als
-  `{ von, nach, grund, seit, erledigt }` am Vorhaben; das Zurückschicken geht
-  durch `darf(…, "zurueckschicken")` und verlangt Grund und vorhandene
-  Zielstation. `/board/data` liefert die Einträge samt Zielnamen und Grund, die
-  Seite zeigt nur die offenen. Das Weiterziehen über das Ziel setzt
-  `erledigt: true`; der Eintrag bleibt in der Datei. Beleg:
-  `test/schritt14.mjs` Exit 0, Tests 02–13 grün, echte Ablage ohne Rücksprung
-  und ohne zweite Person.
+- **Stand:** Schritt 14 bestanden. **Scheibe 4 ist vollständig: Herkunft und
+  Rückweg.** Zurückschicken trägt `{ von, nach, grund, seit, erledigt: false }`
+  ein und setzt das Vorhaben an die Zielstation; die Verantwortung erbt vom
+  Abgebenden. `/board/data` liefert die Rücksprünge mit Ziel- und Herkunftsnamen;
+  die Seite zeigt die offenen mit „↩ zurück nach …“. Weiterziehen hinter das Ziel
+  setzt `erledigt: true` — der Eintrag bleibt in der Datei, die Anzeige ist leer.
+  Ohne Grund oder Ziel: 400; fremdes Vorhaben: 403. Beleg: `test/schritt14.mjs`
+  Exit 0, Tests 02–13 grün, echte Ablage ohne Rücksprung und ohne zweite Person.
 - **Nächster Schritt:** 15 — Speichern auf einem überholten Stand schreibt nicht.
 - **Blocker:** keiner.
 - **Nicht geprüft:** die Rücksprung-Anzeige im Browser.
 
 ## Runde 13 — 2026-10-26
 
-- **Stand:** Schritt 13 bestanden. Abzweigen schreibt `zweig_von = { von, station,
-  datum }`; die neue Route `POST /board/vorhaben/forken` legt ein eigenes Vorhaben
-  mit `fork_von`, kopierten Dateien und eigener Verantwortung an — auch aus einem
-  fremden Vorhaben, ohne dessen Ordner anzufassen. `/board/data` liefert die
-  Herkunft samt Namen; die Seite zeigt „Zweig von … ab …“ und „Fork von …“.
-  Beleg: `test/schritt13.mjs` Exit 0, Tests 02–12 grün, echte Ablage und die zwei
-  vorhandenen Zweige unverändert.
-- **Nächster Schritt:** 14 — Der Rücksprung steht am Vorhaben.
-- **Blocker:** keiner.
-- **Nicht geprüft:** die Herkunftsanzeige und der Forken-Knopf im Browser.
+- **Stand:** Schritt 13 bestanden, Herkunft von Zweig und Fork.
+- **Nächster Schritt:** 14.
 
 ## Runde 12 — 2026-10-26
 
