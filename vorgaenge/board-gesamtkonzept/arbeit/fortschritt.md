@@ -1,19 +1,24 @@
 # Fortschritt
 
+## Runde 6 — 2026-10-26
+
+- **Stand:** Schritt 06 bestanden. Alle fünf Vorhaben tragen `verantwortliche`
+  mit `p1` an ihrer Station. Eine Prüfstelle `darf(vorhaben, aktion, person)`
+  entscheidet über `aendern`, `verschieben`, `weitergeben`, `zurueckschicken`;
+  alle vier Routen antworten fremd mit 403. `/board/data` liefert
+  `verantwortet` und `darf`; „Weitergeben“ trägt die nächste verantwortliche
+  Person ein und verschiebt. Beleg: `test/schritt06.mjs` Exit 0 (9 ok-Zeilen),
+  Tests 02–05 weiter grün.
+- **Nächster Schritt:** 07 — Ein fremdes Vorhaben steht auf meinem Board und
+  lässt sich lesen.
+- **Blocker:** keiner.
+- **Nicht geprüft:** die Anzeige „verantwortet von“ und das Weitergeben-Formular
+  im Browser.
+
 ## Runde 5 — 2026-10-26
 
-- **Stand:** Schritt 05 bestanden. `/board/data` liefert `workflows` als Flächen je
-  Person, eigene zuerst; fremde Schritte tragen `host` und `fremd: true`; Verweise
-  `{ref}` werden aufgelöst statt kopiert, ein fehlendes Ziel erscheint als fehlend;
-  die Seite hat je Person eine Fläche, die fremde nur lesend; `/board/schritt/aendern`
-  auf einen fremden Schritt antwortet 403. Beleg: `test/schritt05.mjs` Exit 0;
-  `workflows/p1.json` byte-gleich, echte Ablage ohne zweite Person.
-- **Nächster Schritt:** 06 — Jedes Vorhaben nennt seinen Verantwortlichen.
-- **Blocker:** keiner.
-- **Nicht geprüft:** Die fremde Fläche ist im Code belegt, nicht im laufenden
-  Browser gesehen (kein Neustart möglich).
-- **Hinweis:** Die Ablage ist nach „Fremde Workflows“ wieder schmutzig
-  (Prüfprotokoll, Plan, Fortschritt); wird mit Schritt 06 festgehalten.
+- **Stand:** Schritt 05 bestanden, Flächen je Person.
+- **Nächster Schritt:** 06.
 
 ## Runde 4 — 2026-10-26
 
