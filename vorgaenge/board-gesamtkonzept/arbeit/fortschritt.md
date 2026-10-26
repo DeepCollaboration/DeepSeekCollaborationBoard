@@ -1,29 +1,32 @@
 # Fortschritt
 
+## Runde 12 — 2026-10-26
+
+- **Stand:** Schritt 12 bestanden. **Scheibe 3 ist vollständig: beitragen und
+  annehmen.** `POST /board/beitrag/entscheiden` prüft `darf(…, "entscheiden")`
+  (403), lehnt einen zweiten Entscheid ab (409) und einen unbekannten Beitrag
+  (404). Annehmen schreibt die vorgeschlagenen Dateien in den Vorhabenordner und
+  hält sie als eine Fassung mit eigenem Urheber fest; Teile übernehmen nur die
+  genannten; Ablehnen ändert nichts. `entschieden = { von, am, art, teile }` steht
+  am Beitrag; die Seite zeigt ihn und bietet die Handlungen nur dem
+  Verantwortlichen. Beleg: `test/schritt12.mjs` Exit 0, Tests 02–11 grün.
+- **Nächster Schritt:** 13 — Zweig und Fork tragen ihre Herkunft.
+- **Blocker:** keiner.
+- **Nicht geprüft:** der Entscheid im Browser.
+
 ## Runde 11 — 2026-10-26
 
-- **Stand:** Schritt 11 bestanden. `POST /board/beitrag` legt
-  `beitraege/<vorhaben>/<beitrag>.json` mit allen Feldern an
-  (`id`, `vorhaben`, `schritt`, `von`, `seit`, `basis`, `notiz`, `dateien`,
-  `entschieden: null`) und die vorgeschlagene Fassung daneben; das Original bleibt
-  byte-gleich. Der Beitrag hängt nicht an `darf.aendern` — jeder darf beitragen.
-  `/board/data` liefert `beitraege` mit Namen, Notiz und Dateien; die Seite zeigt
-  ihn an der Station, im fremden Leser führt „Bearbeiten“ zu „Als Beitrag
-  speichern“. Beleg: `test/schritt11.mjs` Exit 0, Tests 02–10 grün.
-- **Nächster Schritt:** 12 — Der Verantwortliche entscheidet über den Beitrag.
-- **Blocker:** keiner.
-- **Nicht geprüft:** der Beitragsweg im Browser.
+- **Stand:** Schritt 11 bestanden, Beiträge unter `beitraege/`.
+- **Nächster Schritt:** 12.
 
 ## Runde 10 — 2026-10-26
 
-- **Stand:** Schritt 10 bestanden; Scheibe 2 vollständig (fremder Schritt läuft bei
-  mir).
+- **Stand:** Schritt 10 bestanden; Scheibe 2 vollständig.
 - **Nächster Schritt:** 11.
-- **Nicht geprüft:** echte Sitzung und echte Modellanfrage.
 
 ## Runde 9 — 2026-10-26
 
-- **Stand:** Schritt 09 bestanden, fremder Schritt als Verweis im eigenen Workflow.
+- **Stand:** Schritt 09 bestanden, fremder Schritt als Verweis.
 - **Nächster Schritt:** 10.
 
 ## Runde 8 — 2026-10-26
