@@ -1,0 +1,11 @@
+{
+  "id": "test",
+  "name": "test",
+  "position": "idee",
+  "verantwortliche": {},
+  "regel": "einer",
+  "rueckkehr": [],
+  "laeufe": [],
+  "fork_von": null,
+  "zweig_von": null
+}

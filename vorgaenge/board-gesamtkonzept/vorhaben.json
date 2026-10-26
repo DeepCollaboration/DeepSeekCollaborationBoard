@@ -1,0 +1,41 @@
+{
+  "id": "board-gesamtkonzept",
+  "name": "Board Gesamtkonzept",
+  "position": "umsetzen",
+  "verantwortliche": {},
+  "regel": "einer",
+  "rueckkehr": [],
+  "laeufe": [
+    {
+      "position": "vision",
+      "skill": "grillme-vision",
+      "datei": "transkripte/vision-2026-10-25-171030.md",
+      "sitzung": "session-64b7016b-21ed-416a-b194-0a164731c361",
+      "datum": "2026-10-25"
+    },
+    {
+      "position": "fachkonzept",
+      "skill": "grillme-fachkonzept",
+      "datei": "transkripte/fachkonzept-2026-10-25-194659.md",
+      "sitzung": "session-5ff0ddb1-197a-4dd2-85c1-69cfe1e0df94",
+      "datum": "2026-10-25"
+    },
+    {
+      "position": "architektur",
+      "skill": "architekturentscheidungen",
+      "datei": "transkripte/architektur-2026-10-25-201304.md",
+      "sitzung": "session-9573813c-78a5-4739-932e-194dca8eb04c",
+      "datum": "2026-10-25"
+    },
+    {
+      "position": "umsetzung",
+      "skill": "bauplan-erstellen",
+      "datei": "transkripte/umsetzung-2026-10-26-125522.md",
+      "sitzung": "session-015fd005-7186-4003-a7da-d4d5772da078",
+      "datum": "2026-10-26"
+    }
+  ],
+  "fork_von": null,
+  "zweig_von": null,
+  "farbe": "#60a5fa"
+}

@@ -24,8 +24,8 @@ Reihenfolge sind dort begründet.
 | Nr | Schritt | Ergebnis | Prüfung | Status |
 | --- | --- | --- | --- | --- |
 | 01 | Das Board wird ein Produkt dieses Vorhabens | `produkt/` mit dem Plugin; Profil lädt von dort | Kopie identisch; Profilauflösung zeigt auf `produkt/`; Board unverändert | bestanden |
-| 02 | Die Ablage ist ein eigenes Repository mit meiner Person | `projekte/board/.git`, `produkt/board.config.json` | Speichern im Board → `git log --format=%an` nennt den eigenen Namen; `/workspace` bleibt ruhig | offen |
-| 03 | Die Ablage trägt Personen und Workflows | `format`, `personen/`, `workflows/`, `vorgaenge/*/vorhaben.json`; `board.json` weg | Board zeigt dieselben Stationen; Leser, Verlauf, Vergleich arbeiten; `board.json` fehlt | offen |
+| 02 | Die Ablage ist ein eigenes Repository mit meiner Person | `projekte/board/.git`, `produkt/board.config.json` | Speichern im Board → `git log --format=%an` nennt den eigenen Namen; `/workspace` bleibt ruhig | bestanden |
+| 03 | Die Ablage trägt Personen und Workflows | `format`, `personen/`, `workflows/`, `vorgaenge/*/vorhaben.json`; `board.json` weg | Board zeigt dieselben Stationen; Leser, Verlauf, Vergleich arbeiten; `board.json` fehlt | läuft |
 | 04 | Der Abgleich holt und gibt | Route `/board/sync`; Anzeige „zuletzt abgeglichen“ und „n Fassungen nur hier“ | Zweiter Klon am nackten `origin`: Änderung kommt an, eigene Fassung liegt im Remote; ohne Remote öffnet das Board und sagt es | offen |
 | 05 | Der Workflow der anderen Person steht auf meinem Board | `/board/data` liefert `workflows`; fremde Fläche sichtbar | Fremde Person samt zwei Schritten erscheint; fremder Schritt zeigt keine Änderungsfelder; eigener Workflow unverändert | offen |
 | 06 | Jedes Vorhaben nennt seinen Verantwortlichen | `verantwortliche`, `regel`; Anzeige; eine Prüfung für Handlungen | Eigenes Vorhaben: „verantwortet von <ich>“ und Weitergeben da; fremdes: Weitergeben fehlt | offen |

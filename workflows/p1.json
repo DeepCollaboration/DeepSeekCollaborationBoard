@@ -1,0 +1,323 @@
+{
+  "person": "p1",
+  "workflows": [
+    {
+      "id": "standard",
+      "titel": "Standard-Workflow",
+      "schritte": [
+        {
+          "id": "idee",
+          "name": "Idee",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [],
+          "wie": {
+            "art": "datei",
+            "wert": ""
+          },
+          "skill": null,
+          "inhalt": "Thema in einem Satz festhalten. Noch keine Struktur, keine Technik."
+        },
+        {
+          "id": "idee-vision",
+          "name": "Idee → Vision",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [
+            "vision.md",
+            "vision-notizen.md"
+          ],
+          "wie": {
+            "art": "skill",
+            "wert": "grillme-vision"
+          },
+          "skill": "grillme-vision",
+          "inhalt": "Interview führen (Grillme): Vorstellungen, Begriffe, gemeinsames Verständnis herstellen."
+        },
+        {
+          "id": "vision",
+          "name": "Vision",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [],
+          "wie": {
+            "art": "datei",
+            "wert": ""
+          },
+          "skill": null
+        },
+        {
+          "id": "vision-fachkonzept",
+          "name": "Vision → Fachkonzept",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [
+            "fachkonzept.md",
+            "fachkonzept-notizen.md"
+          ],
+          "wie": {
+            "art": "skill",
+            "wert": "grillme-fachkonzept"
+          },
+          "skill": "grillme-fachkonzept",
+          "inhalt": "Fachkonzept schreiben: ohne Technik, ohne Architektur, mit Begriffsdefinitionen."
+        },
+        {
+          "id": "fachkonzept",
+          "name": "Fachkonzept",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [],
+          "wie": {
+            "art": "datei",
+            "wert": ""
+          },
+          "skill": null
+        },
+        {
+          "id": "fachkonzept-architektur",
+          "name": "Fachkonzept → Architektur",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [
+            "architektur.md"
+          ],
+          "wie": {
+            "art": "skill",
+            "wert": "architekturentscheidungen"
+          },
+          "skill": "architekturentscheidungen",
+          "inhalt": "Architekturentscheidungen treffen, Stack und Grundstruktur festlegen."
+        },
+        {
+          "id": "architekturplan",
+          "name": "Architektur",
+          "host": "p1",
+          "eingang": [
+            "architektur.md"
+          ],
+          "ausgabe": [
+            "architektur.md"
+          ],
+          "wie": {
+            "art": "datei",
+            "wert": ""
+          },
+          "skill": null,
+          "inhalt": ""
+        },
+        {
+          "id": "architektur-umsetzung",
+          "name": "Architektur zu Bauplan",
+          "host": "p1",
+          "eingang": [
+            "architektur.md",
+            "fachkonzept.md",
+            "vision.md",
+            "fachkonzept-notizen.md",
+            "vision-notizen.md"
+          ],
+          "ausgabe": [
+            "bauplan.md"
+          ],
+          "wie": {
+            "art": "skill",
+            "wert": "bauplan-erstellen"
+          },
+          "skill": "bauplan-erstellen",
+          "inhalt": "Macht aus Architektur und Fachkonzept einen Bauplan: vertikale Scheiben, prüfbare Schritte, erste Scheibe."
+        },
+        {
+          "id": "idee-zu-produkt",
+          "name": "Idee zu Produkt",
+          "host": "p1",
+          "eingang": [
+            "idee.md"
+          ],
+          "ausgabe": [],
+          "wie": {
+            "art": "textfeld",
+            "wert": ""
+          },
+          "skill": null,
+          "inhalt": "",
+          "werkstatt": {
+            "session": "session-420d20c7-67f7-40b8-a7aa-25b3248d7647",
+            "seit": "2026-10-26T08:20:24.355Z"
+          }
+        },
+        {
+          "id": "umsetzen",
+          "name": "Umsetzen",
+          "host": "p1",
+          "eingang": [
+            "bauplan.md"
+          ],
+          "ausgabe": [
+            "produkt/",
+            "umsetzung.md"
+          ],
+          "wie": {
+            "art": "skill",
+            "wert": "umsetzen"
+          },
+          "skill": "umsetzen",
+          "inhalt": "Setzt den Bauplan um: ein Schritt je Runde, ein Arbeiter je Schritt, ein frischer Prüfer je Schritt."
+        },
+        {
+          "id": "vidionpruefen",
+          "name": "VisionPrüfen",
+          "host": "p1",
+          "eingang": [],
+          "ausgabe": [
+            "vidionpruefen.md"
+          ],
+          "wie": {
+            "art": "textfeld",
+            "wert": ""
+          },
+          "skill": null,
+          "inhalt": "",
+          "werkstatt": {
+            "session": "session-d1f4cfee-d2ce-4cc9-b824-5d5e4f112dee",
+            "seit": "2026-10-26T14:32:03.665Z"
+          }
+        }
+      ],
+      "positionen": [
+        {
+          "id": "idee",
+          "bedingung": [
+            "Freigabe"
+          ],
+          "schritt": "idee",
+          "x": 50,
+          "y": 80
+        },
+        {
+          "id": "vision",
+          "bedingung": [
+            "alle Fragen beantwortet"
+          ],
+          "schritt": "idee-vision",
+          "x": 330,
+          "y": 80
+        },
+        {
+          "id": "vision-2",
+          "bedingung": [],
+          "schritt": "vision",
+          "x": 640,
+          "y": 80
+        },
+        {
+          "id": "fachkonzept",
+          "bedingung": [
+            "alle Fragen beantwortet",
+            "Freigabe"
+          ],
+          "schritt": "vision-fachkonzept",
+          "x": 940,
+          "y": 80
+        },
+        {
+          "id": "fachkonzept-2",
+          "bedingung": [],
+          "schritt": "fachkonzept",
+          "x": 250,
+          "y": 440
+        },
+        {
+          "id": "architektur",
+          "bedingung": [
+            "Freigabe"
+          ],
+          "schritt": "fachkonzept-architektur",
+          "x": 440,
+          "y": 500
+        },
+        {
+          "id": "architekturplan",
+          "bedingung": [],
+          "schritt": "architekturplan",
+          "x": 650,
+          "y": 360
+        },
+        {
+          "id": "umsetzung",
+          "bedingung": [
+            "alle Fragen beantwortet"
+          ],
+          "schritt": "architektur-umsetzung",
+          "x": 940,
+          "y": 360
+        },
+        {
+          "id": "idee-zu-produkt",
+          "schritt": "idee-zu-produkt",
+          "x": 460,
+          "y": 10
+        },
+        {
+          "id": "umsetzen",
+          "schritt": "umsetzen",
+          "x": 2960,
+          "y": 380
+        },
+        {
+          "id": "vidionpruefen-2",
+          "schritt": "vidionpruefen",
+          "x": 1160,
+          "y": 460
+        }
+      ],
+      "kanten": [
+        {
+          "von": "idee",
+          "nach": "vision"
+        },
+        {
+          "von": "vision",
+          "nach": "vision-2"
+        },
+        {
+          "von": "vision-2",
+          "nach": "fachkonzept"
+        },
+        {
+          "von": "fachkonzept",
+          "nach": "fachkonzept-2"
+        },
+        {
+          "von": "fachkonzept-2",
+          "nach": "architektur"
+        },
+        {
+          "von": "architektur",
+          "nach": "architekturplan"
+        },
+        {
+          "von": "architekturplan",
+          "nach": "umsetzung"
+        },
+        {
+          "von": "idee",
+          "nach": "idee-zu-produkt"
+        },
+        {
+          "von": "umsetzung",
+          "nach": "umsetzen"
+        },
+        {
+          "von": "vision-2",
+          "nach": "vidionpruefen-2"
+        },
+        {
+          "von": "vidionpruefen-2",
+          "nach": "fachkonzept"
+        }
+      ],
+      "layout": "auto"
+    }
+  ]
+}

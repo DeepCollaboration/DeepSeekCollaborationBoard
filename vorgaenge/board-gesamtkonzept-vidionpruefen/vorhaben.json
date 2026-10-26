@@ -1,0 +1,16 @@
+{
+  "id": "board-gesamtkonzept-vidionpruefen",
+  "name": "Board Gesamtkonzept — VidionPrüfen",
+  "position": "vidionpruefen-2",
+  "verantwortliche": {},
+  "regel": "einer",
+  "rueckkehr": [],
+  "laeufe": [],
+  "fork_von": null,
+  "zweig_von": {
+    "von": "board-gesamtkonzept",
+    "station": "vision-2",
+    "datum": "2026-10-26"
+  },
+  "farbe": "#a3e635"
+}
