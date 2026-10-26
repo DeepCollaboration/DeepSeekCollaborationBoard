@@ -1,20 +1,25 @@
 # Fortschritt
 
+## Runde 11 — 2026-10-26
+
+- **Stand:** Schritt 11 bestanden. `POST /board/beitrag` legt
+  `beitraege/<vorhaben>/<beitrag>.json` mit allen Feldern an
+  (`id`, `vorhaben`, `schritt`, `von`, `seit`, `basis`, `notiz`, `dateien`,
+  `entschieden: null`) und die vorgeschlagene Fassung daneben; das Original bleibt
+  byte-gleich. Der Beitrag hängt nicht an `darf.aendern` — jeder darf beitragen.
+  `/board/data` liefert `beitraege` mit Namen, Notiz und Dateien; die Seite zeigt
+  ihn an der Station, im fremden Leser führt „Bearbeiten“ zu „Als Beitrag
+  speichern“. Beleg: `test/schritt11.mjs` Exit 0, Tests 02–10 grün.
+- **Nächster Schritt:** 12 — Der Verantwortliche entscheidet über den Beitrag.
+- **Blocker:** keiner.
+- **Nicht geprüft:** der Beitragsweg im Browser.
+
 ## Runde 10 — 2026-10-26
 
-- **Stand:** Schritt 10 bestanden. **Scheibe 2 ist vollständig: ein fremder Schritt
-  läuft bei mir.** Der Start an einem Verweis-Schritt liest die Anweisung des Hosts
-  aus der Ablage, setzt sie als `<host>-<schritt>` in `$DSH_HOME/skills` ein,
-  startet im eigenen Arbeitsbereich und nimmt sie im `finally` wieder weg. Das
-  Transkript liegt im eigenen Vorhaben samt `laeufe`-Eintrag, die Fassung trägt den
-  eigenen Urheber. Fremde Workflow- und Skill-Datei bleiben byte-gleich; ein Start
-  auf einem fremden Vorhaben antwortet 403. Beleg: `test/schritt10.mjs` Exit 0,
-  Tests 02–09 grün, echte Skillinstallation unverändert.
-- **Nächster Schritt:** 11 — Am fremden Vorhaben speichert der Editor als Beitrag.
-- **Blocker:** keiner.
-- **Nicht geprüft:** eine echte Sitzung und eine echte Modellanfrage; der
-  Sitzungsdienst ist im Prüfskript ersetzt. Ob der Harness die Anweisung nach dem
-  Wegnehmen noch lädt, bleibt offen (siehe Runde 8).
+- **Stand:** Schritt 10 bestanden; Scheibe 2 vollständig (fremder Schritt läuft bei
+  mir).
+- **Nächster Schritt:** 11.
+- **Nicht geprüft:** echte Sitzung und echte Modellanfrage.
 
 ## Runde 9 — 2026-10-26
 

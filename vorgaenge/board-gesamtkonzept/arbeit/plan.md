@@ -33,8 +33,8 @@ Reihenfolge sind dort begründet.
 | 08 | Der Skill eines Schritts liegt in der Ablage | `skills/<person>/<schritt>.md`; Lauf nimmt die Anweisung von dort | Während des Laufs liegt `$DSH_HOME/skills/<host>-<schritt>/SKILL.md`, danach nicht; Transkript am Schritt | bestanden |
 | 09 | Mein Workflow enthält einen fremden Schritt | Verweis in `workflows/<ich>.json`; fremde Station sichtbar | Schritt steht mit „bei <Person>“; Einstellungen nicht öffenbar; fremde Datei unverändert | bestanden |
 | 10 | Der Skill der anderen Person läuft in meinem Harness | Lauf eines fremden Schritts; Transkript im eigenen Vorhaben | Gespräch folgt der Anweisung aus der Ablage; Transkript unter `transkripte/`; Ablage ruhig | bestanden |
-| 11 | Am fremden Vorhaben speichert der Editor als Beitrag | `beitraege/<vorhaben>/<beitrag>.json` und vorgeschlagene Dateien; Beitrag sichtbar | Beitrag erscheint mit Namen und Notiz; Originaldatei unverändert | läuft |
-| 12 | Der Verantwortliche entscheidet über den Beitrag | `entschieden`; Übernahme als neue Fassung | Annehmen schreibt den Text; Teile übernehmen nur die genannten; Ablehnen lässt alles | offen |
+| 11 | Am fremden Vorhaben speichert der Editor als Beitrag | `beitraege/<vorhaben>/<beitrag>.json` und vorgeschlagene Dateien; Beitrag sichtbar | Beitrag erscheint mit Namen und Notiz; Originaldatei unverändert | bestanden |
+| 12 | Der Verantwortliche entscheidet über den Beitrag | `entschieden`; Übernahme als neue Fassung | Annehmen schreibt den Text; Teile übernehmen nur die genannten; Ablehnen lässt alles | läuft |
 | 13 | Zweig und Fork tragen ihre Herkunft | `zweig_von`, `fork_von`; Anzeige am Vorhaben | Zweig trägt Herkunft, Original unverändert; Fork eines fremden Vorhabens nennt dessen Namen | offen |
 | 14 | Der Rücksprung steht am Vorhaben | `rueckkehr`-Vermerk; Anzeige | Zurückschicken zeigt Grund und Ziel; darüberziehen setzt `erledigt`, Vermerk verschwindet aus der Anzeige | offen |
 | 15 | Speichern auf einem überholten Stand schreibt nicht | Basisprüfung vor dem Schreiben; „mein Text als Beitrag“ | Alter Stand wird nicht geschrieben; Meldung; eigener Text bleibt; Datei unverändert | offen |
