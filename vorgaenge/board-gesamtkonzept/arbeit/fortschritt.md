@@ -1,31 +1,33 @@
 # Fortschritt
 
+## Runde 4 — 2026-10-26
+
+- **Stand:** Schritt 04 bestanden. Route `POST /board/sync` (fetch, pull --rebase,
+  push), `stand` in `/board/data` mit `zeit`, `nur_lokal`, `remote`, `lage`,
+  Abgleich vor dem Lesen (höchstens einmal je Minute) und nach dem Schreiben;
+  Kopfzeile zeigt „zuletzt abgeglichen …“ bzw. „nicht abgeglichen“. Beleg:
+  `test/schritt04.mjs` Exit 0 — Holen, Geben und der Fall ohne Remote sind belegt.
+- **Nächster Schritt:** 05 — Der Workflow der anderen Person steht auf meinem Board.
+- **Blocker:** keiner.
+- **Offen für den Betrieb:** Die Ablage hat noch keinen `origin`. Das Board sagt
+  deshalb „kein remote“. Die Adresse und der Zugang sind seine Einrichtung; sie
+  stehen am Ende im Bericht.
+- **Hinweis:** Die Ablage ist nach der Fassung „Abgleich“ wieder schmutzig
+  (Prüfprotokoll, Plan, Fortschritt) — erwartet, wird mit Schritt 05 festgehalten.
+
 ## Runde 3 — 2026-10-26
 
-- **Stand:** Schritt 03 bestanden. Die Ablage hat Format 1: `format`,
-  `personen/p1.json`, `workflows/p1.json`, fünf `vorgaenge/*/vorhaben.json`. Das
-  Modul liest und schreibt nur noch diese Dateien (`produkt/ablage.js`), `board.json`
-  wird nicht mehr gelesen. Belege: `schritt03.mjs` Exit 0 (5 Vorhaben, 11
-  Positionen, 11 Schritte, ohne `board.json` in der Kopie), Fassung
-  „Umzug auf Format 1“ von Thomas Heinrich.
-- **Nächster Schritt:** 04 — Der Abgleich holt und gibt.
-- **Blocker:** keiner.
-- **Beobachtung:** Das laufende alte Board wird im Fenster benutzt (Layout „frei“,
-  Positionen verschoben). Solche Änderungen landen in `board.json` und in den neuen
-  Dateien nicht. Vor dem Umschalten wird der Umzug mit dem letzten `board.json`
-  aufgefrischt (siehe `entscheidungen.md`).
-- **Persönliche Seiten:** Einstellungen und Gesprächsverweise liegen jetzt unter
-  `$DSH_HOME/board/` (`einstellungen.json`, `gespraeche.json`).
+- **Stand:** Schritt 03 bestanden, Ablage auf Format 1.
+- **Nächster Schritt:** 04.
+- **Beobachtung:** Das alte Board wird weiter benutzt; `board.json` bleibt
+  Quelle der alten Oberfläche und wird vor dem Umschalten aufgefrischt.
 
 ## Runde 2 — 2026-10-26
 
-- **Stand:** Schritt 02 bestanden. Die Ablage `projekte/board/` ist ein eigenes
-  Repository, `/workspace` führt sie nicht mehr, `produkt/board.config.json` nennt
-  Person und Ort.
+- **Stand:** Schritt 02 bestanden, eigene Ablage und Person.
 - **Nächster Schritt:** 03.
 
 ## Runde 1 — 2026-10-26
 
-- **Stand:** Plan angelegt, Schritt 01 bestanden (Kopie byte-gleich, Profil zeigt
-  auf `produkt/`, laufendes Board antwortet mit 200).
+- **Stand:** Plan angelegt, Schritt 01 bestanden.
 - **Nächster Schritt:** 02.
