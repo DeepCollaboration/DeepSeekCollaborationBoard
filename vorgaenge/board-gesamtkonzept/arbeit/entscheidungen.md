@@ -33,6 +33,26 @@ nachsehen. Was nur im laufenden Board sichtbar wäre, steht am Ende unter
 „Ungeprüft“. Das ist eine Abweichung von den Prüfungen des Bauplans, keine von
 der Architektur.
 
+## 2026-10-26 — Auffrischung vor dem Umschalten
+
+Das alte Board wird im Fenster weiter benutzt; seine Klicks (Layout, Positionen,
+neue Vorhaben) landen in `board.json` und nicht in den neuen Dateien. Damit beim
+Umschalten nichts davon fehlt, wird der Umzug vor dem letzten Schritt noch einmal
+mit dem dann aktuellen `board.json` aufgefrischt: Personen, Workflow mit Schritten
+und Positionen sowie Name, Position, Farbe und Läufe der Vorhaben werden
+übernommen; die Felder, die erst das neue Modell führt (`verantwortliche`,
+`regel`, `rueckkehr`, `fork_von`, Beiträge), bleiben unangetastet. Was danach noch
+im alten Board geändert wird, geht verloren — deshalb endet der Lauf mit dem
+Hinweis, den Harness neu zu starten.
+
+## 2026-10-26 — Persönliche Seiten unter `$DSH_HOME/board/`
+
+Einstellungen und die Verweise auf laufende Gespräche sind persönlich und stehen
+nicht in der Ablage: `$DSH_HOME/board/einstellungen.json` und
+`$DSH_HOME/board/gespraeche.json`. Die Dateien wurden aus dem Umzug dorthin
+übernommen (Eingriff außerhalb des Arbeitsbereichs, einmalig). Ohne sie fehlt
+„Mausrad: seitwärts“, und die Gesprächsspalte kennt die alten Sitzungen nicht.
+
 ## 2026-10-26 — Übergang: das alte Modul bleibt bis zum Neustart lesbar
 
 Der Harness hält das alte Board-Modul im Speicher. Es liest weiter

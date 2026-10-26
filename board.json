@@ -18,7 +18,7 @@
           "alle Fragen beantwortet"
         ],
         "schritt": "idee-vision",
-        "x": 330,
+        "x": 290,
         "y": 80
       },
       {
@@ -73,8 +73,8 @@
       {
         "id": "idee-zu-produkt",
         "schritt": "idee-zu-produkt",
-        "x": 460,
-        "y": 10
+        "x": 530,
+        "y": 80
       },
       {
         "id": "umsetzen",
@@ -217,7 +217,7 @@
     {
       "id": "board-gesamtkonzept-idee-zu-produkt",
       "name": "Board Gesamtkonzept — Idee zu Produkt",
-      "position": "idee-zu-produkt",
+      "position": "idee",
       "ordner": "board-gesamtkonzept-idee-zu-produkt",
       "farbe": "#60a5fa",
       "abzweig": {
