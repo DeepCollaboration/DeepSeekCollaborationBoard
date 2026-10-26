@@ -29,9 +29,9 @@
           ],
           "wie": {
             "art": "skill",
-            "wert": "grillme-vision"
+            "wert": "p1-idee-vision"
           },
-          "skill": "grillme-vision",
+          "skill": "skills/p1/idee-vision.md",
           "inhalt": "Interview führen (Grillme): Vorstellungen, Begriffe, gemeinsames Verständnis herstellen."
         },
         {
@@ -57,9 +57,9 @@
           ],
           "wie": {
             "art": "skill",
-            "wert": "grillme-fachkonzept"
+            "wert": "p1-vision-fachkonzept"
           },
-          "skill": "grillme-fachkonzept",
+          "skill": "skills/p1/vision-fachkonzept.md",
           "inhalt": "Fachkonzept schreiben: ohne Technik, ohne Architektur, mit Begriffsdefinitionen."
         },
         {
@@ -84,9 +84,9 @@
           ],
           "wie": {
             "art": "skill",
-            "wert": "architekturentscheidungen"
+            "wert": "p1-fachkonzept-architektur"
           },
-          "skill": "architekturentscheidungen",
+          "skill": "skills/p1/fachkonzept-architektur.md",
           "inhalt": "Architekturentscheidungen treffen, Stack und Grundstruktur festlegen."
         },
         {
@@ -122,9 +122,9 @@
           ],
           "wie": {
             "art": "skill",
-            "wert": "bauplan-erstellen"
+            "wert": "p1-architektur-umsetzung"
           },
-          "skill": "bauplan-erstellen",
+          "skill": "skills/p1/architektur-umsetzung.md",
           "inhalt": "Macht aus Architektur und Fachkonzept einen Bauplan: vertikale Scheiben, prüfbare Schritte, erste Scheibe."
         },
         {
@@ -159,9 +159,9 @@
           ],
           "wie": {
             "art": "skill",
-            "wert": "umsetzen"
+            "wert": "p1-umsetzen"
           },
-          "skill": "umsetzen",
+          "skill": "skills/p1/umsetzen.md",
           "inhalt": "Setzt den Bauplan um: ein Schritt je Runde, ein Arbeiter je Schritt, ein frischer Prüfer je Schritt."
         },
         {

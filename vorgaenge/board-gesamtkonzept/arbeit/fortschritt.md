@@ -1,19 +1,21 @@
 # Fortschritt
 
+## Runde 7 — 2026-10-26
+
+- **Stand:** Schritt 07 bestanden. **Scheibe 1 ist damit vollständig: zwei Personen
+  sehen einander.** Fremde Vorhaben stehen mit Namen, Farbe und Verantwortlichem an
+  ihrer Station, lassen sich samt Dateien und Transkripten lesen, und jedes
+  Schreiben in ihre Ordner antwortet 403 (`doc/schreiben`, `skill/lauf`). Eigene
+  Vorhaben bleiben schreibbar. Beleg: `test/schritt07.mjs` Exit 0, Tests 02–06
+  grün.
+- **Nächster Schritt:** 08 — Der Skill eines Schritts liegt in der Ablage.
+- **Blocker:** keiner.
+- **Nicht geprüft:** die fremde Fläche und der Leser im Browser.
+
 ## Runde 6 — 2026-10-26
 
-- **Stand:** Schritt 06 bestanden. Alle fünf Vorhaben tragen `verantwortliche`
-  mit `p1` an ihrer Station. Eine Prüfstelle `darf(vorhaben, aktion, person)`
-  entscheidet über `aendern`, `verschieben`, `weitergeben`, `zurueckschicken`;
-  alle vier Routen antworten fremd mit 403. `/board/data` liefert
-  `verantwortet` und `darf`; „Weitergeben“ trägt die nächste verantwortliche
-  Person ein und verschiebt. Beleg: `test/schritt06.mjs` Exit 0 (9 ok-Zeilen),
-  Tests 02–05 weiter grün.
-- **Nächster Schritt:** 07 — Ein fremdes Vorhaben steht auf meinem Board und
-  lässt sich lesen.
-- **Blocker:** keiner.
-- **Nicht geprüft:** die Anzeige „verantwortet von“ und das Weitergeben-Formular
-  im Browser.
+- **Stand:** Schritt 06 bestanden, Verantwortliche und eine Prüfstelle `darf`.
+- **Nächster Schritt:** 07.
 
 ## Runde 5 — 2026-10-26
 
