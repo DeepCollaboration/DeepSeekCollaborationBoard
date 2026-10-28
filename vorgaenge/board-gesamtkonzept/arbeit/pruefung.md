@@ -21,3 +21,18 @@
 - **Entscheidende Zeile:** `ok Datei: „Board Gesamtkonzept“ öffnet idee.md über /board/datei und /board/doc`
 - **Befund:** `/board/datei`, `/board/doc` und `/board/dateien` lesen die Datei aus dem Vorhaben-Repository; ein fremdes Vorhaben antwortet 404, `../idee.md` 400. Die volle Suite besteht aus 19 von 19 Prüfungen; Fassung 1 bleibt unverändert, `client.js` ist unverändert. `werkzeuge/pruefflaeche.mjs` legt die fünf Repositories mit je einer Fassung an und gibt zweimal denselben Board-Pfad aus; ein geändertes `vorhaben.json` (Position `umsetzen`) und eine zusätzliche Datei blieben beim zweiten Lauf byte-gleich. Das echte Hauptboard (Fassung 1) liest weiter seine vier Vorhaben.
 
+## Schritt 04 — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt21.mjs` und `node --test`
+- **Exit-Code:** 0 und 0
+- **Entscheidende Zeile:** `ok Weitergeben: Commit 61cdd7a nennt nur vorhaben.json; station-idee, station-umsetzen, workflow und board sind unverändert`
+- **Befund:** Die Route `/board/vorhaben/verschieben` schreibt für Fassung 2 nur `vorhaben.json` im Vorhaben-Repository und committet nur diese Datei; die HEADs der Stationen, des Workflows und des Boards bleiben gleich. Der Fassung-1-Zweig ist byte-gleich geblieben; die volle Suite besteht aus 20 von 20 Prüfungen. Die laufende Prüffläche blieb unberührt.
+
+## Schritt 05 — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt22.mjs`, `node --test` und `node --check client.js`
+- **Exit-Code:** 0, 0 und 0
+- **Entscheidende Zeile:** `ok Stand: Vorhaben zuerst 1 Fassung nur lokal, dann abgeglichen; station-idee, station-umsetzen, workflow und board: kein Remote`
+- **Befund:** Der Abgleich arbeitet je Repository; ein Repository ohne Remote steht als „kein Remote“ da, ein Fehler bleibt an seinem Repository, das Board bleibt sichtbar. Der Client zeigt eine Zeile je Repository, die alte Zusammenfassung bleibt. Die volle Suite besteht aus 21 von 21 Prüfungen; Fassung 1 bleibt unverändert.
+
+
