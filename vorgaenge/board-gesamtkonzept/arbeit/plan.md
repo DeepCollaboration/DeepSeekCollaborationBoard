@@ -1,44 +1,39 @@
 # Plan
 
-Übernommen aus `bauplan.md` vom 2026-10-26, Schritte unverändert. Scheiben und
-Reihenfolge sind dort begründet.
-
 ## Scheiben
 
-1. **Zwei Personen sehen einander** — Schritte 01–07. Danach stehen fremde
-   Workflows, Schritte und Vorhaben mit Host und Verantwortlichem auf dem Board,
-   und der Stand ist abgeglichen.
-2. **Ein fremder Schritt läuft bei mir** — Schritte 08–10. Danach kann ein eigenes
-   Vorhaben einen fremden Schritt benutzen, und sein Skill läuft im eigenen
-   Harness.
-3. **Beitragen und annehmen** — Schritte 11–12. Danach lässt sich an einem fremden
-   Vorhaben ein Beitrag anlegen; der Verantwortliche nimmt an, lehnt ab oder nimmt
-   Teile.
-4. **Herkunft und Rückweg** — Schritte 13–14. Danach tragen Zweig und Fork ihre
-   Herkunft, und ein Rücksprung steht am Vorhaben, bis es wieder daran vorbei ist.
-5. **Nichts wird still überschrieben** — Schritte 15–16. Danach schreibt weder ein
-   überholter Stand noch eine ältere Programmfassung.
+1. **Das zusammengesetzte Board** — vier Repositories, ein Board; lesen, zeigen, weitergeben, Stand je Repository.
+2. **Anzeige, Bibliothek, Vertrauen** — Boards hinzufügen und wechseln; Stationen und Workflows in der Bibliothek; das Vertrauensbild.
+3. **Der Umzug** — die alte Ablage lesen; die vorhandenen Inhalte in getrennte Repositories schreiben; öffentlich und privat trennen.
+4. **GitHub und die Zugänge** — Token, Metadaten, Sterne; öffentlich und privat; das Hauptboard kommt von selbst; der Katalog.
+5. **Zusammenarbeit** — Beiträge als Pull Requests, Verantwortung und Teams, Forken und Fragen.
+6. **Die Einladung** — das Probeprojekt, die frische Installation, die Abnahme, die alte Ablage abnehmen.
 
 ## Schritte
 
 | Nr | Schritt | Ergebnis | Prüfung | Status |
 | --- | --- | --- | --- | --- |
-| 01 | Das Board wird ein Produkt dieses Vorhabens | `produkt/` mit dem Plugin; Profil lädt von dort | Kopie identisch; Profilauflösung zeigt auf `produkt/`; Board unverändert | bestanden |
-| 02 | Die Ablage ist ein eigenes Repository mit meiner Person | `projekte/board/.git`, `produkt/board.config.json` | Speichern im Board → `git log --format=%an` nennt den eigenen Namen; `/workspace` bleibt ruhig | bestanden |
-| 03 | Die Ablage trägt Personen und Workflows | `format`, `personen/`, `workflows/`, `vorgaenge/*/vorhaben.json`; `board.json` weg | Board zeigt dieselben Stationen; Leser, Verlauf, Vergleich arbeiten; `board.json` fehlt | bestanden |
-| 04 | Der Abgleich holt und gibt | Route `/board/sync`; Anzeige „zuletzt abgeglichen“ und „n Fassungen nur hier“ | Zweiter Klon am nackten `origin`: Änderung kommt an, eigene Fassung liegt im Remote; ohne Remote öffnet das Board und sagt es | bestanden |
-| 05 | Der Workflow der anderen Person steht auf meinem Board | `/board/data` liefert `workflows`; fremde Fläche sichtbar | Fremde Person samt zwei Schritten erscheint; fremder Schritt zeigt keine Änderungsfelder; eigener Workflow unverändert | bestanden |
-| 06 | Jedes Vorhaben nennt seinen Verantwortlichen | `verantwortliche`, `regel`; Anzeige; eine Prüfung für Handlungen | Eigenes Vorhaben: „verantwortet von <ich>“ und Weitergeben da; fremdes: Weitergeben fehlt | bestanden |
-| 07 | Ein fremdes Vorhaben steht auf meinem Board und lässt sich lesen | Fremde Vorhaben sichtbar und lesbar, ohne Eingriff | Fremdes Vorhaben an dessen Station mit Namen; `idee.md` öffnet; Umbenennen, Ziehen, Speichern fehlen | bestanden |
-| 08 | Der Skill eines Schritts liegt in der Ablage | `skills/<person>/<schritt>.md`; Lauf nimmt die Anweisung von dort | Während des Laufs liegt `$DSH_HOME/skills/<host>-<schritt>/SKILL.md`, danach nicht; Transkript am Schritt | bestanden |
-| 09 | Mein Workflow enthält einen fremden Schritt | Verweis in `workflows/<ich>.json`; fremde Station sichtbar | Schritt steht mit „bei <Person>“; Einstellungen nicht öffenbar; fremde Datei unverändert | bestanden |
-| 10 | Der Skill der anderen Person läuft in meinem Harness | Lauf eines fremden Schritts; Transkript im eigenen Vorhaben | Gespräch folgt der Anweisung aus der Ablage; Transkript unter `transkripte/`; Ablage ruhig | bestanden |
-| 11 | Am fremden Vorhaben speichert der Editor als Beitrag | `beitraege/<vorhaben>/<beitrag>.json` und vorgeschlagene Dateien; Beitrag sichtbar | Beitrag erscheint mit Namen und Notiz; Originaldatei unverändert | bestanden |
-| 12 | Der Verantwortliche entscheidet über den Beitrag | `entschieden`; Übernahme als neue Fassung | Annehmen schreibt den Text; Teile übernehmen nur die genannten; Ablehnen lässt alles | bestanden |
-| 13 | Zweig und Fork tragen ihre Herkunft | `zweig_von`, `fork_von`; Anzeige am Vorhaben | Zweig trägt Herkunft, Original unverändert; Fork eines fremden Vorhabens nennt dessen Namen | bestanden |
-| 14 | Der Rücksprung steht am Vorhaben | `rueckkehr`-Vermerk; Anzeige | Zurückschicken zeigt Grund und Ziel; darüberziehen setzt `erledigt`, Vermerk verschwindet aus der Anzeige | bestanden |
-| 15 | Speichern auf einem überholten Stand schreibt nicht | Basisprüfung vor dem Schreiben; „mein Text als Beitrag“ | Alter Stand wird nicht geschrieben; Meldung; eigener Text bleibt; Datei unverändert | bestanden |
-| 16 | Zwei Programmfassungen schreiben nicht gegeneinander | `format`-Vergleich vor dem Schreiben | Höhere `format`-Zahl → kein Schreiben, Meldung nennt sie; zurückgestellt → Speichern geht | bestanden |
-
-Stopp-Punkte laut Bauplan: 01, 02, 03, 04, 10. Sie markieren hohes Risiko, nicht
-einen Halt; der Lauf geht weiter.
+| 01 | Die vier Formate lesen | `repos.js`, `formate/station.js`, `workflow.js`, `vorhaben.js`, `board.js`; Prüfablage; `test/schritt18.mjs` | `node --test test/schritt18.mjs` und die alte Prüfsuite grün | läuft |
+| 02 | Das Board aus den Repositories zusammensetzen | `/board/data` liefert das gewohnte Bild aus der Prüfablage | `curl /board/data` nennt Karte und Stationen | offen |
+| 03 | Die Fläche zeigt das zusammengesetzte Board | Seite zeigt Karte an der Station, Datei öffnet | Board-Seite, Testboard, Karte | offen |
+| 04 | Weitergeben schreibt ins Vorhaben-Repository | `position` in `vorhaben.json`; nur dieses Repository | `git log -1 --stat` im Vorhaben-Repository | offen |
+| 05 | Der Stand je Repository | Standzeile je Repository; offline sichtbar | Remote abschalten, weitergeben, wieder abgleichen | offen |
+| 06 | Die Anzeige: Boards hinzufügen, wechseln, entfernen | Board-Liste; Hauptboard fest | Testboard aufnehmen, öffnen, entfernen | offen |
+| 07 | Die Bibliothek: Stationen, Workflows, Vorhaben | Karten der drei Arten mit Host und Fassung | Bibliothek öffnen; drei Arten | offen |
+| 08 | Eine Station in einen Workflow stellen | Workflow-Repository schreibt `stationen`/`positionen`/`kanten` | `git log -1 --stat` im Workflow-Repository | offen |
+| 09 | Das Vertrauensbild einer Station | Stationsseite: Host, Fassung, Beschreibung, Beispiele, Verwendung, Verweis | Station öffnen; fehlende Angaben als fehlend | offen |
+| 10 | Einen Workflow in ein Board übernehmen | `board.json` schreibt den Verweis; Fläche baut neu | `git log -1 --stat` im Board-Repository | offen |
+| 11 | Die alte Ablage lesen | Fassung 1 bleibt lesbar; Fassung 2 daneben | altes Board unverändert; beide Prüfungen grün | offen |
+| 12 | Das Umzugswerkzeug | `werkzeuge/umzug2.mjs`; Bericht; neue lokale Repositories | Umzug auf einer Kopie; Bericht zählt | offen |
+| 13 | Die vorhandenen Inhalte umziehen | Hauptboard öffentlich, Team-Board privat; vier Vorhaben privat | zwei Boards; altes Board bleibt | offen |
+| 14 | GitHub-Client und Token | `github.js`; Token 0600; Metadaten und Sterne | öffentliches Repository zeigt Sterne; Token eintragen/löschen | offen |
+| 15 | Öffentlich und privat | Repositories auf GitHub; Sichtbarkeit; Lesemodus; Verweisprüfung | öffentlich lesbar; privat nur mit Zugang; Lücke bei privatem Verweis | offen |
+| 16 | Das Hauptboard kommt von selbst | frisches Profil sieht das Hauptboard ohne Einrichten | frisches Profil; Hauptboard; Entfernen fehlt | offen |
+| 17 | Sterne und Katalog | Katalog mit Sternen, Suche, Verweis, Zwischenspeicher | Katalog; Suche; Neuladen aus dem Zwischenspeicher | offen |
+| 18 | Beiträge als Pull Requests | PR lesen/anlegen; Board zeigt Stand | Test-PR; Board; zusammenführen | offen |
+| 19 | Verantwortung und Teams | Host, Verantwortliche, Teams sichtbar; Schreibprüfung | Station, Vorhaben, Team; Schreiben abgewiesen | offen |
+| 20 | Forken und Fragen | Fork und Issue verlinkt; Board zeigt Stand | Fork; Issue; schließen | offen |
+| 21 | Das Probeprojekt | öffentliches Vorhaben an „Idee“; übernehmen in eigenes Board | Hauptboard; übernehmen; Original bleibt | offen |
+| 22 | Die frische Installation | frisches Profil: Hauptboard, Identität später, eigenes Board | frisches Profil; übernehmen; eigenes Board | offen |
+| 23 | Die Abnahme | Wege gegangen; Prüfungen; Bericht | Liste der Wege mit Ergebnis | offen |
+| 24 | Die alte Ablage abnehmen | Fassung 1 nur noch lesbar; altes Board Archiv | neue Prüfungen; altes Board lesbar; Schreiben abgewiesen | offen |
