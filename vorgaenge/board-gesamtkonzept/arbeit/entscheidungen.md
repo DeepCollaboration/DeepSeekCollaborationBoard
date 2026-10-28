@@ -35,3 +35,9 @@ Das vorhandene Ziel (`goal-39c38a9a…`) war nach dem alten Bau blockiert (Neust
 Die Schritte 01–02 sind über die Prüfungen belegbar. Die Fläche (ab Schritt 03) und die Abnahme (Schritt 23) brauchen einen Neustart des Harness; den macht der Auftraggeber, nicht die Sitzung.
 
 **Folge:** Der Bau kann bis dahin laufen; die Abnahme wird am lebenden Board nachgeholt.
+
+## 2026-10-28 — Angehalten vor dem ersten Schreiben
+
+Der Arbeiter für Schritt 01 wurde gestoppt, bevor er eine Datei geschrieben hat; das Produkt (`/workspace/projekte/board-plugin`) ist unverändert. Das Ziel ist pausiert.
+
+**Folge:** Kein halber Stand im Produkt; Schritt 01 beginnt beim nächsten Start neu. Der Stand liegt in `plan.md`, `fortschritt.md` und `schritte/01.md`; eine Kompaktierung des Gesprächs verliert ihn nicht.
