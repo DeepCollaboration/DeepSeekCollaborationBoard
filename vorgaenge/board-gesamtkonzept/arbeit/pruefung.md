@@ -42,5 +42,29 @@
 - **Entscheidende Zeile:** `ok Wechsel: testboard aktiv; darf.weitergeben: true, darf.verschieben: true, darf.aendern: true, darf.zurueckschicken: true; verantwortet von Thomas Heinrich`
 - **Befund:** Der Rückwechsel auf ein Board der Fassung 2 liefert 200, weil die Route jetzt `board.json` prüft; `/board/data` liefert `darf` aus derselben Stelle wie Fassung 1, für eine fremde Person false. Die volle Suite besteht aus 22 von 22 Prüfungen; Fassung 1 bleibt unverändert.
 
+## Schritt 06 — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt24.mjs`, `node --test`, `node --check client.js` und `node --check index.js`
+- **Exit-Code:** 0, 0, 0 und 0
+- **Entscheidende Zeile:** `ok Kennzahlen: Hauptboard abgewiesen (409 „Das Hauptboard bleibt“); Testboard entfernt und über seinen Ordner wieder aufgenommen, die fünf Ordner liegen weiter da; Identität geändert, GET /board/boards zeigt „Thomas Neu“`
+- **Befund:** `GET /board/boards` liefert je Board Art, Form, Besitzer, Verweise, Stand und Fehler; das Hauptboard lässt sich nicht entfernen, ein anderes Board schon, seine Dateien bleiben. Die Anzeige zeigt Öffnen, Adresse und Entfernen; die Identität ist dort änderbar. Die volle Suite besteht aus 23 von 23 Prüfungen; Fassung 1 bleibt unverändert.
+
+## Schritt 07 — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt25.mjs`, `node --test`, `node --check client.js` und `node --check index.js`
+- **Exit-Code:** 0, 0, 0 und 0
+- **Entscheidende Zeile:** `ok Bibliothek: Stationen „Idee“ und „Umsetzen“ (Host p1, Fassung v1); Workflow „Standard-Workflow“ (Autor p1, Fassung v1, 2 Stationen); Vorhaben „Board Gesamtkonzept“ (Fassung v1, verantwortet von Thomas Heinrich)`
+- **Befund:** `/board/data` trägt für Fassung 2 die drei Arten mit Host und Fassung; das Vorhaben nennt seinen Workflow mit fester Fassung. Der Client zeigt drei Abschnitte und die Einzelheiten; Fassung 1 behält die bisherige Bibliothek samt „+ Neue Station“. Die volle Suite besteht aus 24 von 24 Prüfungen.
+
+## Schritt 08 — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt26.mjs`, `node --test`, `node --check client.js` und `node --check index.js`
+- **Exit-Code:** 0, 0, 0 und 0
+- **Entscheidende Zeile:** `ok Workflow gestellt: Commit fb2b1eb nennt nur workflow.json; Station „Prüfen“ als Verweis und Position „pruefen“; station-pruefen, station-idee, station-umsetzen, vorhaben und board unverändert`
+- **Befund:** `/board/data` liefert alle Stationen des Boards mit `imWorkflow`; die Route stellt eine Station in den Workflow, schreibt Verweis, Position und Kante nur in `workflow.json` und committet nur diese Datei. Unbekannte Station 404 ohne Commit; Fassung 1 unverändert; 25 von 25 Prüfungen.
+
+
+
+
 
 

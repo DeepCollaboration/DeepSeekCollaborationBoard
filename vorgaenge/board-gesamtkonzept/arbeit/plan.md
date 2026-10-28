@@ -19,9 +19,9 @@
 | 04 | Weitergeben schreibt ins Vorhaben-Repository | `position` in `vorhaben.json`; nur dieses Repository | `git log -1 --stat` im Vorhaben-Repository | bestanden |
 | 05 | Der Stand je Repository | Standzeile je Repository; offline sichtbar | Remote abschalten, weitergeben, wieder abgleichen | bestanden |
 | 05b | Die sichtbaren Aktionen der ersten Scheibe | Wechsel auf ein Board der Fassung 2; Karte zeigt „Weitergeben“ | Board-Leiste, Karte, `/board/data` mit `darf` | bestanden |
-| 06 | Die Anzeige: Boards hinzufügen, wechseln, entfernen | Board-Liste; Hauptboard fest | Testboard aufnehmen, öffnen, entfernen | offen |
-| 07 | Die Bibliothek: Stationen, Workflows, Vorhaben | Karten der drei Arten mit Host und Fassung | Bibliothek öffnen; drei Arten | offen |
-| 08 | Eine Station in einen Workflow stellen | Workflow-Repository schreibt `stationen`/`positionen`/`kanten` | `git log -1 --stat` im Workflow-Repository | offen |
+| 06 | Die Anzeige: Boards hinzufügen, wechseln, entfernen | Board-Liste; Hauptboard fest | Testboard aufnehmen, öffnen, entfernen | bestanden |
+| 07 | Die Bibliothek: Stationen, Workflows, Vorhaben | Karten der drei Arten mit Host und Fassung | Bibliothek öffnen; drei Arten | bestanden |
+| 08 | Eine Station in einen Workflow stellen | Workflow-Repository schreibt `stationen`/`positionen`/`kanten` | `git log -1 --stat` im Workflow-Repository | bestanden |
 | 09 | Das Vertrauensbild einer Station | Stationsseite: Host, Fassung, Beschreibung, Beispiele, Verwendung, Verweis | Station öffnen; fehlende Angaben als fehlend | offen |
 | 10 | Einen Workflow in ein Board übernehmen | `board.json` schreibt den Verweis; Fläche baut neu | `git log -1 --stat` im Board-Repository | offen |
 | 11 | Die alte Ablage lesen | Fassung 1 bleibt lesbar; Fassung 2 daneben | altes Board unverändert; beide Prüfungen grün | offen |
