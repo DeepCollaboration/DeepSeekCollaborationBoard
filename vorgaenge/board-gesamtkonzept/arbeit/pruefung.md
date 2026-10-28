@@ -35,4 +35,12 @@
 - **Entscheidende Zeile:** `ok Stand: Vorhaben zuerst 1 Fassung nur lokal, dann abgeglichen; station-idee, station-umsetzen, workflow und board: kein Remote`
 - **Befund:** Der Abgleich arbeitet je Repository; ein Repository ohne Remote steht als „kein Remote“ da, ein Fehler bleibt an seinem Repository, das Board bleibt sichtbar. Der Client zeigt eine Zeile je Repository, die alte Zusammenfassung bleibt. Die volle Suite besteht aus 21 von 21 Prüfungen; Fassung 1 bleibt unverändert.
 
+## Schritt 05b — bestanden
+
+- **Befehl:** `cd /workspace/projekte/board-plugin && node --test test/schritt23.mjs`, `node --test` und `node --check index.js`
+- **Exit-Code:** 0, 0 und 0
+- **Entscheidende Zeile:** `ok Wechsel: testboard aktiv; darf.weitergeben: true, darf.verschieben: true, darf.aendern: true, darf.zurueckschicken: true; verantwortet von Thomas Heinrich`
+- **Befund:** Der Rückwechsel auf ein Board der Fassung 2 liefert 200, weil die Route jetzt `board.json` prüft; `/board/data` liefert `darf` aus derselben Stelle wie Fassung 1, für eine fremde Person false. Die volle Suite besteht aus 22 von 22 Prüfungen; Fassung 1 bleibt unverändert.
+
+
 
