@@ -47,3 +47,9 @@ Der Arbeiter für Schritt 01 wurde gestoppt, bevor er eine Datei geschrieben hat
 Der Symlink `vorgaenge/board-gesamtkonzept/produkt` auf `/workspace/projekte/board-plugin` ist entfernt. Er war nur eine lokale Abkürzung, ist nicht Teil des Vorhabens und brach die alte Prüfsuite: `test/schritt15.mjs` und `test/schritt16.mjs` kopieren das Board und lesen dabei auch den verlinkten Ordner als Datei (EISDIR).
 
 **Folge:** Das Produkt liegt weiter unter `/workspace/projekte/board-plugin`; die alte Suite ist wieder grün (16 von 16). Am Board-Inhalt ändert sich nichts.
+
+## 2026-10-28 — Das DSH-Profil verweist direkt auf das Produkt
+
+Der Plugin-Link im Web-Profil (`/dsh-home/profiles/web`) zeigte auf den entfernten `produkt`-Symlink. Nach dem Neustart fehlte das Board deshalb in der Seitenleiste. Profil, Lockdatei und `node_modules/@local/dsh-board` zeigen jetzt direkt auf `/workspace/projekte/board-plugin`.
+
+**Folge:** Kein Symlink im Vorhaben nötig; die alte Prüfsuite bleibt grün. Ein weiterer Neustart des Web-Prozesses lädt das Plugin wieder.
