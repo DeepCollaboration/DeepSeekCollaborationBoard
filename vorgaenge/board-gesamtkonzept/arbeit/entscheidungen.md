@@ -53,3 +53,9 @@ Der Symlink `vorgaenge/board-gesamtkonzept/produkt` auf `/workspace/projekte/boa
 Der Plugin-Link im Web-Profil (`/dsh-home/profiles/web`) zeigte auf den entfernten `produkt`-Symlink. Nach dem Neustart fehlte das Board deshalb in der Seitenleiste. Profil, Lockdatei und `node_modules/@local/dsh-board` zeigen jetzt direkt auf `/workspace/projekte/board-plugin`.
 
 **Folge:** Kein Symlink im Vorhaben nötig; die alte Prüfsuite bleibt grün. Ein weiterer Neustart des Web-Prozesses lädt das Plugin wieder.
+
+## 2026-10-28 — Nachbesserung 05b: Wechsel und sichtbare Aktionen
+
+Beim Ausprobieren der ersten Scheibe konnte der Auftraggeber nicht auf das Testboard zurückwechseln: `/board/boards/wechsel` verlangte die Datei `format`, die ein Board der Fassung 2 nicht hat, und antwortete mit 409. Die Karte zeigte außerdem kein „Weitergeben“, weil `/board/data` für Fassung 2 das Feld `darf` nicht setzte — der Client blendet die Aktionen ohne `darf` aus.
+
+**Folge:** Schritt 05b behebt beides; die Prüfung deckt den Rückwechsel und `darf` ab. Die Schritte 03 und 04 bleiben inhaltlich bestanden, die sichtbare Abnahme der ersten Scheibe hängt an 05b.
