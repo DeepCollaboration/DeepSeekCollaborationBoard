@@ -41,3 +41,9 @@ Die Schritte 01–02 sind über die Prüfungen belegbar. Die Fläche (ab Schritt
 Der Arbeiter für Schritt 01 wurde gestoppt, bevor er eine Datei geschrieben hat; das Produkt (`/workspace/projekte/board-plugin`) ist unverändert. Das Ziel ist pausiert.
 
 **Folge:** Kein halber Stand im Produkt; Schritt 01 beginnt beim nächsten Start neu. Der Stand liegt in `plan.md`, `fortschritt.md` und `schritte/01.md`; eine Kompaktierung des Gesprächs verliert ihn nicht.
+
+## 2026-10-28 — Der Produkt-Verweis im Vorhaben entfällt
+
+Der Symlink `vorgaenge/board-gesamtkonzept/produkt` auf `/workspace/projekte/board-plugin` ist entfernt. Er war nur eine lokale Abkürzung, ist nicht Teil des Vorhabens und brach die alte Prüfsuite: `test/schritt15.mjs` und `test/schritt16.mjs` kopieren das Board und lesen dabei auch den verlinkten Ordner als Datei (EISDIR).
+
+**Folge:** Das Produkt liegt weiter unter `/workspace/projekte/board-plugin`; die alte Suite ist wieder grün (16 von 16). Am Board-Inhalt ändert sich nichts.

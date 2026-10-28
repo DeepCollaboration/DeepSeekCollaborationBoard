@@ -13,7 +13,7 @@
 
 | Nr | Schritt | Ergebnis | Prüfung | Status |
 | --- | --- | --- | --- | --- |
-| 01 | Die vier Formate lesen | `repos.js`, `formate/station.js`, `workflow.js`, `vorhaben.js`, `board.js`; Prüfablage; `test/schritt18.mjs` | `node --test test/schritt18.mjs` und die alte Prüfsuite grün | offen |
+| 01 | Die vier Formate lesen | `repos.js`, `formate/station.js`, `workflow.js`, `vorhaben.js`, `board.js`; Prüfablage; `test/schritt18.mjs` | `node --test test/schritt18.mjs` und die alte Prüfsuite grün | läuft |
 | 02 | Das Board aus den Repositories zusammensetzen | `/board/data` liefert das gewohnte Bild aus der Prüfablage | `curl /board/data` nennt Karte und Stationen | offen |
 | 03 | Die Fläche zeigt das zusammengesetzte Board | Seite zeigt Karte an der Station, Datei öffnet | Board-Seite, Testboard, Karte | offen |
 | 04 | Weitergeben schreibt ins Vorhaben-Repository | `position` in `vorhaben.json`; nur dieses Repository | `git log -1 --stat` im Vorhaben-Repository | offen |
