@@ -572,3 +572,8 @@ Ein frischer Prüfer (eigener Kontext, nur Lesen) hielt die Umsetzung gegen das 
 - **Prüfung/Tests:** `test/nach65.mjs` ist an Umbruch und schrumpfbares Feld angepasst, `test/nach81.mjs` unverändert; `test/nach82.mjs` verlangt Rückfallzeile, opake Mischung und Klasse (`179–191`) und die Filterrichtung (`281–282`). Eigene Gegenproben in `/tmp/board82c-pruef`: `!==` → `===` rot, Rückfallzeile entfernt rot, `color-mix` entfernt rot, `className` entfernt rot; Produkt unverändert.
 - **Umfang/Hash:** Nach 22:48 nur `client.js` (23:00) und `test/nach82.mjs` (23:00) geschrieben; `test/nach65.mjs` (22:55) unverändert gegenüber dem zweiten Lauf, `index.js`, `texte/*`, `locale/*` unberührt. Client und sieben Wörterbücher je 603 Schlüssel, `de.json` leer. Produkt-Hash: `4f888cda1d717d0c4acaf633706fca9794bac92093534a7ea912a802c5db14f0`.
 - **Urteil:** Der Ton ist jetzt opak, in beiden Modi vom Kartenfeld unterscheidbar, der Rückfall ist vorhanden und die Fläche wird erst nach dem Stil eingehängt gerendert; Filterrichtung und 360-Umbruch sind nachvollziehbar geprüft. Bestanden mit den genannten Einschränkungen (heller Rückfall ohne `color-mix` nur Schichtton; feste 44 px zugunsten des Umbruchs aufgegeben).
+
+## Schritt 82 — vierter Lauf abgebrochen
+
+- **Befehl:** nicht abgeschlossen.
+- **Stand:** Der vierte Lauf lief über eine Stunde ohne Zwischenstand und wurde abgebrochen; er hat nichts geschrieben. Es bleibt beim Urteil des dritten Laufs (bestanden). Nach dem dritten Lauf wurde die Board-Liste geändert (605 Schlüssel, `boardStandWort`, Metazeile); diese Änderung prüft der Lauf zu Schritt 83 mit.

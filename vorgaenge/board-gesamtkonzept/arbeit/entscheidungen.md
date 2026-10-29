@@ -143,3 +143,7 @@ Die Konvergenzprüfung gegen `architektur.md` fand 18 Produktabweichungen. Sie w
 
 - **Zoom ist zurückgestellt.** „Alles zeigen“ und der Sprung zur Station lösen das Problem, das der Zoom lösen sollte: die Karte wiederfinden. Ein Zoom auf einer freien Fläche muss alle Zeigerkoordinaten für Ziehen und Verbinden umrechnen; ohne Browser wäre das nicht prüfbar. Folge: kein Zoom, bis er ihn braucht; dann als eigener Vorgang mit Sichtprüfung.
 - **Abstände bleiben ohne Skala.** Schrift und Radien sind vereinheitlicht; die Abstände (4/8/12/16) stehen als Kommentar im Stilblock, werden aber nicht über hunderte Stellen gezogen. Folge: einzelne Abstände bleiben krumm (7 px, 11 px). Grund: Jede Änderung verschiebt Layout um ein bis drei Pixel, und ohne Browser ist keine davon zu sehen — der Gewinn wäre kleiner als das Risiko.
+
+## 2026-10-30 — Reihenfolge
+
+- **Erst die Technik, dann das Aussehen.** Jede Runde belegt zuerst, dass die Wege tragen — Suite, Abnahme, kalter Start —; erst danach wird verschönert. Folge: Der Feinschliff beginnt später, dafür auf einem Stand, der nachweislich läuft. Grund: Ein schönes Board, das nicht lädt oder nicht schreibt, ist keine Oberfläche, sondern eine Attrappe.
