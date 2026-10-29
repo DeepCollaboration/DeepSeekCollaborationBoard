@@ -289,6 +289,261 @@ Danach ist zum ersten Mal sichtbar, dass das Board nicht mehr ein Repository ist
 - **Prüfung:** Die neuen Prüfungen laufen; das alte Board öffnet sich lesbar; ein Schreibversuch im alten Board wird abgewiesen; die Anzeige zeigt es als Archiv.
 - **Stopp:** ja — der Auftraggeber bestätigt, dass das alte Board nicht mehr gebraucht wird.
 
+## Zweiter Bauabschnitt — Der Marktplatz
+
+Die erste Fassung hat das Board aus getrennten Repositories gebaut; sie steht. Dieser Abschnitt macht es offen: Fremde legen Stationen und Vorhaben unter ihrem eigenen Namen an, andere finden sie über ein Thema bei GitHub, und der Anlegeweg ist so geschnitten, dass später ein Torwächter an seine Stelle treten kann, ohne die Fläche umzubauen.
+
+### Erste Scheibe
+
+Eine Station unter eigenem Namen anlegen, sie öffentlich bei GitHub stehen sehen und sie ohne Zutun auf einem fremden Board wiederfinden.
+
+Danach ist zum ersten Mal sichtbar, dass das Board nicht nur viele Repositories zusammensetzt, sondern dass fremde Arbeit von selbst hereinkommt: Der eine legt an, der andere sieht es, ohne dass jemand etwas freischaltet. Wer das sieht, kann beurteilen, ob Offenheit ohne Dienst und ohne Schlüssel im Plugin trägt.
+
+### Voraussetzungen
+
+- Ein **Testkonto** bei GitHub (nicht sein Hauptkonto) mit einem feinen Token, das Repositories anlegen und Themen setzen darf. Ohne ihn sind die Schritte 27, 29, 38, 39, 42 und 43 nur gegen den nachgebildeten Server geprüft; die Abnahme wartet.
+- Ein **zweiter Eigentümer** für die Abnahme: ein zweites Konto oder die Organisation.
+- **Netz** für die Live-Prüfungen; die Suite bleibt ohne Netz.
+- Die Organisation bleibt kuratiert; für das Hauptboard braucht es weiter ein Recht auf die Organisation.
+
+### Was dieser Abschnitt nicht baut
+
+- Den **Torwächter** (GitHub App oder Action). Die Naht hält den Platz; gebaut wird er erst, wenn ein Schlüssel bei GitHub liegen darf und die Regeln stehen.
+- Die **Geräte-Anmeldung**. Der Token wird weiter eingetragen; die Anmeldung ist Komfort, kein Weg.
+- Die **automatische Mitgliedschaft** in der Organisation. Sie ist ein Admin-Recht und bleibt draußen.
+- Den **Übertrag** eigener Repositories in die Organisation. GitHub kann ihn; das Board bietet ihn nicht an.
+
+### Scheiben
+
+1. **Eine fremde Station** (Schritte 25–28): Eigentümer, Anmeldung und Recht, Anlegen mit der Naht, Auffinden.
+2. **Ein eigenes Vorhaben** (Schritte 29–33): anlegen, Dateien speichern, Fassungen lesen, Verweise, Konflikt.
+3. **Katalog und Vertrauen** (Schritte 34–37): zusammenführen, vollständig, sauber, Vertrauensbild.
+4. **Mitarbeiten** (Schritte 38–40): Beitrag als Pull Request, Verantwortung, alte Ablage weg.
+5. **Abschluss** (Schritte 41–44): fehlende Routen, Umzug als Route, Abnahme, frische Installation.
+
+### Schritte
+
+25. Der Eigentümer ist eine Einstellung.
+26. Anmelden und dürfen.
+27. Eine Station anlegen — mit austauschbarem Anlegeweg.
+28. Auffinden.
+29. Ein Vorhaben anlegen.
+30. Dateien speichern.
+31. Fassungen lesen.
+32. Verweise als `owner/repo`.
+33. Die Konfliktmeldung nennt die Datei.
+34. Der Katalog führt zusammen.
+35. Der Katalog ist vollständig.
+36. Der Katalog bleibt sauber.
+37. Das Vertrauensbild.
+38. Beitragen als Pull Request.
+39. Verantwortung und Veröffentlichen.
+40. Die alte Beitragsablage entfernen.
+41. Die fehlenden Routen.
+42. Der Umzug als Route.
+43. Zwei Menschen, ein Board.
+44. Die frische Installation.
+
+### Schritt 25 — Der Eigentümer ist eine Einstellung
+
+- **Scheibe:** Eine fremde Station.
+- **Ziel:** Ein Board weiß, unter welchem Eigentümer neue Repositories entstehen; nichts ist mehr fest auf die Organisation verdrahtet.
+- **Eingang:** `bauplan.md` Schritte 1–24; `board.json` der Fassung 2 mit `einstellungen`; die vorhandene Einstellungsroute; `komposition.js`.
+- **Tun:** `einstellungen.eigentuemer` lesen und schreiben; Vorgabe ist der angemeldete GitHub-Name, für das bestehende Hauptboard `DeepCollaboration`; das Feld in `/board/data` mitgeben; die Anzeige nennt den Eigentümer dort, wo neue Dinge entstehen.
+- **Ergebnis:** Ein Board trägt seinen Eigentümer; das Hauptboard bleibt bei der Organisation; ein Board ohne Eintrag nimmt den angemeldeten Namen.
+- **Prüfung:** In einem Testboard den Eigentümer auf ein Testkonto setzen, neu laden, der Wert steht da; das Hauptboard nennt weiter `DeepCollaboration`; ohne Anmeldung bleibt der Eintrag leer und die Seite sagt warum.
+- **Stopp:** nein.
+
+### Schritt 26 — Anmelden und dürfen
+
+- **Scheibe:** Eine fremde Station.
+- **Ziel:** Das Board sagt, wer angemeldet ist und ob diese Person hier anlegen oder schreiben darf; ohne Token sagt es den Grund, und lokales Schreiben bleibt möglich.
+- **Eingang:** Schritt 25; `github.js`; `rechte.js`; `/board/github/stand`, `/board/github/token`.
+- **Tun:** `stand` nennt den Login und ob ein Token liegt; das Recht wird pro Person gefragt, nicht pro Token; ohne Remote gilt lokal ja; mit Remote und ohne Token nein, mit Grund und Verweis; die Seite bietet nur an, was auch geht.
+- **Ergebnis:** `/board/github/stand` nennt den Login; ein Board ohne Token zeigt „nur lesen“ mit Grund; ein lokales Repository lässt sich weiter beschreiben.
+- **Prüfung:** Testtoken eintragen, `stand` nennt den Login; Token entfernen, Anlegen wird mit Grund abgewiesen; eine Datei in einem lokalen Repository speichern, es geht.
+- **Stopp:** nein.
+
+### Schritt 27 — Eine Station anlegen — mit austauschbarem Anlegeweg
+
+- **Scheibe:** Eine fremde Station.
+- **Ziel:** Aus dem Board entsteht ein öffentliches Stations-Repository unter dem Eigentümer, mit Thema, `station.json` und README; der Anlegeweg ist eine Schnittstelle mit einem zweiten Platz.
+- **Eingang:** Schritte 25, 26; `formate/station.js`; `github.js`; die Route `/board/station`.
+- **Tun:** Anlegen über `einstellungen.anlegeweg`; „selbst“ legt im Konto oder in der Organisation an, setzt das Thema `dsh-board-station`, schreibt den ersten Stand und schickt ihn; Namenskollision und fehlendes Recht werden klar gemeldet; in der Prüfung wird eine Attrappe als zweiter Anlegeweg eingesetzt; die Oberfläche bietet nur „selbst“ an.
+- **Ergebnis:** Ein öffentliches Stations-Repository mit Thema und erstem Stand; die Karte steht im Board; die Route kennt keinen fest verdrahteten GitHub-Aufruf.
+- **Prüfung:** Über die Seite eine Station anlegen: Repository öffentlich, Thema gesetzt, Karte da; derselbe Name ein zweites Mal: klare Meldung; die Attrappe legt über dieselbe Route ohne Netz an; kein „Torwächter“ in der Oberfläche.
+- **Stopp:** nein — aber nur mit dem Testkonto, nie mit seinem Konto.
+
+### Schritt 28 — Auffinden
+
+- **Scheibe:** Eine fremde Station.
+- **Ziel:** Öffentliche Stationen anderer erscheinen ohne Zutun, neben den kuratierten; doppelte werden zusammengeführt.
+- **Eingang:** Schritt 27; `katalog.js`; `github.js`; `/board/katalog`.
+- **Tun:** Suche nach dem Thema, Zwischenspeicher mit Haltbarkeit, Zusammenführen mit `katalog.json`, Zusammenfassen über `owner/repo`, Grenzen und Fehler; anonymes Lesen ist der Normalfall.
+- **Ergebnis:** Die Katalogantwort nennt `kuratiert` und `gefunden`; eine fremde Station steht nach dem Neuladen da; ein kuratierter Eintrag erscheint nicht doppelt.
+- **Prüfung:** Ein öffentliches Repository mit dem Thema unter einem anderen Eigentümer; nach dem Neuladen steht es unter „gefunden“; das Hauptboard zeigt seine kuratierten weiter; ohne Netz steht der letzte Stand mit Hinweis.
+- **Stopp:** nein.
+
+### Schritt 29 — Ein Vorhaben anlegen
+
+- **Scheibe:** Ein eigenes Vorhaben.
+- **Ziel:** Ein Vorhaben entsteht als eigenes Repository unter dem Eigentümer, an einer Station, mit festem Workflow-Verweis; es erscheint als Karte.
+- **Eingang:** Schritte 25–28; `formate/vorhaben.js`; `POST /board/vorhaben`.
+- **Tun:** Zweig für Fassung 2; Recht prüfen; Repository anlegen, Thema `dsh-board-vorhaben`, `vorhaben.json` mit `position` und `workflow: { repo, fassung }`, erste Datei; schicken; Karte.
+- **Ergebnis:** Ein neues öffentliches Vorhaben-Repository; die Karte steht an der gewählten Station; der Workflow-Verweis trägt eine Fassung.
+- **Prüfung:** Vorhaben an „Idee“ anlegen: Repository, Thema, `vorhaben.json` mit Fassung; Karte; ohne Recht wird es abgewiesen.
+- **Stopp:** nein.
+
+### Schritt 30 — Dateien speichern
+
+- **Scheibe:** Ein eigenes Vorhaben.
+- **Ziel:** Eine Änderung an einer Datei eines Vorhabens landet in dessen Repository, nicht in der alten Ablage.
+- **Eingang:** Schritt 29; `/board/doc/schreiben`; `dateiBasis`.
+- **Tun:** Das Vorhaben-Repository auflösen; der Pfad bleibt darin; Commit; offline lokal, sonst schicken; kein `..`.
+- **Ergebnis:** Die Datei ist nach dem Neuladen geändert; der Commit steht im richtigen Repository.
+- **Prüfung:** Datei bearbeiten, neu laden, Inhalt da; `git log` im Vorhaben-Repository zeigt den Commit; ein Pfad mit `..` wird abgewiesen.
+- **Stopp:** nein.
+
+### Schritt 31 — Fassungen lesen
+
+- **Scheibe:** Ein eigenes Vorhaben.
+- **Ziel:** Die Komposition liest Stationen und Workflows auf der genannten Fassung; eine neue Stationsfassung ändert bestehende Workflows nicht.
+- **Eingang:** Schritte 29, 30; `komposition.js`; `workflow.json` und `board.json` mit `fassung`.
+- **Tun:** Die genannte Fassung aus der Git-Geschichte lesen; fehlt sie, gilt der aktuelle Stand und wird beim nächsten Schreiben festgehalten; das Nachziehen wird eine eigene Handlung; die Fassung steht an der Karte.
+- **Ergebnis:** Ein Workflow bleibt auf seiner Fassung; ein neuer Commit an der Station wirkt erst nach dem Nachziehen.
+- **Prüfung:** Eine Station ändern; der bestehende Workflow zeigt den alten Stand; nachziehen; jetzt zeigt er den neuen.
+- **Stopp:** nein.
+
+### Schritt 32 — Verweise als `owner/repo`
+
+- **Scheibe:** Ein eigenes Vorhaben.
+- **Ziel:** Neue Verweise tragen keinen absoluten Pfad; sie sind auf einem anderen Rechner auflösbar.
+- **Eingang:** Schritt 25; `/board/workflow/station`, `/board/workflow/verbinden`, `/board/uebernehmen`.
+- **Tun:** Die drei Schreibstellen; den Verweis aus dem Remote als `owner/repo` bilden; die alte Form weiter lesen.
+- **Ergebnis:** `workflow.json` und `board.json` enthalten `owner/repo`; kein neuer Verweis nennt `/workspace`.
+- **Prüfung:** Eine Station in einen Workflow stellen: der Verweis ist `owner/repo`; `grep /workspace` in den neuen Dateien findet nichts; ein zweiter Rechner mit frischem Zwischenspeicher löst ihn auf.
+- **Stopp:** nein.
+
+### Schritt 33 — Die Konfliktmeldung nennt die Datei
+
+- **Scheibe:** Ein eigenes Vorhaben.
+- **Ziel:** Bei einem Konflikt steht die betroffene Datei in der Meldung.
+- **Eingang:** `abgleich.js`.
+- **Tun:** Auch die Ausgabe des Abgleichs lesen; die Zeile mit dem Konflikt auswerten; die Datei nennen.
+- **Ergebnis:** Die Standzeile nennt die Datei; der Rest der Repositories bleibt in Ruhe.
+- **Prüfung:** Einen Konflikt erzeugen; die Meldung nennt die Datei; die übrigen Repositories bleiben unberührt.
+- **Stopp:** nein.
+
+### Schritt 34 — Der Katalog führt zusammen
+
+- **Scheibe:** Katalog und Vertrauen.
+- **Ziel:** Der Katalog zeigt kuratierte und gefundene Dinge in einer Antwort, ohne Doppel.
+- **Eingang:** Schritte 28, 31; `katalog.js`; `formate/katalog.js`.
+- **Tun:** `kuratiert` und `gefunden` zusammensetzen; über `owner/repo` zusammenfassen; den Stand mitgeben.
+- **Ergebnis:** Ein Katalog mit beiden Herkünften; die Herkunft ist am Eintrag sichtbar.
+- **Prüfung:** Ein eigener und ein fremder Eintrag; keine Doppel; beide Herkünfte stehen da.
+- **Stopp:** nein.
+
+### Schritt 35 — Der Katalog ist vollständig
+
+- **Scheibe:** Katalog und Vertrauen.
+- **Ziel:** Jeder Eintrag trägt Beispiele, Prüfung, Sterne, Fragen und Beiträge; Fragen und Beiträge werden getrennt gezählt.
+- **Eingang:** Schritt 34; `katalog.js`; `github.js`.
+- **Tun:** Beispiele aus dem Repository sammeln; `geprüft` mit Person und Datum durchreichen; offene Fragen und offene Pull Requests getrennt zählen; Sterne lesen.
+- **Ergebnis:** Ein Eintrag nennt Beispiele, Prüfung, Sterne, Fragen und Beiträge.
+- **Prüfung:** Ein Eintrag mit Beispielen: sie stehen da; ein offener Pull Request erhöht die Fragen nicht; `geprüft` nennt Person und Datum.
+- **Stopp:** nein.
+
+### Schritt 36 — Der Katalog bleibt sauber
+
+- **Scheibe:** Katalog und Vertrauen.
+- **Ziel:** Ein öffentlicher Katalog nennt keine privaten Dinge; Unerwünschtes lässt sich aus den Listen nehmen, ohne es zu löschen.
+- **Eingang:** Schritte 34, 35; `katalog.json`.
+- **Tun:** Private Einträge filtern und ihre Namen nicht nennen; eine Sperrliste `gesperrt` im Katalog; gesperrte Dinge aus den Listen nehmen; ein direkter Verweis bleibt lesbar.
+- **Ergebnis:** Kein privater Name im öffentlichen Katalog; Gesperrtes verschwindet aus den Listen.
+- **Prüfung:** Ein privates Repository in `katalog.json`: es erscheint nicht; einen Eintrag sperren: nach dem Neuladen weg; der direkte Verweis öffnet weiter.
+- **Stopp:** nein.
+
+### Schritt 37 — Das Vertrauensbild
+
+- **Scheibe:** Katalog und Vertrauen.
+- **Ziel:** Stationsseite und Bibliothekskarten zeigen Sterne, Releases, Fragen, Beiträge und Beispiele.
+- **Eingang:** Schritt 35; `/board/station`; `client.js`.
+- **Tun:** Die Metadaten lesen und zwischenspeichern; an der Station und an der Bibliothekskarte anzeigen; den Verweis ins Repository setzen.
+- **Ergebnis:** Eine Station mit Sternen zeigt sie; die Bibliothekskarte nennt sie, ohne dass die Einzelheit geöffnet wird.
+- **Prüfung:** Eine Station mit Sternen öffnen: Zahl und Releases da; in der Bibliothek zeigt die Karte Sterne, Beispiele und Fragen.
+- **Stopp:** nein.
+
+### Schritt 38 — Beitragen als Pull Request
+
+- **Scheibe:** Mitarbeiten.
+- **Ziel:** „Beitragen“ öffnet einen Pull Request; es entsteht keine lokale Beitragsdatei.
+- **Eingang:** Schritte 34–37; `/board/github/beitrag`; `/board/beitrag` (alt).
+- **Tun:** Die Oberfläche auf den Pull-Request-Weg führen; den Stand des Beitrags zeigen; die alte Route nicht mehr aufrufen.
+- **Ergebnis:** Ein Beitrag ist ein Pull Request; sein Stand ist sichtbar.
+- **Prüfung:** An einer fremden Station beitragen: der Pull Request existiert; unter `beitraege/` entsteht nichts.
+- **Stopp:** nein.
+
+### Schritt 39 — Verantwortung und Veröffentlichen
+
+- **Scheibe:** Mitarbeiten.
+- **Ziel:** Verantwortliche stehen an den Karten; Veröffentlichen hängt nur eigene Repositories um.
+- **Eingang:** Schritt 38; `/board/github/veroeffentlichen`.
+- **Tun:** `verantwortliche` anzeigen; prüfen, welche Repositories dem Board gehören; fremde auslassen und in der Meldung nennen.
+- **Ergebnis:** Ein Board mit fremden Verweisen veröffentlicht nur seine eigenen; die Meldung nennt die fremden; die Karten nennen die Verantwortlichen.
+- **Prüfung:** Ein Board mit einer fremden Station veröffentlichen: die fremde bleibt unberührt; die Meldung nennt sie; die Karte zeigt den Verantwortlichen.
+- **Stopp:** ja — es werden Repositories bei GitHub angelegt oder umgehängt.
+
+### Schritt 40 — Die alte Beitragsablage entfernen
+
+- **Scheibe:** Mitarbeiten.
+- **Ziel:** Kein Weg schreibt mehr `beitraege/` oder legt lokale Fork-Kopien an.
+- **Eingang:** Schritt 38.
+- **Tun:** Die alten Routen entfernen; die Prüfungen umstellen; alte Daten lesbar lassen.
+- **Ergebnis:** Die Routen antworten nicht mehr; die Suite ist grün.
+- **Prüfung:** `POST /board/beitrag` antwortet nicht mehr; es entsteht kein Ordner; die Suite läuft durch.
+- **Stopp:** nein.
+
+### Schritt 41 — Die fehlenden Routen
+
+- **Scheibe:** Abschluss.
+- **Ziel:** `/board/board`, `/board/board/verbinden` und `/board/workflow` antworten.
+- **Eingang:** Schritte 25–40.
+- **Tun:** Die drei Routen ergänzen; die vorhandenen Wege dahinterlegen; Prüfungen.
+- **Ergebnis:** Die drei Routen liefern JSON; die Seite bleibt bedienbar.
+- **Prüfung:** Die drei Routen aufrufen; jede antwortet; das Board funktioniert weiter.
+- **Stopp:** nein.
+
+### Schritt 42 — Der Umzug als Route
+
+- **Scheibe:** Abschluss.
+- **Ziel:** Der Umzug läuft aus dem Board, mit Zuordnung der Kennungen zu GitHub-Namen.
+- **Eingang:** `werkzeuge/umzug2.mjs`; `identitaet.json`.
+- **Tun:** Eine Route für den Umzug; die Zuordnung vor dem Lauf abfragen und im Bericht festhalten; den vorhandenen Umzug dahinterlegen.
+- **Ergebnis:** Ein Aufruf schreibt die Repositories und gibt einen Bericht; die alte Ablage bleibt unverändert.
+- **Prüfung:** Auf einer Kopie umziehen; der Bericht nennt die Zuordnung; die alten Inhalte sind unverändert.
+- **Stopp:** ja — er schreibt viele Repositories.
+
+### Schritt 43 — Zwei Menschen, ein Board
+
+- **Scheibe:** Abschluss.
+- **Ziel:** Der offene Weg ist einmal gegangen: A legt an, B findet, benutzt, forkt und stellt einen Pull Request; A sieht ihn.
+- **Eingang:** Schritte 25–42; ein Testkonto und ein zweiter Eigentümer.
+- **Tun:** Die Wege gehen; die Prüfungen laufen; die README beschreibt sie.
+- **Ergebnis:** Ein Bericht mit den gegangenen Wegen und den offenen Resten.
+- **Prüfung:** A legt eine Station an; B findet sie ohne Zutun; B stellt sie in einen Workflow; B forkt und stellt einen Pull Request; A sieht ihn; B legt ein Vorhaben an; A sieht es; der Katalog zeigt beides; ohne Token ist alles lesbar.
+- **Stopp:** ja — seine Abnahme.
+
+### Schritt 44 — Die frische Installation
+
+- **Scheibe:** Abschluss.
+- **Ziel:** Ein frisches Profil sieht das Hauptboard und die gefundenen Stationen ohne Token; Anlegen verlangt eine Anmeldung.
+- **Eingang:** Schritt 43; ein frisches Profil.
+- **Tun:** Den Erststart ohne Token gehen; anonym suchen; beim Anlegen erklären, was fehlt; die README nachziehen.
+- **Ergebnis:** Ein frisches Profil ist lesend bedienbar; Anlegen sagt, was fehlt.
+- **Prüfung:** Frisches Profil starten: Hauptboard und gefundene Stationen sind da, kein Fehler; „anlegen“ verlangt eine Anmeldung und nennt den Weg.
+- **Stopp:** ja — das Plugin wird in ein frisches Profil installiert.
+
 ## Zurückgeschickt
 
-Nichts. Die Architektur beantwortet die offenen Punkte der früheren Etappen; der Umzug und die Zugänge sind Annahmen und Stopps, keine offenen Fragen.
+Nichts. Die Architektur beantwortet die offenen Punkte der früheren Etappen; der Umzug und die Zugänge sind Annahmen und Stopps, keine offenen Fragen. Für den Marktplatz gilt dasselbe: Der Nachtrag entscheidet Aufteilung, Naht und Identität; der Testzugang ist eine Voraussetzung, keine offene Frage. Ohne ihn bleiben die Live-Prüfungen nachgebildet.

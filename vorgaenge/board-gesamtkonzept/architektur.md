@@ -7,6 +7,8 @@ stand: 2026-10-28
 
 # Architektur — Board
 
+> **Nachtrag 2026-10-28 — Der Marktplatz.** Das Board wird offen für Fremde: eigene Repositories beim Eigentümer, Auffinden über Themen, der Anlegeweg als Naht für einen späteren Torwächter. Wo diese Fassung „unter der Organisation“ sagt, gilt die Aufteilung aus dem Nachtrag am Ende.
+
 ## Das Produkt
 
 Das Board ist ein öffentlicher Marktplatz für Arbeitsschritte und ein privater Arbeitsplatz für Vorhaben. Jeder Arbeitsschritt — eine **Station** — ist ein eigenes Repository unter der Organisation; jedes **Vorhaben**, jeder **Workflow** und jedes **Board** ebenso. Das Plugin setzt aus diesen Repositories die Fläche zusammen: Es zeigt die Stationen, die Vorhaben an ihrem Schritt, die Dateien, die Bibliothek, den Katalog und das Vertrauensbild einer Station. GitHub trägt die Inhalte, die Rechte und die Zusammenarbeit; das Plugin ist die Ansicht und der Git-Client. Es gibt keinen Dienst dazwischen, keine Datenbank und keine eigene Anmeldung.
@@ -52,7 +54,7 @@ Wer eine Station verbessern will, forkt ihr Repository oder öffnet einen Pull R
 | Bibliotheken | keine zusätzlichen; Node `fs`, `path`, `child_process`, `fetch`, das `git`-Kommando, der vorhandene Markdown-Leser | Wenig Abhängigkeiten; `fetch` ist in Node 24 eingebaut; der Leser ist schon da. | Octokit (Abhängigkeit für wenige Aufrufe), simple-git (das `git`-Kommando reicht), SQLite-Treiber. |
 | Datenhaltung | Git-Repositories als Wahrheit; lokaler Zwischenspeicher als JSON unter `$DSH_HOME/board/`; keine Datenbank | Jedes Ding hat sein Repository, seine Geschichte und seine Rechte; der Zwischenspeicher ist wegwerfbar. | SQLite oder Postgres (zweite Wahrheit), ein zentraler Server. |
 | Protokolle | Git über SSH oder HTTPS; GitHub REST v3 über HTTPS; HTTP/JSON zwischen Seite und Host | Jede Schicht spricht, was schon da ist; kein neues Protokoll, kein offener Port. | GraphQL (mehr Apparat für wenige Abfragen), WebSocket (braucht einen Dienst), ein eigenes Sync-Protokoll. |
-| Anmeldung | SSH-Schlüssel für Git; ein optionaler feiner GitHub-Token (0600) für API-Schreiben (Repository anlegen, Pull Request, private Metadaten) | Git und GitHub sind das Tor; der Token ist nur für Handlungen nötig, die Git nicht kann. | OAuth-App oder GitHub App (eigener Dienst, Rücksprung-Adresse), ein eigenes Konto. |
+| Anmeldung | SSH-Schlüssel für Git; ein optionaler feiner GitHub-Token (0600) für API-Schreiben (Repository anlegen, Pull Request, private Metadaten); später eine Geräte-Anmeldung ohne Dienst und ohne Rücksprung | Git und GitHub sind das Tor; der Token ist nur für Handlungen nötig, die Git nicht kann. | OAuth-App mit Rücksprung und eigenem Dienst, ein eigenes Konto. |
 | Betrieb | Ein Prozess: der Harness; kein eigener Port, kein Dienst; die Repositories bei GitHub, der Zwischenspeicher lokal | Nichts muss dauerhaft laufen oder offenstehen; GitHub trägt die Zusammenarbeit. | Eigener Dienst, Docker-Sidecar, VPS. |
 | Prüfungen | `node:test`; lokale Bare-Repositories; ein nachgebildeter GitHub-HTTP-Server | Kein Netz in den Prüfungen; Formate und Komposition sind prüfbar. | Prüfungen gegen das echte GitHub (langsam, von Zugängen abhängig). |
 
@@ -157,7 +159,7 @@ Die öffentlichen Dinge liegen unter `DeepCollaboration`. Die Repository-Themen 
 - **Ein zentraler Dienst mit Datenbank:** Betrieb, Anmeldung, Datenhoheit; widerspricht GitHub als Ablage. Verworfen.
 - **Git-Submodule:** technisch, brüchig, vom Menschen zu pflegen. Verworfen; das Plugin setzt Verweise selbst zusammen.
 - **Ein Katalog-Repository mit Kopien:** doppelte Inhalte, keine Sterne oder PRs je Ding. Verworfen.
-- **Persönliche Repositories plus zentraler Katalog (föderiert):** offener, aber die Organisation kuratiert nicht; für später denkbar, jetzt nicht.
+- **Persönliche Repositories plus zentraler Katalog (föderiert):** in der ersten Fassung verworfen; im Nachtrag vom 2026-10-28 als Marktplatz angenommen — die Organisation kuratiert weiter, aber nur das Schaufenster.
 - **Eigene Beitrags- und Fork-Ablage** (die bisherigen `beitraege/`): GitHub hat PR, Issue und Fork; eine zweite Mechanik wäre eine zweite Wahrheit. Verworfen.
 - **Octokit, simple-git, SQLite:** Abhängigkeiten für Aufgaben, die `fetch`, `git` und Dateien lösen. Verworfen.
 - **GraphQL:** mehr Apparat für wenige Abfragen. Verworfen.
@@ -180,3 +182,59 @@ Die öffentlichen Dinge liegen unter `DeepCollaboration`. Die Repository-Themen 
 - **2026-10-28:** Die Vertrauten haben GitHub-Konten und lassen sich einem Team hinzufügen. Wenn nicht: Die private Werkstatt bleibt beim Auftraggeber.
 - **2026-10-28:** Der öffentliche Katalog wird von der Organisation kuratiert; Besucher schlagen per PR vor. Wenn nicht: Jeder müsste eigene Repositories anlegen; der Katalog wäre offener, aber unkuratiert.
 - **2026-10-28:** Der Zwischenspeicher ist wegwerfbar. Wenn nicht: Er braucht eine Sicherung.
+
+## Nachtrag — Der Marktplatz (2026-10-28)
+
+### Anlass
+
+Das Board soll radikal offen sein: Fremde legen Stationen und Vorhaben an, andere sehen sie, der Urheber bleibt verantwortlich. Die Fassung oben legt alles unter eine Organisation. Das bleibt für das Kuratierte richtig; für die eigene Arbeit ist es die falsche Tür: Ein Fremder hat dort keine Rechte, und ein Schlüssel im Plugin wäre bei jedem lesbar.
+
+### Zwei Zuhause
+
+- **Kuratiert** — `DeepCollaboration`: Hauptboard, Katalog, die Stationen und Workflows, die das Projekt selbst trägt. Schreibrecht nur für Mitglieder; Beiträge als Pull Request.
+- **Eigen** — das Konto des Menschen oder seine eigene Organisation. Ein Board nennt seinen Eigentümer in `einstellungen.eigentuemer`; fehlt der Eintrag, gilt der angemeldete GitHub-Name. Ein Board, das in die Organisation legt, nennt sie ausdrücklich.
+
+Wo oben „unter der Organisation“ steht, gilt diese Aufteilung.
+
+### Auffinden
+
+Öffentliche Dinge tragen das Thema ihrer Art: `dsh-board-station`, `dsh-board-workflow`, `dsh-board-vorhaben`, `dsh-board-board`, `dsh-board-katalog`. Das Board sucht über `GET /search/repositories?q=topic:…`, zwischenspeichert und führt das Ergebnis mit dem kuratierten Katalog zusammen. Die Antwort des Katalogs trägt beides: `kuratiert` und `gefunden`; doppelte Einträge werden über `owner/repo` zusammengeführt. Anonymes Lesen ist der Normalfall; der Token erhöht nur die Grenzen.
+
+### Der Anlegeweg ist eine Naht
+
+`einstellungen.anlegeweg` nennt, wer ein neues Repository anlegt:
+
+- **`selbst`** — das Plugin legt mit dem Token des Menschen an (`POST /user/repos` oder `POST /orgs/{org}/repos`), setzt das Thema, schickt den ersten Stand. Der Mensch ist Eigentümer und bleibt verantwortlich.
+- **`torwart`** — das Plugin öffnet eine Bitte (Issue oder Pull Request) und wartet auf die Antwort einer GitHub Action oder App. Der Schlüssel liegt bei GitHub, nie im Plugin. Noch nicht gebaut; die Naht hält den Platz.
+
+Die Route fragt „darf diese Person hier anlegen?“, nicht „gibt es einen Token?“. Ein lokales Repository ohne Remote darf immer beschrieben werden; mit Remote entscheidet Git und GitHub. Ein fest eingebautes Schreibrecht ist dauerhaft verworfen: Ein Schlüssel im Plugin ist bei jedem Nutzer lesbar, und GitHub kann „nur anlegen, nicht ändern“ nicht ausdrücken.
+
+### Rechte und Identität
+
+- Lesen ohne Anmeldung; schreiben mit eigenem Token oder über SSH.
+- Urheberschaft ist der GitHub-Login; Name und Farbe bleiben Anzeige.
+- Ohne GitHub-Konto: lokal und privat ja, veröffentlichen nein — es gäbe niemanden, der für den Inhalt geradesteht.
+- Automatische Mitgliedschaft in der Organisation: nein. Sie ist ein Admin-Recht; nur ein Torwächter kann sie später ausführen.
+- Verweise werden als `owner/repo` geschrieben, nicht als lokaler Pfad. Der lokale Pfad bleibt die Auflösung im Zwischenspeicher.
+
+### Was der Nachtrag nicht ändert
+
+Kein Dienst, keine Datenbank, keine eigene Anmeldung, keine zweite Beitragsablage, keine Rechte im Plugin. Sterne, Issues, Pull Requests und Forks bleiben die Wege; das Board zeigt sie.
+
+### Annahmen
+
+- **2026-10-28:** Die GitHub-Suche ist anonym erreichbar; zehn Suchanfragen je Minute und sechzig allgemeine je Stunde reichen mit Zwischenspeicher. Wenn nicht: Die gefundenen Dinge erscheinen nur mit Token oder seltener.
+- **2026-10-28:** Ein feiner Token darf Repositories im eigenen Konto anlegen und Themen setzen. Wenn nicht: Anlegen bleibt manuell auf GitHub, das Board schickt nur den Stand.
+- **2026-10-28:** Ein Board kann eigene und kuratierte Dinge nebeneinander zeigen, ohne dass die Rechte durcheinanderkommen. Wenn nicht: Jedes Board hat genau einen Eigentümer, und kuratierte Dinge stehen nur im Hauptboard.
+
+## Nachtrag — Oberfläche, Theme und Sprachen (2026-10-29)
+
+**Die Einstellungen ziehen dorthin, wo Apps sie haben.** Das Board behält seine Flächen (Bibliothek, Katalog, Verlauf, Board-Leiste); seine Einstellungen stehen als eigener Abschnitt **Board** im Einstellungsfenster des Dashboards — Darstellung, Akzent, Anordnung, Mausrad, Eigentümer, Identität und GitHub. Grund: Menschen suchen Einstellungen an einer Stelle, nicht in jedem Werkzeug neu. Folge: Der Board-Reiter „Einstellungen“ fällt weg, die Board-Leiste schaltet nur noch zwischen Boards und legt neue an; die Fläche gehört ganz dem Inhalt.
+
+**Das Board erfindet keine Farben.** Alle sichtbaren Farben, Flächen, Ränder, Schatten und Schriftfamilien kommen aus den `--dsw-*`-Token des Dashboards. Damit folgt das Board jedem Theme des Dashboards — hell, dunkel, system und fremden Themes, die andere Plugins über `ctx.theme` anmelden.
+
+**Ein einziger eigener Ton.** Die Akzentfarbe ist die Ausnahme: eine Farbe für Hervorhebungen im Board, hell und dunkel getrennt, gewählt im Abschnitt Board. Sie liegt persönlich neben der Identität (`$DSH_HOME/board/darstellung.json`), nicht in `board.json` — sie gehört dem Menschen, nicht dem Board. Umgesetzt als Merkmal `data-board-akzent` am Board-Element und zwei CSS-Werten je Akzent; das Dashboard bleibt unberührt.
+
+**Sprache ist die Sprache des Dashboards — Grundlage gebaut.** Das Board bringt keinen eigenen Sprachschalter mit. Seine Texte laufen durch `uebersetze(...)`; die Wörterbücher liegen als `texte/<sprache>.json` neben dem Plugin und werden über `GET /board/sprache?id=…` geliefert. Die aktive Sprache kommt vom Dashboard (Einstellungen → Allgemein → Sprache), Deutsch ist dort angemeldet. Fehlt ein Eintrag, bleibt der deutsche Ausgangstext stehen. Acht Sprachen sind vollständig: Deutsch, Englisch, Chinesisch, Spanisch, Französisch, Russisch, Japanisch und Arabisch. Arabisch stellt die Fläche rechtsläufig (`dir="rtl"`); die Karten behalten ihre Lagen. Ein Wörterbuch muss denselben Schlüsselsatz und dieselben Platzhalter tragen wie der deutsche Ausgangstext; die Prüfung erzwingt das.
+
+**Zugänglichkeit ist Teil der Fläche, nicht ein Nachgang — erste Stufe gebaut.** Kleinste Schriftgrößen sind gestiegen, die wichtigsten Trefferflächen größer, der Fokus bleibt sichtbar (keine `outline: none` mehr an Feldern und Editoren), und die Einstellungsseite benennt ihre Felder für die Vorlesehilfe. Was noch fehlt — Tastaturbedienung der Karten, Namen für alle Symbolknöpfe, RTL —, ist inzwischen nachgezogen: die klickbare leere Stationsfläche ist ein Knopf mit Enter/Leertaste, Meldungen erscheinen als Status für die Vorlesehilfe, Symbolknöpfe tragen `aria-label`, Arabisch ist rechtsläufig (`dir="rtl"`).
