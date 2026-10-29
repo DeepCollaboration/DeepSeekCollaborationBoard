@@ -145,7 +145,7 @@ Schließen kehrt der Fokus auf den Namen der Karte zurück.
 
 ## Testergebnis
 
-`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 6594.757807` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
+`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 6384.752258` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
 
 ## Gegenproben
 
@@ -195,6 +195,6 @@ unberührt. Basis war grün.
    bevorzugt, ist das eine kleine Änderung an `springeZuStation`; der Test
    hält die aktuelle Absicht positiv fest.
 4. **Keine Commits, keine Installation.** `index.js`, `texte/*.json`,
-   `locale/*`, `package.json`, die Einstellungen und die Arbeitsdokumente
-   sind unberührt; geschrieben wurden nur `client.js`, `test/nach83.mjs`,
-   `test/nach64b.mjs`, `test/nach81.mjs` und `test/nach64.mjs`.
+   `locale/*`, `package.json`, die Einstellungen und die übrigen
+   Arbeitsdokumente sind unberührt; geschrieben wurden `client.js`, die vier
+   Tests `nach83`, `nach64b`, `nach81`, `nach64` und dieser Bericht.
