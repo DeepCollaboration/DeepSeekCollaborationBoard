@@ -125,4 +125,5 @@ geht im Übersetzungsdurchgang 86 auf.
 | 83 | Offene Station | Stationsdetail als rechtes Panel; die Karte bleibt klein statt auf 760 px zu wachsen | Karte öffnen/schließen, Ziehen, Anlegen, Löschen unverändert; Suite grün | nicht bestanden (erster Lauf: Karte doppelt den Dock-Inhalt, 360 px läuft über); Nachbesserung läuft |
 | 84 | Gespräch | das Gespräch steht als Reiter im rechten Stationspanel, statt als eigene Spalte mit Griff daneben | Chat öffnen/schreiben/verlaufen unverändert; Suite grün | offen |
 | 85 | Übersetzungen | jede sichtbare Zeichenkette in sechs Sprachen; Servergründe (`rechte.js`) als Schlüssel statt roher deutscher Text; 66b hierin | Schlüsselmengen gleich, Platzhalter gleich, keine deutsche Zeile in en/es/fr/ru/ja/ar | offen |
-| 86 | Sichtprüfung | dein Durchgang durch die neue Oberfläche; Befunde als 87 | du sagst „so bleibt es“ | offen |
+| 85b | Feinschliff | Karten mit Rand, Schatten und Auswahlring; Kanten ruhiger; Schiene, Kopfzeile und Docks auf eine Abstands- und Schriftfolge; Fläche und Leerzustand; Bewegung 120–160 ms; ein abschaltbarer Begleiter als Spielerei — im Einzelnen `arbeit/feinschliff.md` | Suite grün; jede Änderung aus dem Quelltext belegt; Sichtprüfung folgt | offen |
+| 86 | Sichtprüfung | dein Durchgang durch die neue Oberfläche nach dem Feinschliff; Befunde als 87 | du sagst „so bleibt es“ | offen |
