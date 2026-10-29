@@ -11,35 +11,35 @@ Es hat kein `position`, kein `margin` und keinen Radius. Der Inhalt rollt in
 Schreibmaschinenschrift für die Fassung. Die Fassung benutzt dieselbe Stelle
 auf der Karte und im Dock.
 
-**Dock im Körper.** `stationDock` (`8805–8858`) ist ein `Panel` mit
+**Dock im Körper.** `stationDock` (`8802–8855`) ist ein `Panel` mit
 `seiteStil: S.dockRechts`, `fokus: true` und `onSchliessen: stationSchliessen`.
 Der Kopf zeigt den Namen und, wenn vorhanden, die Fassung; rechts steht
 „Bearbeiten“ nur bei Schreibrecht und ohne fremden Schritt, danach das ✕ aus
 `Panel`. Ein fremder Schritt trägt den Satz „… hier nur zu lesen“ als
 Untertitel (`stationFremdHinweis`, `6863–6870`). Das Panel steht im Körper
-nach dem `raum` (`10293–10376`) und erscheint nur bei
+nach dem `raum` (`10293–10373`) und erscheint nur bei
 `auswahl.art === 'schritt'` und vorhandenem `gewaehlt`.
 
-**Ein Inhalt, zwei Orte.** `stationsInhalt(p)` (`7077–7289`) enthält den
+**Ein Inhalt, zwei Orte.** `stationsInhalt(p)` (`7077–7292`) enthält den
 gesamten Stationsinhalt: Verweisblock, Vorhaben-Chips, Anlegen-Formular,
 Beiträge, Start/Schreiben/Skill, Dateien und Übergabewarnungen. Ist die
 Station offen, kommen `stationAnzeige()` und `fuss` dazu, beim Ändern
 `stationFormular(false)`. Die Karte ruft die Funktion an `7877`, das Dock an
-`8851`. Der alte zweite Bau (`const inhalt = [` im `karten.map`) ist entfernt;
+`8848`. Der alte zweite Bau (`const inhalt = [` im `karten.map`) ist entfernt;
 der Inhalt entsteht nur noch an einer Stelle.
 
 **Karte bleibt klein.** `KARTE_GROSS` und `KARTE_GROSS_HOEHE` sind fort.
 `breiteFuer` (`7069`) gibt für jede Karte `KARTEN_BREITE` zurück;
-`flaechenHoehe` (`7320–7322`) rechnet für alle Karten mit `KARTEN_HOEHE + 60`;
+`flaechenHoehe` (`7320–7321`) rechnet für alle Karten mit `KARTEN_HOEHE + 60`;
 `allesZeigen` (`7333–7351`) benutzt dieselben kleinen Maße ohne Sonderfall
 für eine Einzelkarte. Die offene Karte bekommt `height: KARTEN_HOEHE`
-(`7737`) und einen rollenden Körper (`7860–7877`) statt der bisherigen
+(`7734`) und einen rollenden Körper (`7850–7877`) statt der bisherigen
 760 px.
 
 **Station ohne Karte.** Eine Station mit `stellen === 0` öffnet sich im
 selben Dock. Über dem Formular beziehungsweise der Nur-Lese-Anzeige steht der
 vorhandene Hinweis „Noch nicht auf der Fläche — zieh sie dorthin, dann öffnet
-sie sich dort.“ (`8853–8855`). Das alte `schrittPanel` und die Stile
+sie sich dort.“ (`8850–8852`). Das alte `schrittPanel` und die Stile
 `S.detail`, `S.detailKopf`, `S.detailTitle` sind gelöscht; `S.thStift` ist
 mit dem alten Karten-✕ ebenfalls fort.
 
@@ -48,7 +48,7 @@ und setzt den Fokus auf den Namen der zugehörigen Karte
 (`[data-karten-name]`). `Panel` holt den Fokus beim Öffnen herein und
 behandelt Escape. Die Karte behält ihren eigenen Escape-Handler und ihre
 Tastatur (Enter/Leertaste öffnen, der Name toggelt). Der Sprung aus der Suche
-(`springeZuStation`, `7356–7371`) setzt den Fokus nicht mehr selbst auf den
+(`springeZuStation`, `7356–7373`) setzt den Fokus nicht mehr selbst auf den
 Kartennamen; das Dock übernimmt ihn, beim Schließen kehrt er auf den Namen
 zurück.
 
@@ -59,16 +59,16 @@ zurück.
 | `S.detail`, `S.detailKopf`, `S.detailTitle` | 817–826 | gelöscht |
 | `S.thStift` | 499–504 | gelöscht (unbenutzt) |
 | `S.dockRechts` / `S.dockTitel` / `S.fassung` | — | 589 / 597 / 603 |
-| `gewaehlt` / `stationSchliessen` | 5560 / — | 5560 / 5576 |
-| `schrittWaehlen` | 5641 | 5639 |
+| `gewaehlt` / `stationSchliessen` | 5560 / — | 5566 / 5576 |
+| `schrittWaehlen` | 5641 | 5664 |
 | `stationFremdHinweis` | — | 6863 |
 | `KARTE_GROSS` / `KARTE_GROSS_HOEHE` | 7037 / 7039 | gelöscht |
 | `breiteFuer` / `flaechenHoehe` / `allesZeigen` | 7045 / 7073 / 7087 | 7069 / 7320 / 7333 |
-| `stationsInhalt(p)` | — | 7077–7289 |
-| `karten.map` / Kartenkörper | 7464 / 7849 | 7704 / 7860 |
+| `stationsInhalt(p)` | — | 7077–7292 |
+| `karten.map` / Kartenkörper | 7464 / 7849 | 7704 / 7850 |
 | `schrittPanel` | 8796 | gelöscht |
-| `stationDock` | — | 8805–8858 |
-| Stationsdock im Körper | — | 10376 |
+| `stationDock` | — | 8802–8855 |
+| Stationsdock im Körper | — | 10373 |
 
 ## Tests
 
@@ -97,7 +97,7 @@ zurück.
 
 ## Testergebnis
 
-`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 5729.869342` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
+`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 5736.707677` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
 
 ## Abweichungen von der Aufgabe
 
