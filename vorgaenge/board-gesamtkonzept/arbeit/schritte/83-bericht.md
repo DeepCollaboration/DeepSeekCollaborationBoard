@@ -9,10 +9,10 @@ Die fünf Punkte aus `arbeit/pruefung.md` sind eingearbeitet:
    (`client.js:7250`). Nur das Dock ruft `stationsInhalt(offeneStelle, true)`
    (`8865`); die Karte ruft `stationsInhalt(p)` (`7886`) und bekommt den
    Basisinhalt. `stationAnzeige()`, `fuss` und `stationFormular(false)` stehen
-   nur noch hinter dieser Schwelle (`7298`). Die Karte hat keinen festen
+   nur noch hinter dieser Schwelle (`7250`, `7300`). Die Karte hat keinen festen
    Dock-Inhalt mehr: ihr Körper ist wieder `S.karteKoerper` mit
-   `cursor: 'default'` (`7856–7860`), der Auswahlring bleibt
-   (`boxShadow: var(--dsw-elevation-prominent)`, `7735`). Beim Bearbeiten
+   `cursor: 'default'` (`7869`), der Auswahlring bleibt
+   (`boxShadow: var(--dsw-elevation-prominent)`, `7748`). Beim Bearbeiten
    entsteht `stationFormular(false)` genau einmal (`test/nach83` prüft die
    eine Fundstelle); die Feld-IDs `station-name` und `station-beschreibung`
    liegen damit nur im Dock.
@@ -49,7 +49,7 @@ bleibt stehen. `S.dockTitel` (`599–603`) und `S.fassung` (`605–609`) sind
 neu: 14 px für den Namen, 12 px Schreibmaschinenschrift für die Fassung. Die
 Fassung benutzt dieselbe Stelle auf der Karte und im Dock.
 
-**Dock im Körper.** `stationDock` (`8819–8870`) ist ein `Panel` mit
+**Dock im Körper.** `stationDock` (`8819–8872`) ist ein `Panel` mit
 `seiteStil: S.dockRechts`, `fokus: true` und
 `onSchliessen: stationSchliessen`. Der Kopf zeigt den Namen und, wenn
 vorhanden, die Fassung; rechts steht „Bearbeiten“ nur bei vorhandener Karte,
@@ -64,7 +64,7 @@ vorhandenem `gewaehlt`.
 Vorhaben-Chips, Anlegen-Formular, Beiträge, Start/Schreiben/Skill, Dateien
 und Übergabewarnungen. Die Karte ruft die Funktion an `7886` ohne `true`, das
 Dock an `8865` mit `true`. Nur dann kommen `stationAnzeige()`, `fuss` und
-beim Ändern `stationFormular(false)` dazu (`7250`, `7298`). Der alte zweite
+beim Ändern `stationFormular(false)` dazu (`7250`, `7300`). Der alte zweite
 Bau (`const inhalt = [` im `karten.map`) bleibt entfernt; der Inhalt entsteht
 nur an einer Stelle.
 
@@ -73,13 +73,13 @@ nur an einer Stelle.
 `flaechenHoehe` (`7329–7331`) rechnet für alle Karten mit
 `KARTEN_HOEHE + 60`; `allesZeigen` (`7342–7360`) benutzt dieselben kleinen
 Maße ohne Sonderfall für eine Einzelkarte. Die offene Karte behält
-`minHeight: KARTEN_HOEHE` (`7736`), bekommt aber kein Dock-Maß und keinen
+`minHeight: KARTEN_HOEHE` (`7743`), bekommt aber kein Dock-Maß und keinen
 Rollkörper mehr.
 
 **Station ohne Karte.** Eine Station mit `stellen === 0` öffnet sich im
 selben Dock. Über dem Formular beziehungsweise der Nur-Lese-Anzeige steht der
 vorhandene Hinweis „Noch nicht auf der Fläche — zieh sie dorthin, dann öffnet
-sie sich dort.“ (`8867–8869`). Das alte `schrittPanel` und die Stile
+sie sich dort.“ (`8868`). Das alte `schrittPanel` und die Stile
 `S.detail`, `S.detailKopf`, `S.detailTitle` sind gelöscht; `S.thStift` ist
 mit dem alten Karten-✕ ebenfalls fort.
 
@@ -106,9 +106,9 @@ Schließen kehrt der Fokus auf den Namen der Karte zurück.
 | `KARTE_GROSS` / `KARTE_GROSS_HOEHE` | 7037 / 7039 | gelöscht |
 | `breiteFuer` / `flaechenHoehe` / `allesZeigen` | 7045 / 7073 / 7087 | 7069 / 7329 / 7342 |
 | `stationsInhalt(p, imDock)` | — | 7085–7301 |
-| `karten.map` / Kartenkörper | 7464 / 7849 | 7718 / 7856 |
+| `karten.map` / Kartenkörper | 7464 / 7849 | 7718 / 7869 |
 | `schrittPanel` | 8796 | gelöscht |
-| `stationDock` | — | 8819–8870 |
+| `stationDock` | — | 8819–8872 |
 | Schienenknopf schließt Station | — | 8626–8631 |
 | Stationsdock im Körper | — | 10390 |
 
