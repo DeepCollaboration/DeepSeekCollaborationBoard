@@ -93,7 +93,7 @@ zurück.
 - **Unverändert grün:** `test/nach61.mjs` (Panel-Muster, Karte mit
   `aria-label` und Escape), `test/nach81.mjs` (Rahmen), `test/nach82.mjs`
   (Kopfzeile und 605 Schlüssel), `test/nach66.mjs` (26 Ausnahmen),
-  `test/nach64.mjs` („Alles zeigen“) und die übrigen 69 Dateien.
+  `test/nach64.mjs` („Alles zeigen“) und die übrigen 71 Dateien.
 
 ## Testergebnis
 
