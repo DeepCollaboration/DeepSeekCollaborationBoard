@@ -74,11 +74,11 @@ Inhalt. Gebaut wird nur der aktive Inhalt:
 **Kopf und Schließen gehören dem aktiven Reiter.** `titel`, `untertitel`,
 `titelStil`, `kopfRechts`, `kinder` und `fuss` kommen aus `teile`
 (`9953–9958`). Die Schließen-Taste und Escape rufen `rechtsSchliessen`
-(`5728–5732`): bei „Station“ `stationSchliessen`, bei „Gespräch“
-`gespraechSchliessen`. `stationSchliessen` (`5696–5714`) leert nur die
+(`5728–5731`): bei „Station“ `stationSchliessen`, bei „Gespräch“
+`gespraechSchliessen`. `stationSchliessen` (`5696–5712`) leert nur die
 Auswahl; bleibt das Gespräch, wechselt der Reiter auf „Gespräch“ und der Fokus
 geht in dessen `section`; sonst kehrt er wie bisher auf
-`[data-karten-name]` zurück. `gespraechSchliessen` (`5717–5726`) setzt
+`[data-karten-name]` zurück. `gespraechSchliessen` (`5717–5725`) setzt
 `gespraechZu` und `setGespraech(null)`; bleibt die Station, steht das Dock
 weiter und der Fokus geht auf ihren Reiter. Die `Panel`-Hülle hat dafür einen
 Platz über dem Kopf bekommen (`oben`, `client.js:2062`, `2136–2138`).
@@ -120,7 +120,7 @@ auch wenn die Station den Platz der Auswahl übernimmt.
 **Ein Seitenpanel.** `schrittWaehlen` schließt die linke Leiste
 (`setLeiste(null)`, `5823`). `gespraechBeginnen` und `werkstattStarten` tun
 dasselbe (`4380`, `5391`). Umgekehrt schließt `leisteOeffnen`
-(`5736–5744`) die Station und nimmt das Gespräch aus der Ansicht
+(`5736–5743`) die Station und nimmt das Gespräch aus der Ansicht
 (`setGespraech(null)`, `gespraechZu`); benutzt wird es im Schienenknopf
 (`8790`) und in `katalogZeigen` (`5027`). Ein gewähltes Vorhaben bleibt dabei
 gewählt. `gespraechVerwerfen` setzt den Fokus auf die Station, wenn sie offen
@@ -150,10 +150,10 @@ bleibt (`4501–4502`).
 | `werkstattStarten` (Leiste, Reiter, Fokus) | 5386, 5391, 5411, 5426 |
 | `stationImDock` / `gespraechImDock` / `rechtsAktiv` | 5658–5668 |
 | `fokusRechts` / `nachRender` | 5671 / 5682 |
-| `stationSchliessen` | 5696–5714 |
-| `gespraechSchliessen` | 5717–5726 |
-| `rechtsSchliessen` | 5728–5732 |
-| `leisteOeffnen` | 5736–5744 |
+| `stationSchliessen` | 5696–5712 |
+| `gespraechSchliessen` | 5717–5725 |
+| `rechtsSchliessen` | 5728–5731 |
+| `leisteOeffnen` | 5736–5743 |
 | `schrittWaehlen` | 5819–5832 |
 | `stationDockTeile` | 8978–9021 |
 | `gespraechDockTeile` | 9754–9896 |
