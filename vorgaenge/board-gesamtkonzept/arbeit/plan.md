@@ -100,7 +100,7 @@
 | 70 | Handbuch der Benutzung | `docs/benutzung.de.md` und `docs/benutzung.en.md` mit Bildern und Fehlersuche | ein Fremder kommt ohne dich bis zur ersten eigenen Station | offen |
 | 71 | Repo-Grundlagen | LICENSE (MIT), `package.json` (Zweck, Lizenz, Repository, Fehleradresse, Node 24, `npm test`), CHANGELOG, `.editorconfig`, `.gitattributes`, Anzeige-Metadaten in acht Sprachen | `test/grundlagen.mjs`; Metadaten vollständig | bestanden (zweiter Lauf, Grundlagen) |
 | 72 | README Englisch, Sprachen, Bilder | `README.md` englisch; `README.de.md`; kurze Fassungen zh, es, fr, ru, ja, ar; Sprachwahl oben; Bilder folgen | jede Fassung: Installation, erste Schritte, Links | offen |
-| 73 | Entwicklerdoku im Repo | `docs/architektur.md`, `docs/entwicklung.md`, `docs/datenformate.md`, `docs/routen.md` | ein Fremder findet Route, Format, Platz und Test | offen |
+| 73 | Entwicklerdoku im Repo | `docs/architektur.md`, `docs/entwicklung.md`, `docs/datenformate.md`, `docs/routen.md` | ein Fremder findet Route, Format, Platz und Test | bestanden (zweiter Lauf) |
 | 74 | Code dokumentieren | Modulköpfe, Verträge, Abschnittsköpfe; Anleitung „eine Sprache hinzufügen“ | Sprache in unter einer Stunde ergänzt | offen |
 | 71b | Selbstständige Prüfungen | Fixtures für die 34 Prüfungen, die heute die echte Werkstatt lesen (alte Ablage, Hauptboard), damit `npm test` und die CI überall laufen | frischer Klon ohne `/workspace/projekte/board`: alle Prüfungen grün | offen |
 | 75 | Zusammenarbeit und CI | CONTRIBUTING, SECURITY, Issue- und PR-Vorlage, CI auf Node 24 (führt die 49 selbstständigen Prüfungen; 34 warten auf 71b) | CI grün auf GitHub; Vorlagen erscheinen | teilweise — Grundlagen stehen, CI eingeschränkt bis 71b |
