@@ -6,7 +6,7 @@ Acht README-Dateien im Plugin-Repository, sonst nichts geändert, kein Commit:
 
 | Datei | Zeilen | Inhalt |
 | --- | ---: | --- |
-| `README.md` | 348 | englische Vollfassung; löst die bisherige deutsche Fassung als Hauptseite ab |
+| `README.md` | 349 | englische Vollfassung; löst die bisherige deutsche Fassung als Hauptseite ab |
 | `README.de.md` | 290 | die bisherige deutsche Fassung (288 Zeilen), unverändert bis auf die Sprachenleiste |
 | `README.es.md` | 35 | Kurzfassung Spanisch |
 | `README.fr.md` | 35 | Kurzfassung Französisch |
