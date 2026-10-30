@@ -94,14 +94,14 @@
 | 64c | Übersicht und Zoom | Knöpfe für näher, weiter und alles; die Fläche skaliert, Karten bleiben bedienbar | zoomen, alles zeigen, Station öffnen | zurückgestellt |
 | 65 | Schmale Fenster und 200 % | Panels passen, Menüs kippen nicht heraus, Fläche scrollt | Fenster auf 360 px, Zoom 200 % | bestanden |
 | 66 | Fehlende Übersetzungen schließen | die 17 Texte gehen durch `uebersetze`; eine Prüfung findet sichtbare Texte ohne `uebersetze` | neue Prüfung grün; acht Wörterbücher ergänzt | bestanden (zweiter Lauf) |
-| 66b | Der Grund im Lesemodus spricht die Sprache | die fünf Sätze des Hosts werden über eine Tabelle übersetzt, mit Rückfall | Suite grün; englischer Grund bei englischem Dashboard | offen || 67 | Abnahmeliste schreiben | `arbeit/abnahme.md`: 16 Wege mit Erwartung und Ergebnis | Liste vollständig; von dir bestätigt | offen |
+| 66b | Der Grund im Lesemodus spricht die Sprache | die fünf Sätze des Hosts werden über eine Tabelle übersetzt, mit Rückfall | Suite grün; englischer Grund bei englischem Dashboard | offen || 67 | Abnahmeliste schreiben | `arbeit/abnahmeliste.md`: 16 Wege mit Erwartung und Ergebnis | Liste vollständig; von dir bestätigt | Liste steht; Bestätigung durch ihn offen |
 | 68 | Durchgang im Browser | Protokoll: jeder Weg bestanden oder Befund | du gehst mit; ich schreibe mit | offen |
 | 69 | Befunde beheben | je Befund ein Schritt oder eine Zeile im Protokoll | Suite grün; Nachgang im Browser | offen |
 | 70 | Handbuch der Benutzung | `docs/benutzung.de.md` und `docs/benutzung.en.md` mit Bildern und Fehlersuche | ein Fremder kommt ohne dich bis zur ersten eigenen Station | offen |
 | 71 | Repo-Grundlagen | LICENSE (MIT), `package.json` (Zweck, Lizenz, Repository, Fehleradresse, Node 24, `npm test`), CHANGELOG, `.editorconfig`, `.gitattributes`, Anzeige-Metadaten in acht Sprachen | `test/grundlagen.mjs`; Metadaten vollständig | bestanden (zweiter Lauf, Grundlagen) |
-| 72 | README Englisch, Sprachen, Bilder | `README.md` englisch; `README.de.md`; kurze Fassungen zh, es, fr, ru, ja, ar; Sprachwahl oben; Bilder folgen | jede Fassung: Installation, erste Schritte, Links | offen |
+| 72 | README Englisch, Sprachen, Bilder | `README.md` englisch; `README.de.md`; kurze Fassungen zh, es, fr, ru, ja, ar; Sprachwahl oben; Bilder folgen | jede Fassung: Installation, erste Schritte, Links | bestanden (zweiter Lauf; acht Fassungen) |
 | 73 | Entwicklerdoku im Repo | `docs/architektur.md`, `docs/entwicklung.md`, `docs/datenformate.md`, `docs/routen.md` | ein Fremder findet Route, Format, Platz und Test | bestanden (zweiter Lauf) |
-| 74 | Code dokumentieren | Modulköpfe, Verträge, Abschnittsköpfe; Anleitung „eine Sprache hinzufügen“ | Sprache in unter einer Stunde ergänzt | offen |
+| 74 | Code dokumentieren | Modulköpfe, Verträge, Abschnittsköpfe; Anleitung „eine Sprache hinzufügen“ | Sprache in unter einer Stunde ergänzt | bestanden (Kopfkommentar verweist auf `docs/routen.md`; Anleitung in `docs/entwicklung.md`) |
 | 71b | Selbstständige Prüfungen | Fixtures für die 34 Prüfungen, die heute die echte Werkstatt lesen (alte Ablage, Hauptboard), damit `npm test` und die CI überall laufen | frischer Klon ohne `/workspace/projekte/board`: alle Prüfungen grün | offen |
 | 75 | Zusammenarbeit und CI | CONTRIBUTING, SECURITY, Issue- und PR-Vorlage, CI auf Node 24 (führt die 49 selbstständigen Prüfungen; 34 warten auf 71b) | CI grün auf GitHub; Vorlagen erscheinen | teilweise — Grundlagen stehen, CI eingeschränkt bis 71b |
 | 76 | Fassungen und Push | Commits in Scheiben, Branch, PR-Beschreibung, Repo-Beschreibung und Themen | `git log` lesbar; GitHub zeigt den aktuellen Stand | offen |
@@ -127,4 +127,54 @@ geht im Übersetzungsdurchgang 86 auf.
 | 84 | Gespräch | das Gespräch steht als Reiter im rechten Stationspanel, statt als eigene Spalte mit Griff daneben | Chat öffnen/schreiben/verlaufen unverändert; Suite grün | bestanden (zweiter Lauf) |
 | 85 | Übersetzungen | jede sichtbare Zeichenkette in sechs Sprachen; Servergründe (`rechte.js`) als Schlüssel statt roher deutscher Text; 66b hierin | Schlüsselmengen gleich, Platzhalter gleich, keine deutsche Zeile in en/es/fr/ru/ja/ar | bestanden (614 Schlüssel, neun Server-Sätze) |
 | 85b | Feinschliff | Karten mit Rand, Schatten und Auswahlring; Kanten ruhiger; Schiene, Kopfzeile und Docks auf eine Abstands- und Schriftfolge; Fläche und Leerzustand; Bewegung 120–160 ms; ein abschaltbarer Begleiter als Spielerei — im Einzelnen `arbeit/feinschliff.md` | Suite grün; jede Änderung aus dem Quelltext belegt; Sichtprüfung folgt | bestanden (zweiter Lauf) |
-| 86 | Sichtprüfung | dein Durchgang durch die neue Oberfläche nach dem Feinschliff; Befunde als 87 | du sagst „so bleibt es“ | offen |
+| 86 | Sichtprüfung | dein Durchgang durch die neue Oberfläche nach dem Feinschliff; Befunde als 86b | du sagst „so bleibt es“ | offen |
+
+## Neue Runde: Einstieg, Module, Kanban (2026-10-30)
+
+Leitsatz: **Die Einführung ist kein Sonderfall, sondern ein Workflow mit einem
+Vorhaben.** Stationen sind Module und können aktiv werden. Kanban ist ein
+Workflow, der als Spalten erscheint. Nichts davon erfindet eine zweite Mechanik.
+
+**Code in Stationen.** DSH-Plugins führen Code aus — dieses Plugin selbst tut es
+im Host (`index.js`) und im Dashboard (`client.js`), ohne Sandkasten. Eine
+Station ist aber Inhalt, den man beim Blättern öffnet, kein Paket, das man
+einmal installiert: Wer sie schreibt, bekäme sonst beim bloßen Anklicken Zugriff
+auf das Dashboard. Deshalb gilt: Code aus einer Station läuft nur in einem
+abgeschotteten Fenster (eigene Herkunft, kein Zugriff auf Dashboard, Ablage oder
+Sitzung) und nur nach ausdrücklicher Erlaubnis je Station und Fassung. Ohne
+Erlaubnis zeigt die Station nur ihre Inhalte. Die Einführung nutzt zuerst
+Inhalte (Text, Bild, Video, Gespräch, Knopf); Code-Module sind ein eigener
+Schritt danach.
+
+**Was sich am Datenformat ändert:** `station.json` bekommt `modul` (die
+Bausteine der aktiven Station). `workflow.json` bekommt `schlagworte`. Beide
+Felder fehlen in alten Repositories und stören dort nicht.
+
+| Nr. | Schritt | Ergebnis | Prüfung | Stand |
+| --- | --- | --- | --- | --- |
+| 87 | Stationen als Module | eine Station kann aktiv werden und den Bildschirm einnehmen; Bausteine: Text, Bild, Video, Gespräch, Knopf; oben immer „Zum Board“, die Station darf „weiter“ sagen; `station.json` bekommt `modul` | eine Station mit allen Bausteinen öffnet und schließt; ohne `modul` ändert sich nichts; Suite grün | bestanden (zweiter Lauf) |
+| 88 | Reiter für Workflows | eine Kopfzeile mit einem Reiter je Workflow; der öffentliche Reiter ist die Besonderheit und zeigt alle verfügbaren Stationen gleichzeitig; ein eigener Reiter nur die eigene Zusammenstellung; die Bibliothek bleibt davon unabhängig und zeigt alle Stationen, zu denen es Zugang gibt | Reiter wechseln, öffentlicher Reiter vollständig, Bibliothek unverändert; Suite grün | bestanden |
+| 89 | Vorlagen und Startboard | mitgelieferte Vorlagen für das öffentliche Board und ein Kanban; `legeStartboardAn` legt daraus lokale Repositories an (Board, zwei Workflows, Stationen), committet sie und trägt das Board in die Liste ein — idempotent, noch nicht automatisch beim Start | jede Vorlage besteht die Formatprüfung; zwei Läufe legen nichts doppelt an; `git log` in jedem Repo zeigt einen Commit, `v1` ist gesetzt | bestanden |
+| 90 | Einführungsworkflow | dritte Vorlage „Das Board kennen lernen“ mit vier Stationen: Vorhaben/Ideen als Sammelort, Kennenlernen als aktives Modul (Text, Gespräch), Eigene Station, Erste Idee; danach legt das Startboard drei Workflows an; das Veröffentlichen der Stationen bleibt bei ihm | Stationen tragen echte Inhalte und bestehen die Formatprüfung; das Modul öffnet; Bedienelemente übersetzt, Texte als Inhalt deutsch | bestanden |
+| 90b | Bilder in Stationen | `bild` darf auf eine Datei im Station-Repository zeigen; der Host liefert sie über eine geschützte Route, der Client zeigt sie; die Einführung bekommt Bilder | Bild erscheint; Pfad außerhalb des Repos wird abgelehnt; Suite grün | bestanden |
+| 91a | Probedurchlauf | das Startboard bringt ein lokales Vorhaben „Probedurchlauf“ mit: eigenes Repository, in `board.json` verzeichnet, auf der ersten Station der Einführung | Vorlage besteht `liesVorhaben`; das Vorhaben erscheint in den Daten; Suite grün | bestanden |
+| 91b | Erststart auf das Startboard | `sicherstellen` legt beim leeren Home das Startboard an statt das Hauptboard zu klonen; der Klon bleibt über „Hauptboard holen“ erreichbar; die fünf betroffenen Prüfungen rufen den Klon direkt | frisches Home ergibt ein aktives Startboard mit drei Workflows; Suite grün | bestanden |
+| 91c | Einführung öffnen | beim ersten Start steht die Einführung offen; „Überspringen“ merkt es im Board, ein Knopf öffnet sie wieder; der Token-Weg wird an der Station „Eigene Station“ erklärt und ist dort erreichbar | ohne Anmeldung erklärt die Station den Weg und öffnet die Token-Eingabe; mit Token legt das Board an; acht Sprachen | bestanden |
+| 92 | Bibliothek mit Schlagworten und Herkunft | Stationen und Workflows tragen Schlagworte; Filter nach Schlagwort und Herkunft (eigen, öffentlich, privat); der Kanban-Workflow trägt `kanban` (die Spalten folgen in 94) | Filter zeigt nur Passendes; alte Repositories ohne Schlagworte bleiben gültig | bestanden (zweiter Lauf) |
+| 93a | Positionen schreiben (Fassung 2) | `groesse` (`1x1`, `2x1`, `2x2`) an der Position; ein Schreibweg ändert `x`, `y` und `groesse` in `workflow.json` und committet; die Route `/board/position/platzieren` kennt Fassung 2 mit Angabe des Workflows | Route schreibt und committet, andere Positionen bleiben, ungültige Werte 400, fremder Workflow 403/404 | bestanden |
+| 93b | Größe und Einrasten | Griff an der Ecke einer Karte schaltet in den Stufen 1×1/2×1/2×2; Ziehen rastet am 10-px-Raster und an den Kanten der Nachbarn ein; die Größe überlebt das Neuladen | Einrasten rechnet richtig (geprüft ohne Browser); Karte ändert Größe und speichert sie; Suite grün | bestanden (zweiter Lauf) |
+| 94 | Kanban-Layout | ein Workflow mit `kanban` zeigt seine Stationen als Spalten, groß und nebeneinander; Vorhaben liegen in der Spalte ihrer Station; „Alles zeigen“ bekommt die Variante Kanban | Spalten in der Reihenfolge des Workflows; Karten in der richtigen Spalte; Suite grün | bestanden |
+| 95 | Karten verschieben | ein Vorhaben in eine andere Spalte ziehen ändert seine Station und schreibt eine Fassung; weiche WIP-Grenze mit Hinweis | `git log` im Vorhaben-Repository zeigt die Fassung; die Grenze warnt, blockiert nicht | bestanden |
+| 96 | Kanban-Funktionen | zuständige Person setzen, nach Person filtern, je Spalte zählen, Karte im Detail öffnen | jede Funktion im Kanban erreichbar; Suite grün | bestanden |
+| 97 | Abnahme der Runde | Prüfungen, acht Sprachen, Abnahmeliste für die neuen Wege | Suite grün, Abnahme grün, deine Sichtprüfung | läuft |
+
+### Nach der Konvergenzprüfung (2026-10-30)
+
+| Nr. | Schritt | Ergebnis | Prüfung | Stand |
+| --- | --- | --- | --- | --- |
+| 98 | Rechte je Repository | die Fassung-2-Schreibrouten prüfen das Schreibrecht des Repositories, in das sie schreiben (Workflow, Vorhaben), nicht nur das des Boards | ohne Schreibrecht am Ziel 403; mit Recht 200; Suite grün | offen |
+| 99 | Lücken und Architektur | eine fehlende Station erscheint in `luecken` mit Art und Grund; `architektur.md` beschreibt den Stand dieser Runde (Startboard statt Hauptboard-Klon, Ablageort, Bild-Route als Ausnahme von „jede Route gibt JSON“, Sichtbarkeit lokal, Veröffentlichen unter der Organisation, Anlegeweg ohne `torwart`) mit Datum und Grund | Abweichungen im Bericht erklärt; Suite grün | offen |
+
+**Später, eigener Schritt:** Code-Module mit Erlaubnis und abgeschottetem
+Fenster; Kanban-Bausteine wie Fristen, Labels, Checklisten und Swimlanes, wenn
+die Grundfassung im Gebrauch steht.

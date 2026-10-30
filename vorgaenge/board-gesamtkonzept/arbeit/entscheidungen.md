@@ -147,3 +147,9 @@ Die Konvergenzprüfung gegen `architektur.md` fand 18 Produktabweichungen. Sie w
 ## 2026-10-30 — Reihenfolge
 
 - **Erst die Technik, dann das Aussehen.** Jede Runde belegt zuerst, dass die Wege tragen — Suite, Abnahme, kalter Start —; erst danach wird verschönert. Folge: Der Feinschliff beginnt später, dafür auf einem Stand, der nachweislich läuft. Grund: Ein schönes Board, das nicht lädt oder nicht schreibt, ist keine Oberfläche, sondern eine Attrappe.
+
+## 2026-10-30 — Veröffentlichung
+
+- **Der Store-Eintrag zeigt auf das Repository, nicht auf npm.** Ein eigener npm-Name ist dafür nicht nötig; `@local/dsh-board` bleibt der Entwicklungsname. Folge: Der Eintrag besteht aus einer YAML-Datei, die auf GitHub zeigt; eine Umbenennung des Pakets und seines Profils entfällt.
+- **Zwei Commits und ein Tag `v0.1.0`.** Code und Dokumentation getrennt, damit die Geschichte lesbar bleibt; die Fassung 0.1.0 entspricht `package.json`. Folge: GitHub zeigt Lizenz, Tag und eine vollständige Startseite; die Release-Notizen stehen im CHANGELOG.
+- **Die öffentlichen Texte kommen ohne Werkstatt-Bezug aus.** Interne Schritt-Nummern und der „Auftraggeber“ sind aus READMEs und `docs/` entfernt, die Prüfzahlen auf 84/50 gebracht. Folge: Wer das Repository zum ersten Mal sieht, liest eine Anleitung statt einer Werkstattnotiz.

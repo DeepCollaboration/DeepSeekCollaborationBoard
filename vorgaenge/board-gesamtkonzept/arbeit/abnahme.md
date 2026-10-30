@@ -1,9 +1,9 @@
 # Abnahme — Board
 
-- **Datum:** 2026-10-28
+- **Datum:** 2026-10-30
 - **Befehl:** `cd /workspace/projekte/board-plugin && node werkzeuge/abnahme.mjs --bericht /workspace/projekte/board/vorgaenge/board-gesamtkonzept/arbeit/abnahme.md`
 - **Exit-Code:** 0
-- **Entscheidende Zeile:** Abnahme bestanden: 13 von 13 Prüfungen der neuen Form bestanden; Suite 40 von 40; sieben Wege belegt; live geprüft (0 Sterne, öffentlich, main); Hauptboard 11 Schritte/1 Vorhaben/0 Lücken (Vorgabe 0 Vorhaben durch Schritt 21 überholt), Team 11 Schritte/4 Vorhaben/0 Lücken; Register 3 Boards, aktiv hauptboard-neu; alte Ablage HEAD ae905d8 unverändert.
+- **Entscheidende Zeile:** Abnahme bestanden: 13 von 13 Prüfungen der neuen Form bestanden; Suite 98 von 98; sieben Wege belegt; live geprüft (0 Sterne, öffentlich, main); Hauptboard 11 Schritte/1 Vorhaben/0 Lücken (Vorgabe 0 Vorhaben durch Schritt 21 überholt), Team 11 Schritte/4 Vorhaben/0 Lücken; Register 3 Boards, aktiv hauptboard-neu; alte Ablage Daten unverändert seit ae905d8 (HEAD 6123b58).
 
 Der Lauf führt die Prüfungen der neuen Form, die Suite, die Live-Probe, die beiden echten Boards, das Register und die alte Ablage nacheinander aus und ordnet die sieben Wege ihren Prüfungen zu.
 
@@ -11,8 +11,8 @@ Der Lauf führt die Prüfungen der neuen Form, die Suite, die Live-Probe, die be
 
 | # | Weg | Prüfung | Ergebnis | Beleg |
 | --- | --- | --- | --- | --- |
-| 1 | Hauptboard ohne Einrichten | schritt33 | belegt | ok Erststart: Hauptboard von selbst, fest, ohne Identität; nicht geholt mit Wiederholen; danach da |
-| 2 | Station prüfen und sternen | schritt27, schritt31 | belegt | ok GitHub: Sterne 7, Fassung v1.2.0; Token 0600, verbunden, gelöscht; 404/401/Grenze klar; Token nirgends im Text · schritt27 in der Suite 40/40 |
+| 1 | Hauptboard ohne Einrichten | schritt33 | belegt | ok Hauptboard: ausdrücklich geholt, fest, ohne Identität; nicht geholt mit Wiederholen; danach da |
+| 2 | Station prüfen und sternen | schritt27, schritt31 | belegt | ok GitHub: Sterne 7, Fassung v1.2.0; Token 0600, verbunden, gelöscht; 404/401/Grenze klar; Token nirgends im Text · schritt27 in der Suite 98/98 |
 | 3 | Probeprojekt übernehmen | schritt38 | belegt | ok Probeprojekt: ohne Name 409, übernommen, Kopie verweist aufs Original, Original unverändert |
 | 4 | Privates Team-Board | schritt30, schritt31, schritt32 | belegt | ok Umzug: 11 Stationen, 1 Workflow, 4 Vorhaben, 2 Boards; Quelle unverändert · (+ 2 weitere Prüfungen) |
 | 5 | Beitrag als Pull Request | schritt35 | belegt | ok Beiträge: ohne Token Verweis, mit Token PR #1 offen, zusammengeführt, geschlossen sichtbar |
@@ -23,19 +23,19 @@ Der Lauf führt die Prüfungen der neuen Form, die Suite, die Live-Probe, die be
 
 | Prüfung | Exit | Dauer | Erste ok-Zeile |
 | --- | --- | --- | --- |
-| test/schritt29.mjs | 0 | 413 ms | ok Alte Ablage: 2 Vorhaben (altes-vorhaben mit idee.md und Transkript, zweites-vorhaben), Workflow „Alte Kette“ mit den Schritten Anfang und Prüfen, Person „Alte Hüterin“; an „start“ liegt die Datei idee.md |
-| test/schritt30.mjs | 0 | 1502 ms | ok Umzug: 11 Stationen, 1 Workflow, 4 Vorhaben, 2 Boards; Quelle unverändert |
-| test/schritt31.mjs | 0 | 631 ms | ok GitHub: Sterne 7, Fassung v1.2.0; Token 0600, verbunden, gelöscht; 404/401/Grenze klar; Token nirgends im Text |
-| test/schritt32.mjs | 0 | 1313 ms | ok Sichtbarkeit: Lücke erkannt, Schreiben abgewiesen, ohne Token Befehle, mit Token gepusht, Lesemodus |
-| test/schritt33.mjs | 0 | 516 ms | ok Erststart: Hauptboard von selbst, fest, ohne Identität; nicht geholt mit Wiederholen; danach da |
-| test/schritt33b.mjs | 0 | 874 ms | ok Hauptboard: geholt und allein im Register |
-| test/schritt34.mjs | 0 | 588 ms | ok Katalog: 4 Einträge, Sterne 7/2, Suche „Idee“, frisch 8, offline letzter Stand |
-| test/schritt35.mjs | 0 | 1126 ms | ok Beiträge: ohne Token Verweis, mit Token PR #1 offen, zusammengeführt, geschlossen sichtbar |
-| test/schritt36.mjs | 0 | 1275 ms | ok Verantwortung: thomas darf, fremd 403, anna über Team, Host prüft, Teams sichtbar |
-| test/schritt37.mjs | 0 | 928 ms | ok Fork und Frage: ohne Token Verweis, Fork verlinkt, Frage #1 offen, geschlossen sichtbar |
-| test/schritt38.mjs | 0 | 394 ms | ok Probeprojekt: ohne Name 409, übernommen, Kopie verweist aufs Original, Original unverändert |
-| test/schritt39.mjs | 0 | 678 ms | ok Frische Installation: Hauptboard ohne Einrichten, Name erst beim Beitreten, eigenes Board, README aktuell |
-| test/schritt40.mjs | 0 | 605 ms | ok Archiv: lesbar, Schreiben 403 ohne Commit, Wechsel erlaubt, Fassung 2 schreibbar |
+| test/schritt29.mjs | 0 | 248 ms | ok Alte Ablage: 2 Vorhaben (altes-vorhaben mit idee.md und Transkript, zweites-vorhaben), Workflow „Alte Kette“ mit den Schritten Anfang und Prüfen, Person „Alte Hüterin“; an „start“ liegt die Datei idee.md |
+| test/schritt30.mjs | 0 | 1161 ms | ok Umzug: 11 Stationen, 1 Workflow, 4 Vorhaben, 2 Boards; Quelle unverändert |
+| test/schritt31.mjs | 0 | 467 ms | ok GitHub: Sterne 7, Fassung v1.2.0; Token 0600, verbunden, gelöscht; 404/401/Grenze klar; Token nirgends im Text |
+| test/schritt32.mjs | 0 | 801 ms | ok Sichtbarkeit: Lücke erkannt, Schreiben abgewiesen, ohne Token Befehle, mit Token gepusht, Lesemodus |
+| test/schritt33.mjs | 0 | 345 ms | ok Hauptboard: ausdrücklich geholt, fest, ohne Identität; nicht geholt mit Wiederholen; danach da |
+| test/schritt33b.mjs | 0 | 786 ms | ok Hauptboard: geholt und allein im Register |
+| test/schritt34.mjs | 0 | 363 ms | ok Katalog: 4 Einträge, Sterne 7/2, Suche „Idee“, frisch 8, offline letzter Stand |
+| test/schritt35.mjs | 0 | 615 ms | ok Beiträge: ohne Token Verweis, mit Token PR #1 offen, zusammengeführt, geschlossen sichtbar |
+| test/schritt36.mjs | 0 | 763 ms | ok Verantwortung: thomas darf, fremd 403, anna über Team, Host prüft, Teams sichtbar |
+| test/schritt37.mjs | 0 | 555 ms | ok Fork und Frage: ohne Token Verweis, Fork verlinkt, Frage #1 offen, geschlossen sichtbar |
+| test/schritt38.mjs | 0 | 246 ms | ok Probeprojekt: ohne Name 409, übernommen, Kopie verweist aufs Original, Original unverändert |
+| test/schritt39.mjs | 0 | 595 ms | ok Frische Installation: Hauptboard ausdrücklich geholt, Name erst beim Beitreten, eigenes Board, deutsche README aktuell |
+| test/schritt40.mjs | 0 | 395 ms | ok Archiv: lesbar, Schreiben 403 ohne Commit, Wechsel erlaubt, Fassung 2 schreibbar |
 
 Bestanden: 13 von 13.
 
@@ -43,7 +43,7 @@ Bestanden: 13 von 13.
 
 | Lauf | Exit | Bestanden | Gesamt | Dauer |
 | --- | --- | --- | --- | --- |
-| node --test | 0 | 40 | 40 | 5053 ms |
+| node --test | 0 | 98 | 98 | 7081 ms |
 
 ## Live-Probe (nur lesend, ohne Token)
 
@@ -65,7 +65,7 @@ Das Hauptboard trägt seit Schritt 21 das öffentliche Probeprojekt; ohne dieses
 | Prüfung | Ergebnis | Beleg |
 | --- | --- | --- |
 | Register | bestanden | 3 Boards: hauptboard, hauptboard-neu, team; aktiv hauptboard-neu |
-| Alte Ablage | bestanden | HEAD ae905d8, 42 Fassungen, Board-Datenpfade unverändert |
+| Alte Ablage | bestanden | HEAD 6123b58, 99 Fassungen, Board-Daten unverändert seit ae905d8 |
 | Unverändert durch den Lauf | bestanden | 19 echte Repositories und die alte Ablage vor und nach dem Lauf gleich |
 
 ## Grenzen

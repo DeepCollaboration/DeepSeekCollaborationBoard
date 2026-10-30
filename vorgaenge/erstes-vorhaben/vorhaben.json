@@ -1,0 +1,15 @@
+{
+  "id": "erstes-vorhaben",
+  "name": "Erstes Vorhaben",
+  "position": "idee",
+  "verantwortliche": {
+    "idee": [
+      "p1"
+    ]
+  },
+  "regel": "einer",
+  "rueckkehr": [],
+  "laeufe": [],
+  "fork_von": null,
+  "zweig_von": null
+}
