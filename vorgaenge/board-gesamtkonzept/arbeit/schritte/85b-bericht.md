@@ -5,8 +5,8 @@
 **Nur `client.js` und ein neuer Test.** `index.js`, `rechte.js`,
 `texte/*.json`, `locale/*`, `package.json`, die Einstellungen und die
 Arbeitsdokumente sind unberührt. Keine neuen sichtbaren Texte: der Client
-trägt weiter 605 eigene Schlüssel, jedes Wörterbuch 614, `de.json` bleibt
-leer.
+trägt weiter 605 eigene Schlüssel, die sieben Wörterbücher je 614,
+`de.json` bleibt leer.
 
 ## Klassen
 
@@ -41,8 +41,8 @@ bleibt unberührt.
   `var(--board-akzent)`. Der Balken ist absolut gesetzt und verschiebt
   nichts.
 - **Bewegung:** `.board-begleiter-auge` blinzelt mit
-  `board-blinz 6s ease-in-out infinite`; die Augen sind bei 0/88/100 %
-  offen, bei 91/94 % fast geschlossen und bei 97 % wieder offen.
+  `board-blinz 6s ease-in-out infinite`; die Augen sind bei 0/88/97/100 %
+  offen und bei 91/94 % fast geschlossen.
 - **Reduzierte Bewegung:** `@media (prefers-reduced-motion: reduce)`
   schaltet für `.board-seite *`, `*::before` und `*::after` Übergänge und
   Animationen mit `!important` ab.
@@ -87,7 +87,7 @@ $ node --test test/*.mjs
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 5570.677326
+ℹ duration_ms 5407.149471
 ```
 
 `test/nach85b.mjs` prüft: die neuen Regeln in `AKZENT_STIL`; die drei
