@@ -15,6 +15,34 @@ Links auf die Quelldateien:
 Kein Code, kein Test, keine andere Datei im Plugin geändert; kein Commit.
 Dieser Bericht liegt außerhalb von `docs/`, wie verlangt.
 
+## Nachbesserung nach der Prüfung
+
+Die Prüfung in `arbeit/pruefung.md` hat zwei sachliche Fehler und eine
+verschwiegene Lücke gefunden. Alle drei sind behoben; nur `docs/` wurde
+geändert.
+
+1. **Speicherorte richtiggestellt.** `docs/architektur.md` sagte, die
+   Repositories lägen „entweder“ unter `$DSH_HOME/board` „oder bei GitHub“.
+   Jetzt steht dort: `$DSH_HOME/board` trägt Register, Identität, Token und
+   Zwischenspeicher; jedes Repository liegt am lokalen Pfad aus `repo` im
+   Register, oft `$DSH_HOME/board/cache/<owner>/<repo>/`,
+   `$DSH_HOME/board/ablagen/<kennung>/` oder an einem eigenen Werkstattpfad
+   wie `/workspace/projekte/board-repos/board-hauptboard`; `remote` nennt
+   GitHub, wenn es eines gibt. Belegt am Register
+   `/dsh-home/board/boards.json` (`hauptboard-neu` und `team` mit
+   `/workspace/projekte/board-repos/…`, `remote: null`).
+2. **Abschnittsreihenfolge von `client.js` richtiggestellt.** Die alte Liste
+   war eine thematische Zusammenfassung in falscher Ordnung. Jetzt stehen die
+   20 tatsächlichen `// --- …`-Marken in ihrer Reihenfolge, dazu die 14
+   Marken innerhalb von `BoardPage`. Abgeglichen mit
+   `grep -nE '^ {4}// --- ' client.js`; die Liste stimmt 20 von 20.
+3. **„Bekannte Lücken“ ergänzt.** `docs/architektur.md` hat jetzt ein eigenes
+   Kapitel mit: Kopfkommentar nennt 55 von 70 Routen; 11 Routen ohne
+   Methodenprüfung (`GET*`); Fassung 1 prüft an den Struktur-Routen kein
+   Verantwortungsrecht; 34 von 83 Prüfungen brauchen die Werkstatt (49 in der
+   CI); kein Browser-Test. `docs/routen.md` ist als maßgebliche Routenliste
+   genannt.
+
 ## Quellen
 
 Gelesen wurden `index.js` (Routen, `registriere`, Ablage, Rechte, Modellwege),
@@ -48,10 +76,9 @@ Gelesen wurden `index.js` (Routen, `registriere`, Ablage, Rechte, Modellwege),
 ## Abweichungen und Befunde
 
 1. **Der Kopfkommentar von `index.js` ist keine vollständige Routenliste.**
-   Er nennt z. B. `/board/station` nur als GET und lässt
-   `/board/person/aendern`, `/board/position/*`, `/board/gespraech/verwerfen`
-   und `/board/werkstatt/verwerfen` weg. `docs/routen.md` folgt deshalb den
-   `registriere`-Aufrufen, nicht dem Kopf.
+   Er nennt 55 der 70 Routen und führt `/board/station` nur als GET. Das steht
+   jetzt unter „Bekannte Lücken“ in `docs/architektur.md`; `docs/routen.md`
+   folgt den `registriere`-Aufrufen, nicht dem Kopf.
 2. **Elf Routen prüfen die Methode nicht.** `/board/data`, `/board/doc`,
    `/board/dateien`, `/board/datei`, `/board/versionen`, `/board/version`,
    `/board/verlauf`, `/board/skills`, `/board/transkript`,
