@@ -4,8 +4,10 @@
 
 **Der Hinweis geht durch die Übersetzung.** In `client.js:10136` steht jetzt
 `h('span', …, uebersetze(darfHinweis))` statt der rohen Ausgabe. `darfGrund`
-ging schon an beiden Stellen durch `uebersetze` (`client.js:10134`,
-`10204`); daran hat sich nichts geändert.
+ging an zwei Stellen durch `uebersetze` (`client.js:10134`, `10204`); in den
+Board-Einstellungen stand er aber roh (`client.js:2382`). Auch dort steht
+jetzt `uebersetze(String(daten.darfGrund || …))`, sodass der Grund aus
+`/board/data` überall in der Sprache des Dashboards erscheint.
 
 **Die neun Sätze stehen in allen sieben Wörterbüchern.** Die acht Konstanten
 `GRUND_*`/`HINWEIS_*` kommen aus `rechte.js`, die Vorgabe
@@ -31,7 +33,8 @@ sondern als Werte der Konstanten übernommen. Danach trägt jedes Wörterbuch
 Vorhandensein, nicht-leeren Wert, eine vom Deutschen verschiedene Fassung
 und dieselben Platzhalter. Dazu kommen die Schlüsselzahl 614, die Gegenprobe
 (ein aus `en` entfernter Satz macht die Prüfung rot) und die Client-Seite
-(`uebersetze(darfHinweis)`, kein rohes `darfHinweis`).
+(`uebersetze(darfHinweis)`, kein rohes `darfHinweis`, `daten.darfGrund` in
+den Einstellungen durch `uebersetze`).
 
 **Die Schlüsselzahlen.** In `test/nach66.mjs`, `test/nach82.mjs`,
 `test/nach83.mjs`, `test/nach84.mjs` und `test/markt48.mjs` sind die
@@ -191,9 +194,11 @@ genannt, wie in der Aufgabe erlaubt.
    neben den Prüfungen, damit `node --test test/*.mjs` ihn nicht als eigene
    Prüfung ausführt.
 
-3. **Ort im Client.** Die rohe Stelle lag nach den späteren Schritten bei
-   `client.js:10136`, nicht bei 9921 wie im Schritt notiert. Geändert wurde
-   nur diese eine Zeile.
+3. **Orte im Client.** Die rohe Hinweisstelle lag nach den späteren Schritten
+   bei `client.js:10136`, nicht bei 9921 wie im Schritt notiert. Beim Audit
+   kam eine zweite rohe Stelle hinzu: `daten.darfGrund` in den
+   Board-Einstellungen (`client.js:2382`) stand ohne `uebersetze` da.
+   Geändert wurden nur diese beiden Stellen.
 
 4. **Kein unabhängiges Gegenlesen.** Die Übersetzungen habe ich beim
    Eintragen Satz für Satz geprüft; ein zweiter Prüfer hat sie nicht
@@ -215,6 +220,9 @@ genannt, wie in der Aufgabe erlaubt.
   `اسمك على GitHub` (vorher „your-name على GitHub“).
 - `texte/zh.json`: `Token gelöscht.` → `Token 已删除。` statt `令牌已删除。`;
   die übrigen zh-Sätze sagen sonst ebenfalls „Token“.
+- `client.js:2382`: Der Grund in den Board-Einstellungen stand roh da
+  (`String(daten.darfGrund || …)`); er geht jetzt durch `uebersetze`.
+  Das war eine sichtbare Stelle außerhalb der neun Sätze und ohne Grund.
 
 **Bleibt, mit Grund:**
 
@@ -251,7 +259,7 @@ genannt, wie in der Aufgabe erlaubt.
 
 ## Geänderte Dateien
 
-- `client.js` (eine Zeile, 10136)
+- `client.js` (zwei Stellen: 2382 und 10136)
 - `texte/en.json`, `texte/es.json`, `texte/fr.json`, `texte/ru.json`,
   `texte/ja.json`, `texte/ar.json`, `texte/zh.json` (je neun Schlüssel,
   plus Audit-Werte)
