@@ -55,12 +55,12 @@ Stelle mehr.
 
 ### 2. `Melde dich in den Einstellungen unter GitHub mit einem Token an. Ohne Anmeldung bleibt dieses Board nur lesbar.`
 
-- **en:** Sign in with a token under GitHub in Settings. Without signing in, this Board stays read-only.
-- **es:** Inicia sesión con un token en Ajustes, en GitHub. Sin sesión, este Board solo se puede leer.
-- **fr:** Connectez-vous avec un jeton sous GitHub dans les réglages. Sans connexion, ce Board reste en lecture seule.
-- **ru:** Войдите с токеном в настройках, раздел GitHub. Без входа этот Board останется только для чтения.
+- **en:** Sign in with a token in Settings under GitHub. Without signing in, this Board stays read-only.
+- **es:** Inicia sesión con un token en Ajustes, sección GitHub. Sin sesión, este Board solo se puede leer.
+- **fr:** Connectez-vous avec un jeton dans les réglages, section GitHub. Sans connexion, ce Board reste en lecture seule.
+- **ru:** Войдите с токеном в настройках, в разделе GitHub. Без входа этот Board останется только для чтения.
 - **ja:** 設定のGitHubでトークンを使ってログインしてください。ログインしない場合、このBoardは読み取り専用のままです。
-- **ar:** سجّل الدخول برمز في الإعدادات ضمن GitHub. بدون تسجيل الدخول يبقى هذا Board للقراءة فقط.
+- **ar:** سجّل الدخول برمز في الإعدادات، قسم GitHub. بدون تسجيل الدخول يبقى هذا Board للقراءة فقط.
 - **zh:** 请在设置中的 GitHub 下使用 Token 登录。未登录时，此 Board 保持只读。
 
 ### 3. `Kein Schreibrecht: der angemeldete Login darf dieses Repository nicht beschreiben.`
@@ -68,7 +68,7 @@ Stelle mehr.
 - **en:** No write permission: the signed-in login may not write to this repository.
 - **es:** Sin permiso de escritura: el usuario con sesión iniciada no puede escribir en este repositorio.
 - **fr:** Pas de droit d'écriture : l'identifiant connecté ne peut pas écrire dans ce dépôt.
-- **ru:** Нет права записи: вошедший логин не может записывать в этот репозиторий.
+- **ru:** Нет права записи: текущий логин не может записывать в этот репозиторий.
 - **ja:** 書き込み権限がありません: ログイン中のアカウントはこのリポジトリに書き込めません。
 - **ar:** لا صلاحية كتابة: اسم الدخول المسجّل لا يستطيع الكتابة في هذا المستودع.
 - **zh:** 没有写入权限：已登录的账号不能写入此仓库。
@@ -115,12 +115,12 @@ Stelle mehr.
 
 ### 8. `Trage in den Einstellungen unter GitHub einen gültigen Token ein.`
 
-- **en:** Enter a valid token under GitHub in Settings.
-- **es:** Introduce un token válido en Ajustes, en GitHub.
-- **fr:** Saisissez un jeton valide sous GitHub dans les réglages.
-- **ru:** Введите действительный токен в настройках, раздел GitHub.
+- **en:** Enter a valid token in Settings under GitHub.
+- **es:** Introduce un token válido en Ajustes, sección GitHub.
+- **fr:** Saisissez un jeton valide dans les réglages, section GitHub.
+- **ru:** Введите действительный токен в настройках, в разделе GitHub.
 - **ja:** 設定のGitHubで有効なトークンを入力してください。
-- **ar:** أدخل رمزًا صالحًا في الإعدادات ضمن GitHub.
+- **ar:** أدخل رمزًا صالحًا في الإعدادات، قسم GitHub.
 - **zh:** 请在设置中的 GitHub 下输入有效的 Token。
 
 ### 9. `Kein Schreibrecht für dieses Board.`
