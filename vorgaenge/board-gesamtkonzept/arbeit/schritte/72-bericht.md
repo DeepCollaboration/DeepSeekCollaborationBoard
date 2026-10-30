@@ -110,7 +110,7 @@ dsh plugin --profile web add github:DeepCollaboration/DeepSeekCollaborationBoard
 | Installationszeile | in allen acht genau einmal, identisch mit der bisherigen README und `docs/entwicklung.md` |
 | Erster Start | in allen acht vorhanden; Kurzfassungen nennen Lesen ohne Token und Anlegen mit Token/Eigentümer |
 | Deutsche Fassung | `diff` gegen die alte 288-Zeilen-Fassung: nur Ergänzungen, keine Löschungen oder Änderungen |
-| Gleiche Themen | beide Vollfassungen haben 17 Abschnitte in derselben Sache; die deutschen Ergänzungen entsprechen den englischen Abschnitten Interface, Checks, Documentation, License und Status |
+| Gleiche Themen | beide Vollfassungen haben 17 Abschnitte mit denselben Themen; die deutschen Ergänzungen entsprechen den englischen Abschnitten Interface, Checks, Documentation, License und Status |
 | Zahlen | 83 Prüfdateien, 34 Werkstatt-Prüfungen, 49 in der CI; in beiden Vollfassungen genannt |
 | Keine falsche Behauptung | 1.0.0 ausdrücklich „nicht veröffentlicht“ bzw. „not released“, Paket 0.1.0 und `private`; GitHub-Schreibwege ausdrücklich nicht live geprüft; kein „veröffentlicht“ |
 | `node --test test/grundlagen.mjs` | grün (1 Test) |
