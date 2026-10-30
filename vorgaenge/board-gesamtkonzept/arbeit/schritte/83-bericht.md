@@ -175,11 +175,11 @@ zurück.
 
 ## Testergebnis
 
-`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 6039.324542` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
+`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 5961.162849` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
 
 ## Gegenproben
 
-Alle Proben liefen in Kopien unter `/tmp/pruef83-fix-*`; das Produkt blieb
+Alle Proben liefen in Kopien unter `/tmp/pruef83-*`; das Produkt blieb
 unberührt. Basis war grün.
 
 | Probe | Änderung in der Kopie | Ergebnis |
@@ -191,7 +191,7 @@ unberührt. Basis war grün.
 | e | Fokus auf die `section` im Sprung entfernt | `nach83` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“; `nach64b` rot: „Der Sprung setzt den Fokus nicht in die section des Stationsdocks“ |
 | f | `S.dockRechts` wieder `width: '380px'` | `nach83` rot: „Das rechte Dock ist nicht 380 px breit und bei schmalem Fenster begrenzt“ |
 | g | `offeneStelle &&` aus der `Bearbeiten`-Bedingung entfernt | `nach83` rot: „‚Bearbeiten‘ erscheint auch ohne Station auf der Fläche oder beim Bearbeiten“ |
-| h | `closest('section')` im Sprung entfernt, `dock = kopf` | `nach83` und `nach64b` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“ |
+| h | `closest('section')` im Sprung entfernt, `dock = kopf` | `nach83` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“; `nach64b` rot: „Der Sprung setzt den Fokus nicht in die section des Stationsdocks“ |
 | i | `setAuswahl(null)` im Schienenknopf statt des Nur-Station-Updaters | `nach83` und `nach81` rot: „… schließt die offene Station nicht — oder löscht auch ein Vorhaben“ |
 | j | `setAuswahl(null)` in `katalogZeigen` statt des Nur-Station-Updaters | `nach83` rot: „Der Katalog schließt die offene Station nicht — oder löscht auch ein Vorhaben“ |
 
