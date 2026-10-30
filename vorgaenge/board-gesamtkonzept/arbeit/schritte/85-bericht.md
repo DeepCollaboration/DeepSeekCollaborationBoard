@@ -11,8 +11,9 @@ ging schon an beiden Stellen durch `uebersetze` (`client.js:10134`,
 `GRUND_*`/`HINWEIS_*` kommen aus `rechte.js`, die Vorgabe
 `Kein Schreibrecht für dieses Board.` aus `index.js:2396`. Ein einmaliges
 Skript hat die Konstanten importiert und die Vorgabe aus dem Quelltext
-gelesen; die deutschen Schlüssel wurden nicht abgetippt. Danach trägt jedes
-Wörterbuch 614 statt 605 Schlüssel, `de.json` bleibt leer:
+gelesen; in die Wörterbücher wurden die deutschen Schlüssel nicht abgetippt,
+sondern als Werte der Konstanten übernommen. Danach trägt jedes Wörterbuch
+614 statt 605 Schlüssel, `de.json` bleibt leer:
 
 | Wörterbuch | Schlüssel |
 |---|---:|
