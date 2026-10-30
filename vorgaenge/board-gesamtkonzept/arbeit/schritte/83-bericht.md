@@ -137,7 +137,7 @@ zurück.
 | `karten.map` / Kartenkörper | 7464 / 7849 | 7718 / 7869 |
 | `schrittPanel` | 8796 | gelöscht |
 | `stationDock` | — | 8819–8872 |
-| Schienenknopf schließt Station | — | 8626–8631 |
+| Schienenknopf schließt Station | — | 8631–8637 |
 | Stationsdock im Körper | — | 10390 |
 
 ## Tests
@@ -157,12 +157,13 @@ zurück.
   verlangt den genauen Nur-Station-Updater und schließt `setAuswahl(null)`
   aus. Am Ende: 605 Schlüssel, also kein neuer sichtbarer Text.
 - **`test/nach64b.mjs`** (angepasst): Abschnitt 3 verlangt wieder positiv,
-  dass `springeZuStation` `#board-station` fokussiert; die Dimensionsprüfung
+  dass `springeZuStation` die `section` über `closest('section')` fokussiert;
+  die Dimensionsprüfung
   in „Alles zeigen“ fragt `KARTEN_HOEHE` statt `KARTE_GROSS` und hält fest,
   dass die große Einzelkarte fort ist.
 - **`test/nach81.mjs`** (angepasst): `S.dock` trägt die neue
   `min(360px, calc(100vw - 124px))`-Breite; der Schienenknopf prüft den
-  Toggle über `oeffnen` und das Schließen der Station.
+  Toggle über `oeffnen` und das Schließen nur einer Station (kein Vorhaben).
 - **`test/nach64.mjs`** (angepasst): `S.dock` trägt dieselbe begrenzte
   Breite.
 - **`test/nach65.mjs`** bleibt unverändert grün: die Breitenstichprobe sieht
@@ -174,7 +175,7 @@ zurück.
 
 ## Testergebnis
 
-`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 5600.068202` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
+`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 6039.324542` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
 
 ## Gegenproben
 
@@ -186,8 +187,8 @@ unberührt. Basis war grün.
 | a | Karte ruft `stationsInhalt(p, true)` | `nach83` rot: „Die Karte auf der Fläche baut ihren Inhalt nicht über `stationsInhalt`“ |
 | b | `if (imDock !== true) return inhalt;` entfernt | `nach83` rot: „`stationsInhalt` baut den Dock-Inhalt auch ohne `imDock === true`“ |
 | c | `setLeiste(null)` in `schrittWaehlen` entfernt | `nach83` rot: „Das Öffnen einer Station schließt die linke Leiste nicht“ |
-| d | `setAuswahl(null)` im Schienenknopf entfernt | `nach83` rot: „Das Öffnen der linken Leiste schließt die offene Station nicht“ |
-| e | Fokus auf `#board-station` im Sprung entfernt | `nach83` und `nach64b` rot: „Der Sprung setzt den Fokus nicht in das Stationsdock“ |
+| d | Nur-Station-Updater im Schienenknopf durch `setAuswahl(null)` ersetzt | `nach83` rot: „Das Öffnen der Leiste schließt die offene Station nicht — oder löscht auch ein Vorhaben“; `nach81` rot: „Das Öffnen der linken Leiste …“ |
+| e | Fokus auf die `section` im Sprung entfernt | `nach83` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“; `nach64b` rot: „Der Sprung setzt den Fokus nicht in die section des Stationsdocks“ |
 | f | `S.dockRechts` wieder `width: '380px'` | `nach83` rot: „Das rechte Dock ist nicht 380 px breit und bei schmalem Fenster begrenzt“ |
 | g | `offeneStelle &&` aus der `Bearbeiten`-Bedingung entfernt | `nach83` rot: „‚Bearbeiten‘ erscheint auch ohne Station auf der Fläche oder beim Bearbeiten“ |
 | h | `closest('section')` im Sprung entfernt, `dock = kopf` | `nach83` und `nach64b` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“ |
