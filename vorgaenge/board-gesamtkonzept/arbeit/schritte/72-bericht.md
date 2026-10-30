@@ -2,7 +2,8 @@
 
 ## Angelegt
 
-Acht README-Dateien im Plugin-Repository, sonst nichts geändert, kein Commit:
+Acht README-Dateien im Plugin-Repository, dazu in der Nachbesserung zwei
+Prüfungen angepasst. Kein Commit:
 
 | Datei | Zeilen | Inhalt |
 | --- | ---: | --- |
@@ -19,6 +20,29 @@ Die Sprachenleiste steht in allen acht Dateien als dritte Zeile direkt unter dem
 Titel, in der verlangten Reihenfolge **Deutsch · English · Español · Français ·
 Русский · 日本語 · العربية · 中文**. Die eigene Sprache ist fett und nicht
 verlinkt; alle anderen sind relative Links auf die jeweilige Datei.
+
+## Nachbesserung nach der Prüfung
+
+Die englische `README.md` brach zwei Prüfungen: `test/markt44.mjs:547` und
+`test/schritt39.mjs:378` lasen `README.md` und suchten dort deutsche Wörter.
+Mit der alten deutschen Hauptfassung waren sie grün, mit der englischen nicht.
+
+Beide lesen jetzt `README.de.md`; die deutschen Wörter bleiben damit gültig:
+
+- `test/markt44.mjs` prüft `## Installieren`, `## Der erste Start`,
+  `### Frisch installiert`, `Nur lesen`, `Station anlegen`,
+  `Einstellungen → Board → GitHub` und den Satz, dass Lesen ohne Token offen
+  ist.
+- `test/schritt39.mjs` prüft `Hauptboard`, `Probeprojekt` und den Token als
+  optional.
+
+Kommentare, Fehlermeldungen und Ausgaben beider Prüfungen sprechen jetzt von der
+**deutschen README**. Die englische Fassung bleibt die Hauptfassung; diese
+beiden Prüfungen prüfen bewusst die deutsche Fassung.
+
+Gegenprobe: `README.de.md` enthält alle gesuchten Stellen; `node --test
+test/markt44.mjs test/schritt39.mjs` ist grün, der volle Lauf
+`node --test test/*.mjs` ergibt **83 von 83**.
 
 ## Inhalt
 
@@ -80,6 +104,7 @@ dsh plugin --profile web add github:DeepCollaboration/DeepSeekCollaborationBoard
 - `client.js` (Kommentare zu Kopfzeile, Schiene, linkem und rechtem Dock,
   Gespräch, Breitengriff)
 - `locale/*.json` (englische und übersetzte UI-Begriffe)
+- `test/markt44.mjs` und `test/schritt39.mjs` (README-Prüfungen)
 - `test/grundlagen.mjs` (Prüfung, dass `README.md` vorhanden ist)
 
 ## Abweichungen
@@ -89,14 +114,17 @@ dsh plugin --profile web add github:DeepCollaboration/DeepSeekCollaborationBoard
    Abschnitte bleiben die Grundlage. Die deutsche Fassung verwendet dabei ihre
    eigenen Begriffe (Vorhaben, Hauptboard, Zwischenspeicher), die englische
    Fassung die ihren (project, main board, cache).
-2. **Die deutsche Fassung nennt die acht Sprachen in anderer Reihenfolge** als
+2. **Die beiden README-Prüfungen lesen jetzt die deutsche Fassung.** Sie suchen
+   deutsche Wörter und dürfen deshalb nicht gegen die englische Hauptfassung
+   laufen. `README.md` wird von ihnen nicht mehr inhaltlich geprüft; sie bleibt
+   die Hauptfassung für Menschen, nicht für diese beiden Tests.
+3. **Die deutsche Fassung nennt die acht Sprachen in anderer Reihenfolge** als
    die neue Sprachenleiste (`Deutsch, English, 中文, Español, …`). Der Satz
    bleibt wegen „inhaltlich unverändert“ stehen; die Leiste folgt der
    verlangten Reihenfolge.
-3. **Die Kurzfassungen haben 35 statt etwa 40 Zeilen.** Der Inhalt ist
-   vollständig; die Absätze sind nur langzeilig gesetzt. Eine künstliche
-   Streckung auf 40 Zeilen hätte keinen Inhalt hinzugefügt.
-4. **Die Dokumentation ist auf Deutsch.** Das gilt für `docs/` und für beide
+4. **Die Kurzfassungen haben 35 statt etwa 40 Zeilen.** Der Inhalt ist
+   vollständig; die Absätze sind nur langzeilig gesetzt.
+5. **Die Dokumentation ist auf Deutsch.** Das gilt für `docs/` und für beide
    Vollfassungen; ein entsprechender Hinweis verhindert die falsche Erwartung
    einer englischen Doku.
 
@@ -106,15 +134,15 @@ dsh plugin --profile web add github:DeepCollaboration/DeepSeekCollaborationBoard
 | --- | --- |
 | Acht Dateien vorhanden | ja; `README.md` und `README.de.md` voll, sechs Kurzfassungen |
 | Sprachenleiste | in allen acht; acht Einträge, verlangte Reihenfolge, eigene Sprache genau einmal fett |
-| Relative Links | alle Ziele existieren, geprüft mit `test -e`; keine Bildverweise, keine toten Links; die neuen Links auf `docs/` und `LICENSE` eingeschlossen |
+| Relative Links | alle Ziele existieren, geprüft mit `test -e`; keine Bildverweise, keine toten Links |
 | Installationszeile | in allen acht genau einmal, identisch mit der bisherigen README und `docs/entwicklung.md` |
 | Erster Start | in allen acht vorhanden; Kurzfassungen nennen Lesen ohne Token und Anlegen mit Token/Eigentümer |
 | Deutsche Fassung | `diff` gegen die alte 288-Zeilen-Fassung: nur Ergänzungen, keine Löschungen oder Änderungen |
 | Gleiche Themen | beide Vollfassungen haben 17 Abschnitte mit denselben Themen; die deutschen Ergänzungen entsprechen den englischen Abschnitten Interface, Checks, Documentation, License und Status |
-| Zahlen | 83 Prüfdateien, 34 Werkstatt-Prüfungen, 49 in der CI; in beiden Vollfassungen genannt |
+| Deutsche README-Prüfungen | `test/markt44.mjs`: grün; `test/schritt39.mjs`: grün; beide lesen `README.de.md` |
+| Volle Suite | `node --test test/*.mjs`: **83 von 83** grün, 0 Fehler |
 | Keine falsche Behauptung | 1.0.0 ausdrücklich „nicht veröffentlicht“ bzw. „not released“, Paket 0.1.0 und `private`; GitHub-Schreibwege ausdrücklich nicht live geprüft; kein „veröffentlicht“ |
-| `node --test test/grundlagen.mjs` | grün (1 Test) |
-| Kein Code, keine Tests, keine `docs/`, kein Commit | ja |
+| Kein Produktcode, keine `docs/`, kein Commit | ja; geändert wurden nur README-Dateien, die zwei genannten Prüfungen und dieser Bericht |
 
 ## Offen
 
@@ -122,15 +150,19 @@ dsh plugin --profile web add github:DeepCollaboration/DeepSeekCollaborationBoard
   aus der englischen Fassung übersetzt und im Stil der alten Abschnitte
   formuliert; eine muttersprachliche Prüfung gab es nicht. Dasselbe gilt für
   die sechs Kurzfassungen.
+- **Die englische Hauptfassung wird von den beiden README-Prüfungen nicht
+  inhaltlich geprüft.** Das ist die Folge der deutschen Suchwörter; `README.md`
+  wird nur noch über `test/grundlagen.mjs` auf Existenz geprüft. Wenn die
+  englischen Abschnitte künftig ebenso geprüft werden sollen, braucht es eigene
+  Prüfungen mit englischen Wörtern.
 - **Oberfläche aus Quellen, nicht aus einem Browserlauf.** Die Beschreibung von
   Kopfzeile, Schiene, Dock, Station und Gespräch stützt sich auf
   `CHANGELOG.md` und die Kommentare in `client.js`. Einen Browser-Test gibt es
   laut `docs/architektur.md` nicht; die sichtbare Wirkung prüft der Auftraggeber.
-  Ändert sich die Oberfläche, müssen beide Vollfassungen nachgezogen werden.
 - **Arabische Sprachenleiste.** Die Datei bleibt reines Markdown ohne
   `dir`-Attribut, wie verlangt. In Anzeigern, die die Richtung nicht aus dem
-  Inhalt ableiten, kann die Leiste linksläufig erscheinen; der arabische Text
+  Inhalt ableiten, kann die Liste linksläufig erscheinen; der arabische Text
   selbst ist rechtsläufig formuliert.
 - **Installation nicht erneut ausgeführt.** Die Zeile stimmt mit der alten
-  README und `docs/entwicklung.md` überein; sie wurde in dieser Runde nicht
-  gegen ein frisches DSH-Profil geprüft.
+  README und `docs/entwicklung.md` überein; sie wurde nicht gegen ein frisches
+  DSH-Profil geprüft.
