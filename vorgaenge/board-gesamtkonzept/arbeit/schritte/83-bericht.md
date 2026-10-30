@@ -21,22 +21,49 @@ Die fünf Punkte aus `arbeit/pruefung.md` sind eingearbeitet:
    auf `min(360px, calc(100vw - 124px))` beziehungsweise
    `min(380px, calc(100vw - 124px))` begrenzt (`580–586`, `591–597`);
    124 = 2 × 26 Seitenrand + 72 Schiene. `schrittWaehlen` schließt die linke
-   Leiste (`5669–5677`); der Schienenknopf schließt die Station beim Öffnen
-   (`8626–8631`), `katalogZeigen` ebenso (`4950–4960`). Damit ist immer nur
-   ein Seitenpanel offen. Der Chat bleibt unberührt.
-3. **Fokus beim Sprung.** `springeZuStation` fokussiert nach dem Rendern
-   `#board-station` (`7366–7387`); beim ersten Aufbau erledigt das `Panel`
-   denselben Schritt. `test/nach64b.mjs` prüft das wieder positiv.
+   Leiste (`5669–5677`); der Schienenknopf schließt nur eine Station beim
+   Öffnen (`8636`), `katalogZeigen` ebenso (`4954`). Ein gewähltes Vorhaben
+   bleibt dabei gewählt. Damit ist immer nur ein Seitenpanel offen. Der Chat
+   bleibt unberührt.
+3. **Fokus beim Sprung.** `springeZuStation` fokussiert nach dem Rendern die
+   `section` des Docks — `getElementById('board-station')`, dann
+   `closest('section')`, dann `focus()` (`7366–7392`); beim ersten Aufbau
+   erledigt das `Panel` denselben Schritt. `test/nach64b.mjs` prüft das
+   wieder positiv.
 4. **`Bearbeiten` nur mit Karte.** Die Bedingung lautet jetzt
    `offeneStelle && !stationEdit && !gewaehlt.fremd && schreibbar`
    (`8824`). Eine Bibliotheksstation ohne Fläche bekommt keinen wirkungslosen
    Knopf.
 5. **Tests nachgezogen.** `test/nach83.mjs` prüft die Trennung über
    `imDock`, den frühen Rückfall, die beiden Dockbreiten, die
-   Ein-Seitenpanel-Regel, die `Bearbeiten`-Bedingung und den Fokus auf
-   `#board-station`. `test/nach64b.mjs`, `test/nach81.mjs` und
+   Ein-Seitenpanel-Regel (nur `art === 'schritt'`), die
+   `Bearbeiten`-Bedingung und den Fokus auf die `section` über
+   `closest('section')`. `test/nach64b.mjs`, `test/nach81.mjs` und
    `test/nach64.mjs` sind an die neuen Breiten beziehungsweise den positiven
    Fokus angepasst.
+
+## Zweite Nachbesserung (dritter Lauf)
+
+Die zwei Befunde aus `arbeit/pruefung.md`, Abschnitt „Schritt 83 (zweiter
+Lauf)“, sind eingearbeitet:
+
+1. **Fokus auf die `section`, nicht auf die `h2`.** `board-station` ist die
+   Überschrift im Panel-Kopf (für `aria-labelledby`); fokussierbar ist die
+   umschließende `section` mit `tabIndex: -1`. `springeZuStation` nimmt jetzt
+   `document.getElementById('board-station')`, geht mit
+   `kopf.closest('section')` auf den Abschnitt und ruft dort `focus()`
+   (`client.js:7376–7388`). Kein Umbau an `Panel`.
+2. **Die Leiste schließt nur eine Station.** Schienenknopf (`8636`) und
+   `katalogZeigen` (`4954`) rufen
+   `setAuswahl((alt) => (alt && alt.art === 'schritt' ? null : alt))`.
+   Ein gewähltes Vorhaben bleibt gewählt; sein Gespräch pollt weiter und das
+   Senden bleibt intakt. Weitere Stellen, die eine Leiste öffnen, gibt es
+   nicht.
+
+`test/nach83.mjs` prüft beides: `kopf.closest('section')` mit
+`dock.focus()` statt `h2.focus()`, den genauen Nur-Station-Updater und das
+Fehlen von `setAuswahl(null)` an beiden Stellen. `test/nach64b.mjs` und
+`test/nach81.mjs` sind mitgezogen. Gegenproben h, i, j stehen unten.
 
 ## Gebaut
 
@@ -88,8 +115,9 @@ und setzt den Fokus auf den Namen der zugehörigen Karte
 (`[data-karten-name]`). `Panel` holt den Fokus beim Öffnen herein und
 behandelt Escape. Die Karte behält ihren eigenen Escape-Handler und ihre
 Tastatur (Enter/Leertaste öffnen, der Name toggelt). Der Sprung aus der Suche
-(`springeZuStation`, `7366–7387`) fokussiert `#board-station`; beim
-Schließen kehrt der Fokus auf den Namen der Karte zurück.
+(`springeZuStation`, `7366–7392`) fokussiert die `section` des Docks über
+`closest('section')`; beim Schließen kehrt der Fokus auf den Namen der Karte
+zurück.
 
 ## Bestandsaufnahme und neue Zeilen
 
@@ -125,8 +153,9 @@ Schließen kehrt der Fokus auf den Namen der Karte zurück.
   `Bearbeiten`-Bedingung mit `offeneStelle`; das Fehlen von `KARTE_GROSS` und
   die kleinen Maße in Fläche und „Alles zeigen“; den Hinweis über dem
   Formular; Escape/Fokus über `Panel`, `stationSchliessen`,
-  `[data-karten-name]` und `#board-station`. Am Ende: 605 Schlüssel, also
-  kein neuer sichtbarer Text.
+  `[data-karten-name]` und `kopf.closest('section')`. Die Leistenprüfung
+  verlangt den genauen Nur-Station-Updater und schließt `setAuswahl(null)`
+  aus. Am Ende: 605 Schlüssel, also kein neuer sichtbarer Text.
 - **`test/nach64b.mjs`** (angepasst): Abschnitt 3 verlangt wieder positiv,
   dass `springeZuStation` `#board-station` fokussiert; die Dimensionsprüfung
   in „Alles zeigen“ fragt `KARTEN_HOEHE` statt `KARTE_GROSS` und hält fest,
@@ -145,7 +174,7 @@ Schließen kehrt der Fokus auf den Namen der Karte zurück.
 
 ## Testergebnis
 
-`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 6384.752258` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
+`cd /workspace/projekte/board-plugin && node --check client.js && node --test test/*.mjs` → Exit 0, `ℹ tests 79`, `ℹ pass 79`, `ℹ fail 0`, `ℹ duration_ms 5600.068202` (79 Dateien: 78 vorhandene + `nach83`; `test/schritt30.mjs` war im ersten Lauf grün, keine Wiederholung nötig).
 
 ## Gegenproben
 
@@ -161,6 +190,9 @@ unberührt. Basis war grün.
 | e | Fokus auf `#board-station` im Sprung entfernt | `nach83` und `nach64b` rot: „Der Sprung setzt den Fokus nicht in das Stationsdock“ |
 | f | `S.dockRechts` wieder `width: '380px'` | `nach83` rot: „Das rechte Dock ist nicht 380 px breit und bei schmalem Fenster begrenzt“ |
 | g | `offeneStelle &&` aus der `Bearbeiten`-Bedingung entfernt | `nach83` rot: „‚Bearbeiten‘ erscheint auch ohne Station auf der Fläche oder beim Bearbeiten“ |
+| h | `closest('section')` im Sprung entfernt, `dock = kopf` | `nach83` und `nach64b` rot: „Der Sprung fokussiert die h2 statt der umschließenden section“ |
+| i | `setAuswahl(null)` im Schienenknopf statt des Nur-Station-Updaters | `nach83` und `nach81` rot: „… schließt die offene Station nicht — oder löscht auch ein Vorhaben“ |
+| j | `setAuswahl(null)` in `katalogZeigen` statt des Nur-Station-Updaters | `nach83` rot: „Der Katalog schließt die offene Station nicht — oder löscht auch ein Vorhaben“ |
 
 ## Abweichungen von der Aufgabe
 
@@ -188,12 +220,13 @@ unberührt. Basis war grün.
    Sichtfrage.
 2. **Schmale Fenster mit Chat.** Ein Seitenpanel ist jetzt begrenzt und nie
    zwei gleichzeitig; der Chat behält vorerst seine Spalte. Bei 360 px und
-   offenem Chat kann die Summe weiterhin eng werden; Schritt 84 zieht den
-   Chat um. Sichtprüfung in Schritt 86.
-3. **Fokus nach der Suche.** Der Sprung fokussiert jetzt `#board-station`,
-   auch wenn die Station schon offen war. Wenn er dort den Kartennamen
-   bevorzugt, ist das eine kleine Änderung an `springeZuStation`; der Test
-   hält die aktuelle Absicht positiv fest.
+   offenem Chat läuft die dritte feste Fläche weiterhin über. Das ist
+   bekannt; Schritt 84 zieht die Chatspalte in das rechte Dock. Sichtprüfung
+   in Schritt 86.
+3. **Fokus nach der Suche.** Der Sprung fokussiert jetzt die `section` des
+   Docks, auch wenn die Station schon offen war. Wenn er dort den
+   Kartennamen bevorzugt, ist das eine kleine Änderung an `springeZuStation`;
+   der Test hält die aktuelle Absicht positiv fest.
 4. **Keine Commits, keine Installation.** `index.js`, `texte/*.json`,
    `locale/*`, `package.json`, die Einstellungen und die übrigen
    Arbeitsdokumente sind unberührt; geschrieben wurden `client.js`, die vier
